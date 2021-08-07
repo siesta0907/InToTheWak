@@ -75,8 +75,11 @@
     <Compile Include="Assets\Scripts\Entity\Player\TileChecker.cs" />
     <Compile Include="Assets\Scripts\GameData.cs" />
     <Compile Include="Assets\Scripts\GameManager.cs" />
+    <Compile Include="Assets\Scripts\Item\Door.cs" />
     <Compile Include="Assets\Scripts\Item\PickupItem.cs" />
-    <Compile Include="Assets\Scripts\UI\HudUIManager.cs" />
+    <Compile Include="Assets\Scripts\PlayerStart.cs" />
+    <Compile Include="Assets\Scripts\UI\GameUIManager.cs" />
+    <Compile Include="Assets\Scripts\UI\Hud.cs" />
     <Reference Include="Unity.TextMeshPro.Editor">
       <HintPath>C:/Users/gkrrn/Desktop/GitHUB/InToTheWak/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>
     </Reference>

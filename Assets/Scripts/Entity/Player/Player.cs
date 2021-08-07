@@ -18,6 +18,7 @@ public class Player : Entity
 	PlayerInput playerInput;    // 플레이어가 입력한 키값을 받아오기 위해 사용
 	TileChecker tileChecker;	// 마우스 위치 타일을 표시하기 위해 사용, 실제 움직임과 관련없음
 	NavMesh2D nav;              // 2D 네비게이션
+	Hud hud;					// 플레이어의 상태를 표시할 HUD
 
 	// < 그 외 >
 	public Vector3 targetPos { get; private set; }  // 이동할 위치를 미리 저장해주는 변수입니다. (Enemy 스크립트에서 사용됨)
@@ -29,6 +30,7 @@ public class Player : Entity
 		playerInput = GetComponent<PlayerInput>();
 		tileChecker = GetComponent<TileChecker>();
 		nav = GetComponent<NavMesh2D>();
+		hud = FindObjectOfType<Hud>();
 
 		DontDestroyOnLoad(this);
     }
@@ -36,6 +38,7 @@ public class Player : Entity
 	void Start()
 	{
 		OnTurnEnd += PlayerTurnEnd;
+		hud.InitOwner(this);
 	}
 
     void Update()
@@ -43,6 +46,13 @@ public class Player : Entity
 		ShowTile();
 		ClickToMove();
     }
+
+	// 스테이지 이동시 기존 Delegate를 기본값으로 되돌립니다.
+	public void ResetDelegate()
+	{
+		OnTurnEnd = null;
+		OnTurnEnd += PlayerTurnEnd;
+	}
 
 	// 클릭하려는 타일을 보여줌 (벽이 아닌경우에만)
 	private void ShowTile()
