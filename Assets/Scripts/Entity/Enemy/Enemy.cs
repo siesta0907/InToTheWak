@@ -42,7 +42,7 @@ public class Enemy : Entity
 	// 적 공격 - 이동까지 대기 후 데미지
 	IEnumerator AttackCorotuine()
 	{
-		yield return new WaitForSeconds(GameData.instance.moveDelay);
+		yield return new WaitForSeconds(GameData.instance.turnDelay);
 		float distance = Vector3.Distance(player.targetPos, transform.position);
 		if (distance <= 1.1)
 		{

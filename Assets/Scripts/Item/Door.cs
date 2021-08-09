@@ -26,7 +26,7 @@ public class Door : MonoBehaviour
 
 	IEnumerator LoadNextStageCoroutine()
 	{
-		yield return new WaitForSeconds(GameData.instance.moveDelay);
+		yield return new WaitForSeconds(GameData.instance.turnDelay);
 		float distance = Vector2.Distance(transform.position, player.targetPos);
 
 		if (distance < 0.1f)

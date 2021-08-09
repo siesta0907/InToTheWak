@@ -72,6 +72,7 @@
     <Compile Include="Assets\Scripts\Entity\Entity.cs" />
     <Compile Include="Assets\Scripts\Entity\Player\Player.cs" />
     <Compile Include="Assets\Scripts\Entity\Player\PlayerInput.cs" />
+    <Compile Include="Assets\Scripts\Entity\Player\TargetChecker.cs" />
     <Compile Include="Assets\Scripts\Entity\Player\TileChecker.cs" />
     <Compile Include="Assets\Scripts\GameData.cs" />
     <Compile Include="Assets\Scripts\GameManager.cs" />

@@ -22,7 +22,8 @@ public class Player : Entity
 
 	// < 그 외 >
 	public Vector3 targetPos { get; private set; }  // 이동할 위치를 미리 저장해주는 변수입니다. (Enemy 스크립트에서 사용됨)
-	float currentDelay = 0.0f;						// 이동 딜레이 변수입니다.
+	float currentTurnDelay = 0.0f;							// 턴 딜레이 변수입니다. (이 시간이 모두 소모되면 턴이 돌아옵니다.)
+	bool playerTurn = true;							// 플레이어 턴 체크 변수입니다.
 
 
 	void Awake()
@@ -45,6 +46,7 @@ public class Player : Entity
     {
 		ShowTile();
 		ClickToMove();
+		TurnCheck();
     }
 
 	// 스테이지 이동시 기존 Delegate를 기본값으로 되돌립니다.
@@ -57,7 +59,7 @@ public class Player : Entity
 	// 클릭하려는 타일을 보여줌 (벽이 아닌경우에만)
 	private void ShowTile()
 	{
-		if(!tileChecker.TileIsWall() && currentDelay <= 0 && nav.velocity == Vector3.zero)
+		if(!tileChecker.TileIsWall() && playerTurn && nav.velocity == Vector3.zero)
 		{
 			previewTile.SetActive(true);
 			previewTile.transform.position = tileChecker.GetTilePosition();
@@ -71,8 +73,7 @@ public class Player : Entity
 	// 클릭시 이동
 	private void ClickToMove()
 	{
-		currentDelay -= Time.deltaTime;
-		if (playerInput.LButtonClick && currentDelay <= 0) // 왼쪽 버튼을 클릭한 경우
+		if (playerInput.LButtonClick && playerTurn) // 왼쪽 버튼을 클릭한 경우
 		{
 			// 벽이 아니고, 거리가 움직일수 있는 범위보다 작고, 움직이는 상태가 아니면
 			if (!tileChecker.TileIsWall() && tileChecker.GetDistance() <= moveCount && nav.velocity == Vector3.zero)
@@ -98,12 +99,29 @@ public class Player : Entity
 		}
 	}
 
+	// 설정된 딜레이에 따른 턴 체크
+	private void TurnCheck()
+	{
+		currentTurnDelay -= Time.deltaTime;
+		if(currentTurnDelay <= 0 && playerTurn == false)
+		{
+			PlayerTurnStart();
+		}
+	}
+
+	// 플레이어의 턴이 돌아왔을 때
+	private void PlayerTurnStart()
+	{
+		playerTurn = true;
+	}
+
 	// 턴 종료시 무슨 행동을 할것인지 (배고픔 감소... 등)
 	private void PlayerTurnEnd()
 	{
 		// 턴 증가, 딜레이 리셋, 배고픔 증가
 		GameData.instance.turn += 1;
-		currentDelay = GameData.instance.moveDelay;
+		currentTurnDelay = GameData.instance.turnDelay;
+		playerTurn = false;
 		AddHunger(GameData.instance.increaseHunger);
 	}
 }
