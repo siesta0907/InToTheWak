@@ -37,6 +37,7 @@ public class Enemy : Entity
 	{
 		base.OnDeath(attacker);
 		player.OnTurnEnd -= Move;
+		Destroy(this.gameObject);
 	}
 
 	// 적 공격 - 이동까지 대기 후 데미지

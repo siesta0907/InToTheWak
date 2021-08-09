@@ -92,6 +92,7 @@ GameObject:
   - component: {fileID: 9214397700510168280}
   - component: {fileID: 9214397700510168283}
   - component: {fileID: 9214397700510168282}
+  - component: {fileID: 114377808872503980}
   - component: {fileID: 9214397700510168285}
   m_Layer: 0
   m_Name: Wakgood
@@ -175,10 +176,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dc0195a182baeca40add77b435cb2014, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  strength: 1
+  strength: 2
   health: 10
   hunger: 0
   moveCount: 3
+  attackRange: 1
   previewTile: {fileID: 9214397699822577256}
 --- !u!114 &9214397700510168283
 MonoBehaviour:
@@ -204,6 +206,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2c010209a3fcb5b4492c76b4685d24ae, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &114377808872503980
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9214397700510168286}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 050e92017586a2047b99bd7fa6a50729, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  targetLayer:
+    serializedVersion: 2
+    m_Bits: 256
 --- !u!114 &9214397700510168285
 MonoBehaviour:
   m_ObjectHideFlags: 0

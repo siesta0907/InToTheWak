@@ -15,10 +15,11 @@ public class Player : Entity
 	public GameObject previewTile;  // 마우스를 가져다 댔을 때 보여주는 오브젝트
 
 	// < 필요한 컴포넌트 >
-	PlayerInput playerInput;    // 플레이어가 입력한 키값을 받아오기 위해 사용
-	TileChecker tileChecker;	// 마우스 위치 타일을 표시하기 위해 사용, 실제 움직임과 관련없음
-	NavMesh2D nav;              // 2D 네비게이션
-	Hud hud;					// 플레이어의 상태를 표시할 HUD
+	PlayerInput playerInput;		// 플레이어가 입력한 키값을 받아오기 위해 사용
+	TileChecker tileChecker;		// 마우스 위치 타일을 표시하기 위해 사용, 실제 움직임과 관련없음
+	TargetChecker targetChecker;	// 마우스로 선택한 대상 (공격에서 사용)
+	NavMesh2D nav;					// 2D 네비게이션
+	Hud hud;						// 플레이어의 상태를 표시할 HUD
 
 	// < 그 외 >
 	public Vector3 targetPos { get; private set; }  // 이동할 위치를 미리 저장해주는 변수입니다. (Enemy 스크립트에서 사용됨)
@@ -30,11 +31,13 @@ public class Player : Entity
     {
 		playerInput = GetComponent<PlayerInput>();
 		tileChecker = GetComponent<TileChecker>();
+		targetChecker = GetComponent<TargetChecker>();
 		nav = GetComponent<NavMesh2D>();
 		hud = FindObjectOfType<Hud>();
 
 		DontDestroyOnLoad(this);
     }
+
 
 	void Start()
 	{
@@ -42,12 +45,17 @@ public class Player : Entity
 		hud.InitOwner(this);
 	}
 
+
     void Update()
     {
-		ShowTile();
-		ClickToMove();
 		TurnCheck();
+		ShowTile();
+
+		// Player Action부분(입력을 받아 턴을 소비)
+		TryAttack();
+		ClickToMove();
     }
+
 
 	// 스테이지 이동시 기존 Delegate를 기본값으로 되돌립니다.
 	public void ResetDelegate()
@@ -55,6 +63,18 @@ public class Player : Entity
 		OnTurnEnd = null;
 		OnTurnEnd += PlayerTurnEnd;
 	}
+
+
+	// 설정된 딜레이에 따른 턴 체크
+	private void TurnCheck()
+	{
+		currentTurnDelay -= Time.deltaTime;
+		if (currentTurnDelay <= 0 && playerTurn == false)
+		{
+			PlayerTurnStart();
+		}
+	}
+
 
 	// 클릭하려는 타일을 보여줌 (벽이 아닌경우에만)
 	private void ShowTile()
@@ -64,13 +84,30 @@ public class Player : Entity
 			previewTile.SetActive(true);
 			previewTile.transform.position = tileChecker.GetTilePosition();
 		}
-		else if(tileChecker.TileIsWall())
+		else
 		{
 			previewTile.SetActive(false);
 		}
 	}
 
-	// 클릭시 이동
+
+	// 대상을 공격함 (턴 소비)
+	private void TryAttack()
+	{
+		if(playerInput.LButtonClick && playerTurn && targetChecker.selectedEntity
+			&& targetChecker.GetDistance() <= attackRange)
+		{
+			// TODO: 이후에 지울 Debug.Log
+			Debug.Log(targetChecker.selectedEntity.transform.name + "을 공격함!");
+
+			// 피해를 입히고 플레이어 턴을 끝냅니다.
+			targetChecker.selectedEntity.TakeDamage(strength, this);
+			OnTurnEnd();
+		}
+	}
+
+
+	// 클릭시 이동 (턴 소비)
 	private void ClickToMove()
 	{
 		if (playerInput.LButtonClick && playerTurn) // 왼쪽 버튼을 클릭한 경우
@@ -99,21 +136,13 @@ public class Player : Entity
 		}
 	}
 
-	// 설정된 딜레이에 따른 턴 체크
-	private void TurnCheck()
-	{
-		currentTurnDelay -= Time.deltaTime;
-		if(currentTurnDelay <= 0 && playerTurn == false)
-		{
-			PlayerTurnStart();
-		}
-	}
 
 	// 플레이어의 턴이 돌아왔을 때
 	private void PlayerTurnStart()
 	{
 		playerTurn = true;
 	}
+
 
 	// 턴 종료시 무슨 행동을 할것인지 (배고픔 감소... 등)
 	private void PlayerTurnEnd()
@@ -123,5 +152,14 @@ public class Player : Entity
 		currentTurnDelay = GameData.instance.turnDelay;
 		playerTurn = false;
 		AddHunger(GameData.instance.increaseHunger);
+	}
+
+
+	// Override Method
+	protected override void OnDeath(Entity attacker)
+	{
+		base.OnDeath(attacker);
+		// TODO: 이후에 지울 Debug.Log
+		Debug.Log("플레이어가 죽었습니다!");
 	}
 }

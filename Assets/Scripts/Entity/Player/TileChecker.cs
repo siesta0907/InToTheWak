@@ -26,12 +26,12 @@ public class TileChecker : MonoBehaviour
 	// 플레이어 위치와 선택한 타일과 위치계산
 	public float GetDistance()
 	{
-		if (selectedTile == null) return 9999;
+		if (selectedTile == null) return 999999;
 
 		Vector3 pos1 = transform.position;
 		Vector3 pos2 = selectedTile.GetTilePosition();
 
-		float dist = Mathf.Abs(pos1.x - pos2.x) + Mathf.Abs(pos1.y - pos2.y);
+		float dist = Mathf.Round(Mathf.Abs(pos1.x - pos2.x) + Mathf.Abs(pos1.y - pos2.y));
 		return dist;
 	}
 
