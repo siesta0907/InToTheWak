@@ -4,13 +4,17 @@ using UnityEngine;
 
 public class Enemy : Entity
 {
+	Coroutine moveCoroutine;
+
 	// < 필요한 컴포넌트 >
 	Player player;
 	EntityHealth healthBar;	// 남은체력을 표시하기 위해 사용
 	NavMesh2D nav;
 
-	void Awake()
+	protected override void Awake()
 	{
+		base.Awake();
+
 		player = FindObjectOfType<Player>();
 		healthBar = GetComponent<EntityHealth>();
 		nav = GetComponent<NavMesh2D>();
@@ -32,8 +36,11 @@ public class Enemy : Entity
 			nav.MoveTo(playerPos, moveCount);
 		}
 		
-		StopAllCoroutines();
-		StartCoroutine(AttackCorotuine());
+		if(moveCoroutine != null)
+		{
+			StopCoroutine(moveCoroutine);
+		}
+		moveCoroutine = StartCoroutine(AttackCorotuine());
 	}
 
 	protected override void OnDeath(Entity attacker)

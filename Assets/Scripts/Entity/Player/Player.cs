@@ -28,8 +28,10 @@ public class Player : Entity
 	bool playerTurn = true;							// 플레이어 턴 체크 변수입니다.
 
 
-	void Awake()
+	protected virtual void Awake()
     {
+		base.Awake();
+
 		playerInput = GetComponent<PlayerInput>();
 		tileChecker = GetComponent<TileChecker>();
 		targetChecker = GetComponent<TargetChecker>();

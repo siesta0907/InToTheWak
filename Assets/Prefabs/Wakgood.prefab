@@ -182,6 +182,7 @@ MonoBehaviour:
   hunger: 0
   moveCount: 3
   attackRange: 1
+  hitMat: {fileID: 2100000, guid: 37ae30d928fb06646b4555b6a7b35780, type: 2}
   previewTile: {fileID: 9214397699822577256}
 --- !u!114 &9214397700510168285
 MonoBehaviour:

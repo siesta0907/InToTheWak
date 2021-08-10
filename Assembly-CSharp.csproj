@@ -69,8 +69,8 @@
     <Compile Include="Assets\Scripts\AI\Tile.cs" />
     <Compile Include="Assets\Scripts\AI\TilemapSetup.cs" />
     <Compile Include="Assets\Scripts\Entity\Enemy\Enemy.cs" />
-    <Compile Include="Assets\Scripts\Entity\Enemy\EntityHealth.cs" />
     <Compile Include="Assets\Scripts\Entity\Entity.cs" />
+    <Compile Include="Assets\Scripts\Entity\EntityHealth.cs" />
     <Compile Include="Assets\Scripts\Entity\Player\Player.cs" />
     <Compile Include="Assets\Scripts\Entity\Player\PlayerInput.cs" />
     <Compile Include="Assets\Scripts\Entity\Player\TargetChecker.cs" />

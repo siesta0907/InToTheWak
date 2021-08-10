@@ -293,6 +293,7 @@ MonoBehaviour:
   hunger: 0
   moveCount: 1
   attackRange: 1
+  hitMat: {fileID: 2100000, guid: 37ae30d928fb06646b4555b6a7b35780, type: 2}
 --- !u!114 &4665510198034934840
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -11,6 +11,14 @@ public class Entity : MonoBehaviour
 	public int moveCount = 1;   // 이동 가능한 거리(칸수)
 	public int attackRange = 1; // 공격가능 거리(칸수)
 
+	private Material originMat;
+	[SerializeField] private Material hitMat;
+
+
+	protected virtual void Awake()
+	{
+		originMat = GetComponent<SpriteRenderer>().material;
+	}
 
 	// * 스탯 관련 함수
 	public void AddStrength(int value)
@@ -43,11 +51,23 @@ public class Entity : MonoBehaviour
 		attackRange = Mathf.Clamp(attackRange, 0, attackRange);
 	}
 
+	IEnumerator HitEffectCoroutine()
+	{
+		SpriteRenderer renderer = GetComponent<SpriteRenderer>();
+		renderer.material = hitMat;
+
+		yield return new WaitForSeconds(0.1f);
+
+		// 원래 색으로 되돌림
+		renderer.material = originMat;
+	}
+
 	// * 공격을 받으면 호출되는 함수 (데미지, 공격을 가한 객체)
 	public virtual void TakeDamage(int damage, Entity attacker)
 	{
 		AddHealth(-damage);
 		attacker.OnHit(this);
+		StartCoroutine(HitEffectCoroutine());
 
 		if (health <= 0)
 		{
