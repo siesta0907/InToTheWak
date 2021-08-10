@@ -17,7 +17,8 @@ public class Player : Entity
 	// < 필요한 컴포넌트 >
 	PlayerInput playerInput;		// 플레이어가 입력한 키값을 받아오기 위해 사용
 	TileChecker tileChecker;		// 마우스 위치 타일을 표시하기 위해 사용, 실제 움직임과 관련없음
-	TargetChecker targetChecker;	// 마우스로 선택한 대상 (공격에서 사용)
+	TargetChecker targetChecker;    // 마우스로 선택한 대상 (공격에서 사용)
+	CameraShake cameraShake;		// 카메라 흔들림 효과를 위해 사용
 	NavMesh2D nav;					// 2D 네비게이션
 	Hud hud;						// 플레이어의 상태를 표시할 HUD
 
@@ -32,6 +33,7 @@ public class Player : Entity
 		playerInput = GetComponent<PlayerInput>();
 		tileChecker = GetComponent<TileChecker>();
 		targetChecker = GetComponent<TargetChecker>();
+		cameraShake = GetComponent<CameraShake>();
 		nav = GetComponent<NavMesh2D>();
 		hud = FindObjectOfType<Hud>();
 
@@ -48,12 +50,12 @@ public class Player : Entity
 
     void Update()
     {
-		TurnCheck();
-		ShowTile();
+		TurnCheck();	// 일정시간 뒤 돌아오는 턴을 체크
+		ShowTile();		// 타일에 마우스를 올렸을 때 효과를 보여줌
 
-		// Player Action부분(입력을 받아 턴을 소비)
+		// * Player Action부분(입력을 받아 턴을 소비)
 		TryAttack();
-		ClickToMove();
+		TryMove();
     }
 
 
@@ -108,7 +110,7 @@ public class Player : Entity
 
 
 	// 클릭시 이동 (턴 소비)
-	private void ClickToMove()
+	private void TryMove()
 	{
 		if (playerInput.LButtonClick && playerTurn) // 왼쪽 버튼을 클릭한 경우
 		{
@@ -161,5 +163,11 @@ public class Player : Entity
 		base.OnDeath(attacker);
 		// TODO: 이후에 지울 Debug.Log
 		Debug.Log("플레이어가 죽었습니다!");
+	}
+
+	protected override void OnHit(Entity victim)
+	{
+		base.OnHit(victim);
+		cameraShake.Play(Camera.main, 0.16f, 0.1f);
 	}
 }

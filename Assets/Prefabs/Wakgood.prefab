@@ -90,10 +90,11 @@ GameObject:
   - component: {fileID: 9214397700510168284}
   - component: {fileID: 9214397700510168287}
   - component: {fileID: 9214397700510168280}
+  - component: {fileID: 9214397700510168285}
   - component: {fileID: 9214397700510168283}
   - component: {fileID: 9214397700510168282}
   - component: {fileID: 114377808872503980}
-  - component: {fileID: 9214397700510168285}
+  - component: {fileID: 114067543480541164}
   m_Layer: 0
   m_Name: Wakgood
   m_TagString: Untagged
@@ -182,6 +183,20 @@ MonoBehaviour:
   moveCount: 3
   attackRange: 1
   previewTile: {fileID: 9214397699822577256}
+--- !u!114 &9214397700510168285
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9214397700510168286}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b065cd7a6f1b8d74ca1a92eb7c49b583, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  moveSpeed: 12
+  navVolume: {fileID: 0}
 --- !u!114 &9214397700510168283
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -221,7 +236,7 @@ MonoBehaviour:
   targetLayer:
     serializedVersion: 2
     m_Bits: 256
---- !u!114 &9214397700510168285
+--- !u!114 &114067543480541164
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -230,8 +245,6 @@ MonoBehaviour:
   m_GameObject: {fileID: 9214397700510168286}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b065cd7a6f1b8d74ca1a92eb7c49b583, type: 3}
+  m_Script: {fileID: 11500000, guid: d281b03132c31a6468842f7b44df5bcd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 12
-  navVolume: {fileID: 0}

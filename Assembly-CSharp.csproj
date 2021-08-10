@@ -69,6 +69,7 @@
     <Compile Include="Assets\Scripts\AI\Tile.cs" />
     <Compile Include="Assets\Scripts\AI\TilemapSetup.cs" />
     <Compile Include="Assets\Scripts\Entity\Enemy\Enemy.cs" />
+    <Compile Include="Assets\Scripts\Entity\Enemy\EntityHealth.cs" />
     <Compile Include="Assets\Scripts\Entity\Entity.cs" />
     <Compile Include="Assets\Scripts\Entity\Player\Player.cs" />
     <Compile Include="Assets\Scripts\Entity\Player\PlayerInput.cs" />
@@ -81,6 +82,7 @@
     <Compile Include="Assets\Scripts\PlayerStart.cs" />
     <Compile Include="Assets\Scripts\UI\GameUIManager.cs" />
     <Compile Include="Assets\Scripts\UI\Hud.cs" />
+    <Compile Include="Assets\Scripts\Util\CameraShake.cs" />
     <Reference Include="Unity.TextMeshPro.Editor">
       <HintPath>C:/Users/gkrrn/Desktop/GitHUB/InToTheWak/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>
     </Reference>
