@@ -28,6 +28,11 @@ public class NavMesh2D : MonoBehaviour
 		InitSetting();
 	}
 
+	void OnDisable()
+	{
+		navVolume.GetTileAtPosition(transform.position).isWall = false;
+	}
+
 	// * 시작시 값 초기화를 위한 함수
 	void InitSetting()
 	{

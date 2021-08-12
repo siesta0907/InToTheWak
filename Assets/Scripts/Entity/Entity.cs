@@ -5,11 +5,12 @@ using UnityEngine;
 public class Entity : MonoBehaviour
 {
 	[Header("엔티티 스탯")]
-	public int strength = 1;    // 힘(공격력) - 데미지와 관련됨
-	public int health = 1;      // 체력 - 몬스터와 전투시 사용
+	public int strength = 1;	// 힘(공격력) - 데미지와 관련됨
+	public int health = 1;		// 체력 - 몬스터와 전투시 사용
 	public int hunger = 0;      // 배고픔 - 일정량 이상일시 행동 느려짐
+	public int stress = 0;      // 스트레스 - 수치에 따라 공격력, 배고픔 등 영향
 	public int moveCount = 1;   // 이동 가능한 거리(칸수)
-	public int attackRange = 1; // 공격가능 거리(칸수)
+	public int attackRange = 1;	// 공격가능 거리(칸수)
 
 	private Material originMat;
 	[SerializeField] private Material hitMat;
@@ -37,6 +38,12 @@ public class Entity : MonoBehaviour
 	{
 		hunger += value;
 		hunger = Mathf.Clamp(hunger, 0, hunger);
+	}
+
+	public void AddStress(int value)
+	{
+		stress += value;
+		stress = Mathf.Clamp(stress, 0, 100);
 	}
 
 	public void AddMoveCount(int value)
