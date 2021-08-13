@@ -6,7 +6,7 @@ using UnityEngine.UI;
 public class Hud : MonoBehaviour
 {
 	[SerializeField] private Text text_Health;  // 체력 텍스트
-	[SerializeField] private Text text_Hunger;  // 배고픔 텍스트
+	[SerializeField] private Text text_Satiety; // 포만감 텍스트
 
 	Entity owner; // UI를 갱신할 대상입니다.
 
@@ -26,7 +26,7 @@ public class Hud : MonoBehaviour
 	}
 	public void SetHungerText(int value)
 	{
-		text_Hunger.text = "배고픔: " + value;
+		text_Satiety.text = "포만감: " + value;
 	}
 
 	// HUD UI 갱신
@@ -35,7 +35,7 @@ public class Hud : MonoBehaviour
 		if(owner)
 		{
 			SetHealthText(owner.health);
-			SetHungerText(owner.hunger);
+			SetHungerText(owner.satiety);
 		}
 	}
 }

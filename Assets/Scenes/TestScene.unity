@@ -1153,7 +1153,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   text_Health: {fileID: 1966170709}
-  text_Hunger: {fileID: 2078965420}
+  text_Satiety: {fileID: 2078965420}
 --- !u!1 &1099667069
 GameObject:
   m_ObjectHideFlags: 0
@@ -2176,7 +2176,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   turnDelay: 0.35
-  increaseHunger: 2
+  decreaseSatiety: 1
   turn: 0
 --- !u!4 &1737268906
 Transform:
@@ -2326,7 +2326,7 @@ GameObject:
   - component: {fileID: 2078965421}
   - component: {fileID: 2078965420}
   m_Layer: 5
-  m_Name: Text_Hunger
+  m_Name: Text_Satiety
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

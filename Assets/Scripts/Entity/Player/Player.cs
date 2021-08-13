@@ -45,7 +45,6 @@ public class Player : Entity
 
 	void Start()
 	{
-		OnTurnEnd += PlayerTurnEnd;
 		hud.InitOwner(this);
 	}
 
@@ -65,7 +64,6 @@ public class Player : Entity
 	public void ResetDelegate()
 	{
 		OnTurnEnd = null;
-		OnTurnEnd += PlayerTurnEnd;
 	}
 
 
@@ -106,7 +104,7 @@ public class Player : Entity
 
 			// 피해를 입히고 플레이어 턴을 끝냅니다.
 			targetChecker.selectedEntity.TakeDamage(strength, this);
-			OnTurnEnd();
+			PlayerTurnEnd();
 		}
 	}
 
@@ -134,7 +132,7 @@ public class Player : Entity
 					// 이동위치 저장, 이동, 턴종료 알림
 					targetPos = new Vector3(x, y, 0);
 					nav.MoveTo(new Vector2Int(x, y), moveCount);
-					OnTurnEnd();
+					PlayerTurnEnd();
 				}
 			}
 		}
@@ -151,11 +149,13 @@ public class Player : Entity
 	// 턴 종료시 무슨 행동을 할것인지 (배고픔 감소... 등)
 	private void PlayerTurnEnd()
 	{
-		// 턴 증가, 딜레이 리셋, 배고픔 증가
+		// 턴 증가, 딜레이 리셋, 포만감 감소
 		GameData.instance.turn += 1;
 		currentTurnDelay = GameData.instance.turnDelay;
 		playerTurn = false;
-		AddHunger(GameData.instance.increaseHunger);
+		AddSatiety(-GameData.instance.decreaseSatiety);
+
+		OnTurnEnd();
 	}
 
 
