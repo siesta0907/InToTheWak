@@ -20,11 +20,11 @@ public class Hud : MonoBehaviour
 		owner = target;
 	}
 
-	public void SetHealthText(int value)
+	public void SetHealthText(float value)
 	{
 		text_Health.text = "체력: " + value;
 	}
-	public void SetHungerText(int value)
+	public void SetSatietyText(float value)
 	{
 		text_Satiety.text = "포만감: " + value;
 	}
@@ -35,7 +35,7 @@ public class Hud : MonoBehaviour
 		if(owner)
 		{
 			SetHealthText(owner.health);
-			SetHungerText(owner.satiety);
+			SetSatietyText(owner.satiety);
 		}
 	}
 }

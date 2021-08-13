@@ -5,12 +5,14 @@ using UnityEngine;
 public class Entity : MonoBehaviour
 {
 	[Header("엔티티 스탯")]
-	public int strength = 1;	// 힘(공격력) - 데미지와 관련됨
-	public int health = 1;		// 체력 - 몬스터와 전투시 사용
-	public int satiety = 100;   // 포만감 - 일정량 이상일시 행동 느려짐
-	public int stress = 0;      // 스트레스 - 수치에 따라 공격력, 배고픔 등 영향
-	public int moveCount = 1;   // 이동 가능한 거리(칸수)
-	public int attackRange = 1;	// 공격가능 거리(칸수)
+	public float strength = 1;		// 힘(공격력) - 데미지와 관련됨
+	public float health = 1;		// 체력 - 몬스터와 전투시 사용
+	public float satiety = 100;		// 포만감 - 일정량 이상일시 행동 느려짐
+	public float stress = 0;		// 스트레스 - 수치에 따라 공격력, 배고픔 등 영향
+	public int moveCount = 1;		// 이동 가능한 거리(칸수)
+	public int attackRange = 1;		// 공격가능 거리(칸수)
+
+	bool isDead = false;		// 죽었는지 체크하는 상태변수
 
 	private Material originMat;
 	[SerializeField] private Material hitMat;
@@ -22,25 +24,25 @@ public class Entity : MonoBehaviour
 	}
 
 	// * 스탯 관련 함수
-	public void AddStrength(int value)
+	public void AddStrength(float value)
 	{
 		strength += value;
 		strength = Mathf.Clamp(strength, 0, strength);
 	}
 
-	public void AddHealth(int value)
+	public void AddHealth(float value)
 	{
 		health += value;
 		health = Mathf.Clamp(health, 0, health);
 	}
 
-	public void AddSatiety(int value)
+	public void AddSatiety(float value)
 	{
 		satiety += value;
 		satiety = Mathf.Clamp(satiety, 0, 100);
 	}
 
-	public void AddStress(int value)
+	public void AddStress(float value)
 	{
 		stress += value;
 		stress = Mathf.Clamp(stress, 0, 100);
@@ -70,7 +72,7 @@ public class Entity : MonoBehaviour
 	}
 
 	// * 공격을 받으면 호출되는 함수 (데미지, 공격을 가한 객체)
-	public virtual void TakeDamage(int damage, Entity attacker)
+	public virtual void TakeDamage(float damage, Entity attacker)
 	{
 		AddHealth(-damage);
 		attacker.OnHit(this);
@@ -86,5 +88,8 @@ public class Entity : MonoBehaviour
 	protected virtual void OnHit(Entity victim) { }
 
 	// * 죽은겨우 호출되는 함수 (나를 죽인 객체)
-	protected virtual void OnDeath(Entity attacker) { }
+	protected virtual void OnDeath(Entity attacker)
+	{
+		isDead = true;
+	}
 }

@@ -51,7 +51,7 @@ public class Enemy : Entity
 		Destroy(this.gameObject);
 	}
 
-	public override void TakeDamage(int damage, Entity attacker)
+	public override void TakeDamage(float damage, Entity attacker)
 	{
 		base.TakeDamage(damage, attacker);
 
