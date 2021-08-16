@@ -7,12 +7,16 @@ public class Entity : MonoBehaviour
 	[Header("엔티티 스탯")]
 	public float strength = 1;		// 힘(공격력) - 데미지와 관련됨
 	public float health = 1;		// 체력 - 몬스터와 전투시 사용
-	public float satiety = 100;		// 포만감 - 일정량 이상일시 행동 느려짐
-	public float stress = 0;		// 스트레스 - 수치에 따라 공격력, 배고픔 등 영향
+	public float satiety = 100;		// 포만감 - 일정량 이상일시 체력 감소 등..
+	public float mana = 0;			// 마나
 	public int moveCount = 1;		// 이동 가능한 거리(칸수)
-	public int attackRange = 1;		// 공격가능 거리(칸수)
+	public int attackRange = 1;     // 공격가능 거리(칸수)
 
-	bool isDead = false;		// 죽었는지 체크하는 상태변수
+	[HideInInspector] public float curHealth = 0;	// 현재 체력입니다.
+	[HideInInspector] public float curSatiety = 0;	// 현재 포만감입니다.
+	[HideInInspector] public float curMana = 0;		// 현재 마나입니다.
+
+	bool isDead = false;							// 죽었는지 체크하는 상태변수
 
 	private Material originMat;
 	[SerializeField] private Material hitMat;
@@ -21,6 +25,13 @@ public class Entity : MonoBehaviour
 	protected virtual void Awake()
 	{
 		originMat = GetComponent<SpriteRenderer>().material;
+	}
+
+	protected virtual void Start()
+	{
+		curHealth = health;
+		curSatiety = satiety;
+		curMana = mana;
 	}
 
 	// * 스탯 관련 함수
@@ -32,20 +43,20 @@ public class Entity : MonoBehaviour
 
 	public void AddHealth(float value)
 	{
-		health += value;
-		health = Mathf.Clamp(health, 0, health);
+		curHealth += value;
+		curHealth = Mathf.Clamp(curHealth, 0, health);
 	}
 
 	public void AddSatiety(float value)
 	{
-		satiety += value;
-		satiety = Mathf.Clamp(satiety, 0, 100);
+		curSatiety += value;
+		curSatiety = Mathf.Clamp(curSatiety, 0, satiety);
 	}
 
-	public void AddStress(float value)
+	public void AddMana(float value)
 	{
-		stress += value;
-		stress = Mathf.Clamp(stress, 0, 100);
+		curMana += value;
+		curMana = Mathf.Clamp(curMana, 0, mana);
 	}
 
 	public void AddMoveCount(int value)
@@ -78,7 +89,7 @@ public class Entity : MonoBehaviour
 		attacker.OnHit(this);
 		StartCoroutine(HitEffectCoroutine());
 
-		if (health <= 0)
+		if (curHealth <= 0)
 		{
 			OnDeath(attacker);
 		}

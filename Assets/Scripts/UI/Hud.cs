@@ -8,6 +8,8 @@ public class Hud : MonoBehaviour
 	[SerializeField] private Text text_Health;  // 체력 텍스트
 	[SerializeField] private Text text_Satiety; // 포만감 텍스트
 
+	[SerializeField] private Image healthBar;	// 체력바
+
 	Entity owner; // UI를 갱신할 대상입니다.
 
 	void Update()
@@ -20,13 +22,9 @@ public class Hud : MonoBehaviour
 		owner = target;
 	}
 
-	public void SetHealthText(float value)
+	public void SetHealthBar(float value)
 	{
-		text_Health.text = "체력: " + value;
-	}
-	public void SetSatietyText(float value)
-	{
-		text_Satiety.text = "포만감: " + value;
+		healthBar.fillAmount = value / owner.health;
 	}
 
 	// HUD UI 갱신
@@ -34,8 +32,7 @@ public class Hud : MonoBehaviour
 	{
 		if(owner)
 		{
-			SetHealthText(owner.health);
-			SetSatietyText(owner.satiety);
+			SetHealthBar(owner.curHealth);
 		}
 	}
 }

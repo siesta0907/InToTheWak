@@ -43,8 +43,9 @@ public class Player : Entity
     }
 
 
-	void Start()
+	protected override void Start()
 	{
+		base.Start();
 		hud.InitOwner(this);
 	}
 
