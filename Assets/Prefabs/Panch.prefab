@@ -202,6 +202,7 @@ GameObject:
   m_Component:
   - component: {fileID: 301732812443448809}
   - component: {fileID: 301732812443448806}
+  - component: {fileID: 95780835806229092}
   - component: {fileID: 114879381051247348}
   - component: {fileID: 4665510198034934840}
   - component: {fileID: 301732812443448804}
@@ -264,7 +265,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 2
+  m_SortingOrder: 4
   m_Sprite: {fileID: 21300000, guid: 1b02869d9ccccb24bbcd795fd578b024, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -276,6 +277,25 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!95 &95780835806229092
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 301732812443448805}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: f25254877324c5040bdeaa3855a34ff3, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!114 &114879381051247348
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -291,9 +311,13 @@ MonoBehaviour:
   strength: 1
   health: 5
   satiety: 100
-  stress: 0
+  mana: 0
   moveCount: 1
   attackRange: 1
+  curHealth: 0
+  curSatiety: 0
+  curMana: 0
+  isDead: 0
   hitMat: {fileID: 2100000, guid: 37ae30d928fb06646b4555b6a7b35780, type: 2}
 --- !u!114 &4665510198034934840
 MonoBehaviour:

@@ -3,13 +3,12 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.SceneManagement;
+using System;
 
 public class Player : Entity
 {
 	// < 이벤트 >
-	// [HideInInspector] public UnityEvent OnTurnEnd; // 플레이어의 턴이 종료되면 호출됨
-	public delegate void TurnEndHandler();
-	public event TurnEndHandler OnTurnEnd;
+	public event Action OnTurnEnd;	// 플레이어의 턴이 종료되면 호출됨
 
 	// < 설정 >
 	public GameObject previewTile;  // 마우스를 가져다 댔을 때 보여주는 오브젝트
@@ -156,7 +155,8 @@ public class Player : Entity
 		playerTurn = false;
 		AddSatiety(-GameData.instance.decreaseSatiety);
 
-		OnTurnEnd();
+		if(OnTurnEnd != null)
+			OnTurnEnd();
 	}
 
 

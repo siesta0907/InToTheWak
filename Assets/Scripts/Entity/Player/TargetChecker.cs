@@ -20,7 +20,8 @@ public class TargetChecker : MonoBehaviour
 		RaycastHit2D hit = Physics2D.Raycast(startPos, Vector2.zero, Mathf.Infinity, targetLayer);
 		if (hit)
 		{
-			selectedEntity = hit.transform.GetComponent<Entity>();
+			Entity tmpEntity = hit.transform.GetComponent<Entity>();
+			selectedEntity = (!tmpEntity.isDead) ? tmpEntity : null;
 		}
 		else
 		{

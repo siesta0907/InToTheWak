@@ -16,15 +16,20 @@ public class Entity : MonoBehaviour
 	[HideInInspector] public float curSatiety = 0;	// 현재 포만감입니다.
 	[HideInInspector] public float curMana = 0;		// 현재 마나입니다.
 
-	bool isDead = false;							// 죽었는지 체크하는 상태변수
+	[HideInInspector] public bool isDead = false;					// 죽었는지 체크하는 상태변수
 
+	[Header("피격 효과")]
 	private Material originMat;
 	[SerializeField] private Material hitMat;
+
+	// < 필요한 컴포넌트 >
+	protected Animator anim;						// Entity의 애니메이터
 
 
 	protected virtual void Awake()
 	{
 		originMat = GetComponent<SpriteRenderer>().material;
+		anim = GetComponent<Animator>();
 	}
 
 	protected virtual void Start()

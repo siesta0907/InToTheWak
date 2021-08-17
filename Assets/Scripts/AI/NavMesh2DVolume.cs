@@ -73,4 +73,19 @@ public class NavMesh2DVolume : MonoBehaviour
 		}
 		return null;
 	}
+
+	public void SetWallAtPosition(Vector3 pos, bool wall)
+	{
+		int indexX = (int)pos.x - leftBottomPosition.x;
+		int indexY = (int)pos.y - leftBottomPosition.y;
+
+		int maxX = rightTopPosition.x - leftBottomPosition.x;
+		int maxY = rightTopPosition.y - leftBottomPosition.y;
+
+		if (indexX >= 0 && indexX <= maxX &&
+			indexY >= 0 && indexY <= maxY)
+		{
+			tileArray[indexX, indexY].isWall = wall;
+		}
+	}
 }

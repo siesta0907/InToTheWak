@@ -36,7 +36,11 @@ public class Enemy : Entity
 
 		player.OnTurnEnd -= EnemyTurnStart;
 
-		// TODO: 나중에 죽는모션으로 변경
-		Destroy(this.gameObject);
+		// 애니메이션 재생 - 죽음
+		anim.SetTrigger("Dead");
+		nav.navVolume.SetWallAtPosition(transform.position, false);
+
+		// 일정시간이 지나면 삭제
+		Destroy(this.gameObject, 3.0f);
 	}
 }
