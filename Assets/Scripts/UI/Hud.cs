@@ -24,7 +24,14 @@ public class Hud : MonoBehaviour
 
 	public void SetHealthBar(float value)
 	{
-		healthBar.fillAmount = value / owner.health;
+		float healthPercent = value / owner.health;
+		float gap = Mathf.Abs(healthBar.fillAmount - healthPercent);
+
+		healthBar.fillAmount = Mathf.Lerp(healthBar.fillAmount, healthPercent, 0.15f);
+		if(gap <= 0.03f)
+		{
+			healthBar.fillAmount = healthPercent;
+		}
 	}
 
 	// HUD UI 갱신
