@@ -27,7 +27,7 @@ public class Player : Entity
 	bool playerTurn = true;							// 플레이어 턴 체크 변수입니다.
 
 
-	protected virtual void Awake()
+	protected override void Awake()
     {
 		base.Awake();
 
@@ -51,12 +51,18 @@ public class Player : Entity
 
     void Update()
     {
-		TurnCheck();	// 일정시간 뒤 돌아오는 턴을 체크
-		ShowTile();		// 타일에 마우스를 올렸을 때 효과를 보여줌
+		if(!isDead)
+		{
+			TurnCheck();    // 일정시간 뒤 돌아오는 턴을 체크
+			ShowTile();     // 타일에 마우스를 올렸을 때 효과를 보여줌
 
-		// * Player Action부분(입력을 받아 턴을 소비)
-		TryAttack();
-		TryMove();
+			// * Player Action부분(입력을 받아 턴을 소비)
+			TryAttack();
+			TryMove();
+
+			// * Player Animation 부분
+			MoveAnimation();
+		}
     }
 
 
@@ -160,6 +166,26 @@ public class Player : Entity
 	}
 
 
+	private void MoveAnimation()
+	{
+		// 애니메이션 처리
+		if (nav.velocity.magnitude > 0)
+		{
+			anim.SetBool("IsMove", true);
+		}
+		else
+		{
+			anim.SetBool("IsMove", false);
+		}
+
+		// 방향 처리
+		if(nav.velocity.x != 0)
+		{
+			GetComponent<SpriteRenderer>().flipX = (nav.velocity.x < 0) ? true : false;
+		}
+	}
+
+
 	// Override Method
 	protected override void OnDeath(Entity attacker)
 	{
@@ -172,5 +198,12 @@ public class Player : Entity
 	{
 		base.OnHit(victim);
 		cameraShake.Play(Camera.main, 0.16f, 0.1f);
+	}
+
+	public override void TakeDamage(float damage, Entity attacker)
+	{
+		base.TakeDamage(damage, attacker);
+		// 애니메이션 재생 - 피격
+		anim.SetTrigger("HitReact");
 	}
 }

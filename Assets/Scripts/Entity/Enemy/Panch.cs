@@ -14,6 +14,7 @@ public class Panch : Enemy
 		if(!isDead)
 		{
 			MoveAndAttack();    // 이동과 공격패턴
+			MoveAnimation();	// 이동 애니메이션
 		}
 	}
 
@@ -47,5 +48,14 @@ public class Panch : Enemy
 
 		Debug.Log(transform.name + "에게 공격당함!");
 		player.TakeDamage(strength, this);
+	}
+
+	private void MoveAnimation()
+	{
+		// 방향 처리
+		if (nav.velocity.x != 0)
+		{
+			GetComponent<SpriteRenderer>().flipX = (nav.velocity.x < 0) ? false : true;
+		}
 	}
 }
