@@ -192,6 +192,8 @@ public class Player : Entity
 		base.OnDeath(attacker);
 		// TODO: 이후에 지울 Debug.Log
 		Debug.Log("플레이어가 죽었습니다!");
+		// 애니메이션 재생 - 사망
+		anim.SetTrigger("Dead");
 	}
 
 	protected override void OnHit(Entity victim)
