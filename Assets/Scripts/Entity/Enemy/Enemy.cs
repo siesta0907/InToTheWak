@@ -38,7 +38,8 @@ public class Enemy : Entity
 
 		// 애니메이션 재생 - 죽음
 		anim.SetTrigger("Dead");
-		nav.navVolume.SetWallAtPosition(transform.position, false);
+
+		if(nav != null) nav.navVolume.SetWallAtPosition(transform.position, false);
 
 		// 일정시간이 지나면 삭제
 		Destroy(this.gameObject, 3.0f);

@@ -1,7 +1,29 @@
 fileFormatVersion: 2
 guid: ef4183c2dab47904496af87e3641abfd
 TextureImporter:
-  fileIDToRecycleName: {}
+  fileIDToRecycleName:
+    21300000: pungsin skill 1_0
+    21300002: pungsin skill 1_1
+    21300004: pungsin skill 1_2
+    21300006: pungsin skill 1_3
+    21300008: pungsin skill 1_4
+    21300010: pungsin skill 1_5
+    21300012: pungsin skill 1_6
+    21300014: pungsin skill 1_7
+    21300016: pungsin skill 1_8
+    21300018: pungsin skill 1_9
+    21300020: pungsin skill 1_10
+    21300022: pungsin skill 1_11
+    21300024: pungsin skill 1_12
+    21300026: pungsin skill 1_13
+    21300028: pungsin skill 1_14
+    21300030: pungsin skill 1_15
+    21300032: pungsin skill 1_16
+    21300034: pungsin skill 1_17
+    21300036: pungsin skill 1_18
+    21300038: pungsin skill 1_19
+    21300040: pungsin skill 1_20
+    21300042: pungsin skill 1_21
   externalObjects: {}
   serializedVersion: 9
   mipmaps:
@@ -31,7 +53,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: -1
+    filterMode: 0
     aniso: -1
     mipBias: -100
     wrapU: 1
@@ -82,7 +104,447 @@ TextureImporter:
     androidETC2FallbackOverride: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: pungsin skill 1_0
+      rect:
+        serializedVersion: 2
+        x: 3
+        y: 0
+        width: 61
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e17f3f2301fb77f47921530f314b9e88
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pungsin skill 1_1
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 0
+        width: 61
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 78cbfe1de095831458524db39d011773
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pungsin skill 1_2
+      rect:
+        serializedVersion: 2
+        x: 125
+        y: 0
+        width: 61
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 91cb29e7ec850bf40b5500643024ac95
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pungsin skill 1_3
+      rect:
+        serializedVersion: 2
+        x: 186
+        y: 0
+        width: 61
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 55df67d577f32a642ab80078876fd236
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pungsin skill 1_4
+      rect:
+        serializedVersion: 2
+        x: 247
+        y: 0
+        width: 61
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 63e2c8bafbb9d5447832492c3d1a93ce
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pungsin skill 1_5
+      rect:
+        serializedVersion: 2
+        x: 308
+        y: 0
+        width: 61
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b6d133fadfe9adb4d81858d57b72aba0
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pungsin skill 1_6
+      rect:
+        serializedVersion: 2
+        x: 369
+        y: 0
+        width: 61
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 903890419e3632745ae1c8ac14d01537
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pungsin skill 1_7
+      rect:
+        serializedVersion: 2
+        x: 430
+        y: 0
+        width: 61
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8dd57265ca76aef46839cccb25333fa4
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pungsin skill 1_8
+      rect:
+        serializedVersion: 2
+        x: 491
+        y: 0
+        width: 61
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ffa13001a2e96d2438288603ae6a4dfd
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pungsin skill 1_9
+      rect:
+        serializedVersion: 2
+        x: 552
+        y: 0
+        width: 61
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ce28081df362ab9428f01ffb1e4b71ff
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pungsin skill 1_10
+      rect:
+        serializedVersion: 2
+        x: 613
+        y: 0
+        width: 61
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1109c9ef7a1611046b7a26b7710c44d7
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pungsin skill 1_11
+      rect:
+        serializedVersion: 2
+        x: 674
+        y: 0
+        width: 61
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8d9824e355332cb46a24fabc67e50b28
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pungsin skill 1_12
+      rect:
+        serializedVersion: 2
+        x: 735
+        y: 0
+        width: 61
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0ee60eac48d769f42b2335e9f84f5606
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pungsin skill 1_13
+      rect:
+        serializedVersion: 2
+        x: 796
+        y: 0
+        width: 61
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bff673cfb72071247bea0e46f423e789
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pungsin skill 1_14
+      rect:
+        serializedVersion: 2
+        x: 857
+        y: 0
+        width: 61
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6e989ad14a082b547abc4c5b3fe737ef
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pungsin skill 1_15
+      rect:
+        serializedVersion: 2
+        x: 918
+        y: 0
+        width: 61
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d6e68d241e976a340b1fdfb0ef177059
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pungsin skill 1_16
+      rect:
+        serializedVersion: 2
+        x: 979
+        y: 0
+        width: 61
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d9bfdd342cdaf7a48bc6c6cd6c5430c3
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pungsin skill 1_17
+      rect:
+        serializedVersion: 2
+        x: 1040
+        y: 0
+        width: 61
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 90a778a5cfac2654883683eff006ad52
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pungsin skill 1_18
+      rect:
+        serializedVersion: 2
+        x: 1101
+        y: 0
+        width: 61
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cfcb0fcc1fe2fbe4b9bcc1512b26fbfb
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pungsin skill 1_19
+      rect:
+        serializedVersion: 2
+        x: 1162
+        y: 0
+        width: 61
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 15caad464fb06974e8cc0ccc2a858d34
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pungsin skill 1_20
+      rect:
+        serializedVersion: 2
+        x: 1223
+        y: 0
+        width: 61
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 67736ab54fa201748b4f3f421596ed73
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pungsin skill 1_21
+      rect:
+        serializedVersion: 2
+        x: 1284
+        y: 0
+        width: 61
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3bc580b83d87e5b44a1a63c4e0d5b2c0
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []

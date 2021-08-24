@@ -70,6 +70,7 @@
     <Compile Include="Assets\Scripts\AI\TilemapSetup.cs" />
     <Compile Include="Assets\Scripts\Entity\Enemy\Enemy.cs" />
     <Compile Include="Assets\Scripts\Entity\Enemy\Panch.cs" />
+    <Compile Include="Assets\Scripts\Entity\Enemy\Pungsin.cs" />
     <Compile Include="Assets\Scripts\Entity\Entity.cs" />
     <Compile Include="Assets\Scripts\Entity\EntityHealth.cs" />
     <Compile Include="Assets\Scripts\Entity\Player\Player.cs" />

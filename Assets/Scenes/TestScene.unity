@@ -124,6 +124,7 @@ GameObject:
   - component: {fileID: 319703917}
   - component: {fileID: 319703916}
   - component: {fileID: 319703918}
+  - component: {fileID: 319703919}
   m_Layer: 0
   m_Name: Wall
   m_TagString: Untagged
@@ -885,6 +886,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tilemapIsWall: 1
+--- !u!19719996 &319703919
+TilemapCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 319703914}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
 --- !u!1 &371163787
 GameObject:
   m_ObjectHideFlags: 0

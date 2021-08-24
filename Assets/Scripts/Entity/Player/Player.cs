@@ -23,8 +23,9 @@ public class Player : Entity
 
 	// < 그 외 >
 	public Vector3 targetPos { get; private set; }  // 이동할 위치를 미리 저장해주는 변수입니다. (Enemy 스크립트에서 사용됨)
-	float currentTurnDelay = 0.0f;							// 턴 딜레이 변수입니다. (이 시간이 모두 소모되면 턴이 돌아옵니다.)
-	bool playerTurn = true;							// 플레이어 턴 체크 변수입니다.
+	public float currentTurnDelay = 0.0f;			// 턴 딜레이 변수입니다. (이 시간이 모두 소모되면 턴이 돌아옵니다.)
+	bool playerTurn = true;                         // 플레이어 턴 체크 변수입니다.
+	bool canPush = true;							// 플레이어를 밀 수 있는지 체크하는 변수입니다.
 
 
 	protected override void Awake()
@@ -51,6 +52,9 @@ public class Player : Entity
 
     void Update()
     {
+		if (Input.GetKeyDown(KeyCode.E))
+			Push(new Vector2(-1, 0), 2);
+
 		if(!isDead)
 		{
 			TurnCheck();    // 일정시간 뒤 돌아오는 턴을 체크
@@ -84,10 +88,11 @@ public class Player : Entity
 	}
 
 
-	// 클릭하려는 타일을 보여줌 (벽이 아닌경우에만)
+	// 클릭하려는 타일을 보여줌 (벽이 아니고, 플레이어 턴이며, 이동중이지 않고, 타겟이 없는경우)
 	private void ShowTile()
 	{
-		if(!tileChecker.TileIsWall() && playerTurn && nav.velocity == Vector3.zero)
+		if(!tileChecker.TileIsWall() && playerTurn
+			&& nav.velocity == Vector3.zero && targetChecker.selectedEntity == null)
 		{
 			previewTile.SetActive(true);
 			previewTile.transform.position = tileChecker.GetTilePosition();
@@ -183,6 +188,46 @@ public class Player : Entity
 		{
 			GetComponent<SpriteRenderer>().flipX = (nav.velocity.x < 0) ? true : false;
 		}
+	}
+
+	// 플레이어 밀기
+	public void Push(Vector2 dir, int amount)
+	{
+		if(canPush == true)
+			StartCoroutine(PushCoroutine(dir, amount));
+	}
+
+	IEnumerator PushCoroutine(Vector2 dir, int amount)
+	{
+		canPush = false;
+
+		// 이동 가능범위 계산
+		Vector2 originPos = transform.position;
+		Vector2 targetPos = transform.position;
+
+		for (int i = amount; i > 0; i--)
+		{
+			if (!Physics2D.Raycast(originPos + dir, dir, i - 1))
+			{
+				targetPos = originPos + (dir * i);
+				break;
+			}
+		}
+
+		// 이동
+		nav.navVolume.SetWallAtPosition(transform.position, false);
+		while (true)
+		{
+			transform.position = Vector2.Lerp(transform.position, targetPos, 0.15f);
+			if (Vector2.Distance(transform.position, targetPos) < 0.05f)
+			{
+				transform.position = targetPos;
+				break;
+			}
+			yield return null;
+		}
+		nav.navVolume.SetWallAtPosition(transform.position, true);
+		canPush = true;
 	}
 
 

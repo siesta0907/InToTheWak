@@ -60,8 +60,8 @@ public class NavMesh2DVolume : MonoBehaviour
 
 	public Tile GetTileAtPosition(Vector3 pos)
 	{
-		int indexX = (int)pos.x - leftBottomPosition.x;
-		int indexY = (int)pos.y - leftBottomPosition.y;
+		int indexX = Mathf.RoundToInt(pos.x) - leftBottomPosition.x;
+		int indexY = Mathf.RoundToInt(pos.y) - leftBottomPosition.y;
 
 		int maxX = rightTopPosition.x - leftBottomPosition.x;
 		int maxY = rightTopPosition.y - leftBottomPosition.y;
@@ -76,8 +76,8 @@ public class NavMesh2DVolume : MonoBehaviour
 
 	public void SetWallAtPosition(Vector3 pos, bool wall)
 	{
-		int indexX = (int)pos.x - leftBottomPosition.x;
-		int indexY = (int)pos.y - leftBottomPosition.y;
+		int indexX = Mathf.RoundToInt(pos.x) - leftBottomPosition.x;
+		int indexY = Mathf.RoundToInt(pos.y) - leftBottomPosition.y;
 
 		int maxX = rightTopPosition.x - leftBottomPosition.x;
 		int maxY = rightTopPosition.y - leftBottomPosition.y;
