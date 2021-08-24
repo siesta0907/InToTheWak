@@ -8,14 +8,15 @@ public class Pungsin : Enemy
 	{
 		base.EnemyTurnStart();
 
-		anim.SetTrigger("Skill" + 3);
 		StartCoroutine(AttackCorotuine());
 	}
 
 	IEnumerator AttackCorotuine()
 	{
 		// 플레이어의 이동을 기다리고 공격
-		yield return new WaitForSeconds(GameData.instance.turnDelay);
+		anim.SetTrigger("Skill" + 3);
+		player.currentTurnDelay += 1.5f;
+		yield return new WaitForSeconds(1.5f);
 		Pattern3();
 	}
 
