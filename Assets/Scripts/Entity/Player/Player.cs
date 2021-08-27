@@ -19,7 +19,8 @@ public class Player : Entity
 	TargetChecker targetChecker;    // 마우스로 선택한 대상 (공격에서 사용)
 	CameraShake cameraShake;		// 카메라 흔들림 효과를 위해 사용
 	NavMesh2D nav;					// 2D 네비게이션
-	Hud hud;						// 플레이어의 상태를 표시할 HUD
+	Hud hud;                        // 플레이어의 상태를 표시할 HUD
+	Timer timer;					// 보스전 등에서 사용될 Timer
 
 	// < 그 외 >
 	public Vector3 targetPos { get; private set; }  // 이동할 위치를 미리 저장해주는 변수입니다. (Enemy 스크립트에서 사용됨)
@@ -38,6 +39,7 @@ public class Player : Entity
 		cameraShake = GetComponent<CameraShake>();
 		nav = GetComponent<NavMesh2D>();
 		hud = FindObjectOfType<Hud>();
+		timer = FindObjectOfType<Timer>();
 
 		DontDestroyOnLoad(this);
     }
@@ -47,6 +49,7 @@ public class Player : Entity
 	{
 		base.Start();
 		hud.InitOwner(this);
+		timer.OnTimerEnd += PlayerTurnEnd;
 	}
 
 
@@ -120,7 +123,7 @@ public class Player : Entity
 	// 클릭시 이동 (턴 소비)
 	private void TryMove()
 	{
-		if (playerInput.LButtonClick && playerTurn) // 왼쪽 버튼을 클릭한 경우
+		if (playerInput.LButtonClick && playerTurn && targetChecker.selectedEntity == null) // 왼쪽 버튼을 클릭한 경우
 		{
 			// 벽이 아니고, 거리가 움직일수 있는 범위보다 작고, 움직이는 상태가 아니면
 			if (!tileChecker.TileIsWall() && tileChecker.GetDistance() <= moveCount && nav.velocity == Vector3.zero)
@@ -151,6 +154,10 @@ public class Player : Entity
 	private void PlayerTurnStart()
 	{
 		playerTurn = true;
+
+		// 현재 스테이지 게임매니저에서 타이머를 사용한다면 타이머 세팅
+		GameManager gm = FindObjectOfType<GameManager>();
+		if (gm && gm.activeTimer) timer.SetTimer(gm.time);
 	}
 
 
@@ -161,6 +168,7 @@ public class Player : Entity
 		GameData.instance.turn += 1;
 		currentTurnDelay = GameData.instance.turnDelay;
 		playerTurn = false;
+		timer.ClearTimer();
 		AddSatiety(-GameData.instance.decreaseSatiety);
 
 		if(OnTurnEnd != null)

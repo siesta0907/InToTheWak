@@ -84,6 +84,7 @@
     <Compile Include="Assets\Scripts\PlayerStart.cs" />
     <Compile Include="Assets\Scripts\UI\GameUIManager.cs" />
     <Compile Include="Assets\Scripts\UI\Hud.cs" />
+    <Compile Include="Assets\Scripts\UI\Timer.cs" />
     <Compile Include="Assets\Scripts\Util\CameraShake.cs" />
     <Reference Include="Unity.TextMeshPro.Editor">
       <HintPath>C:/Users/gkrrn/Desktop/GitHUB/InToTheWak/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>
