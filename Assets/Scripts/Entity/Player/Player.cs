@@ -11,22 +11,30 @@ public class Player : Entity
 	public event Action OnTurnEnd;	// 플레이어의 턴이 종료되면 호출됨
 
 	// < 설정 >
+	[Header("타일 표식")]
 	public GameObject previewTile;  // 마우스를 가져다 댔을 때 보여주는 오브젝트
+	public Color color_OK;			// 이동 가능한 색깔
+	public Color color_NO;			// 이동 불가능한 색깔
 
 	// < 필요한 컴포넌트 >
 	PlayerInput playerInput;		// 플레이어가 입력한 키값을 받아오기 위해 사용
 	TileChecker tileChecker;		// 마우스 위치 타일을 표시하기 위해 사용, 실제 움직임과 관련없음
 	TargetChecker targetChecker;    // 마우스로 선택한 대상 (공격에서 사용)
 	CameraShake cameraShake;		// 카메라 흔들림 효과를 위해 사용
-	NavMesh2D nav;					// 2D 네비게이션
+	NavMesh2D nav;                  // 2D 네비게이션
+
+	// < 필요한 컴포넌트 - UI >
 	Hud hud;                        // 플레이어의 상태를 표시할 HUD
-	Timer timer;					// 보스전 등에서 사용될 Timer
+	Timer timer;                    // 보스전 등에서 사용될 Timer
+	EntityInfo entityInfo;			// 선택한 대상의 정보를 표시하기 위한 Entity Info
+
+	SpriteRenderer tileRenderer;	// 이동 가능한 프리뷰 타일의 색을 변경하기 위해 사용됨
 
 	// < 그 외 >
-	public Vector3 targetPos { get; private set; }  // 이동할 위치를 미리 저장해주는 변수입니다. (Enemy 스크립트에서 사용됨)
-	public float currentTurnDelay = 0.0f;			// 턴 딜레이 변수입니다. (이 시간이 모두 소모되면 턴이 돌아옵니다.)
-	bool playerTurn = true;                         // 플레이어 턴 체크 변수입니다.
-	bool canPush = true;							// 플레이어를 밀 수 있는지 체크하는 변수입니다.
+	public Vector3 targetPos { get; private set; }			// 이동할 위치를 미리 저장해주는 변수입니다. (Enemy 스크립트에서 사용됨)
+	[HideInInspector] public float currentTurnDelay = 0.0f;	// 턴 딜레이 변수입니다. (이 시간이 모두 소모되면 턴이 돌아옵니다.)
+	bool playerTurn = true;									// 플레이어 턴 체크 변수입니다.
+	bool canPush = true;									// 플레이어를 밀 수 있는지 체크하는 변수입니다.
 
 
 	protected override void Awake()
@@ -38,8 +46,12 @@ public class Player : Entity
 		targetChecker = GetComponent<TargetChecker>();
 		cameraShake = GetComponent<CameraShake>();
 		nav = GetComponent<NavMesh2D>();
+
 		hud = FindObjectOfType<Hud>();
 		timer = FindObjectOfType<Timer>();
+		entityInfo = FindObjectOfType<EntityInfo>();
+
+		tileRenderer = previewTile.GetComponent<SpriteRenderer>();
 
 		DontDestroyOnLoad(this);
     }
@@ -57,8 +69,9 @@ public class Player : Entity
     {
 		if(!isDead)
 		{
-			TurnCheck();    // 일정시간 뒤 돌아오는 턴을 체크
-			ShowTile();     // 타일에 마우스를 올렸을 때 효과를 보여줌
+			TurnCheck();		// 일정시간 뒤 돌아오는 턴을 체크
+			ShowPreviewTile();  // 타일에 마우스를 올렸을 때 효과를 보여줌
+			ShowEntityInfo();	// 엔티티 정보를 보여줌
 
 			// * Player Action부분(입력을 받아 턴을 소비)
 			TryAttack();
@@ -89,18 +102,40 @@ public class Player : Entity
 
 
 	// 클릭하려는 타일을 보여줌 (벽이 아니고, 플레이어 턴이며, 이동중이지 않고, 타겟이 없는경우)
-	private void ShowTile()
+	private void ShowPreviewTile()
 	{
-		if(!tileChecker.TileIsWall() && playerTurn
+		if (!tileChecker.TileIsWall() && playerTurn
 			&& nav.velocity == Vector3.zero && targetChecker.selectedEntity == null)
 		{
 			previewTile.SetActive(true);
 			previewTile.transform.position = tileChecker.GetTilePosition();
+
+			ChangePreviewTileColor();
 		}
 		else
 		{
 			previewTile.SetActive(false);
 		}
+	}
+
+
+	// 이동 가능한 범위인지 확인하고 색을 변경함
+	private void ChangePreviewTileColor()
+	{
+		if (tileChecker.GetDistance() <= moveCount)
+			tileRenderer.color = color_OK;
+		else
+			tileRenderer.color = color_NO;
+	}
+
+
+	// 선택한 대상의 정보를 보여줍니다.
+	private void ShowEntityInfo()
+	{
+		if (targetChecker.selectedEntity)
+			entityInfo.ShowInfo(targetChecker.selectedEntity);
+		else
+			entityInfo.CloseInfo();
 	}
 
 
@@ -180,20 +215,15 @@ public class Player : Entity
 	{
 		// 애니메이션 처리
 		if (nav.velocity.magnitude > 0)
-		{
 			anim.SetBool("IsMove", true);
-		}
 		else
-		{
 			anim.SetBool("IsMove", false);
-		}
 
 		// 방향 처리
 		if(nav.velocity.x != 0)
-		{
 			GetComponent<SpriteRenderer>().flipX = (nav.velocity.x < 0) ? true : false;
-		}
 	}
+
 
 	// 강제로 턴 설정 (자원, 턴 횟수는 영향받지 않음)
 	public void SetPlayerTurn(bool turn)
@@ -202,12 +232,14 @@ public class Player : Entity
 		currentTurnDelay = GameData.instance.turnDelay;
 	}
 
+
 	// 플레이어 밀기
 	public void Push(Vector2 dir, int amount)
 	{
 		if(canPush == true)
 			StartCoroutine(PushCoroutine(dir, amount));
 	}
+
 
 	IEnumerator PushCoroutine(Vector2 dir, int amount)
 	{
@@ -253,11 +285,13 @@ public class Player : Entity
 		anim.SetTrigger("Dead");
 	}
 
+
 	protected override void OnHit(Entity victim)
 	{
 		base.OnHit(victim);
 		cameraShake.Play(Camera.main, 0.16f, 0.1f);
 	}
+
 
 	public override void TakeDamage(float damage, Entity attacker)
 	{

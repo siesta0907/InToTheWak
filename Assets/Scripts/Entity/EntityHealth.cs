@@ -5,7 +5,8 @@ using UnityEngine.UI;
 
 public class EntityHealth : MonoBehaviour
 {
-	[SerializeField] private Text text_Health;
+	[SerializeField] private Image healthBar;
+	[SerializeField] private Image healthBar_white;
 
 	Entity owner; // UI를 갱신할 대상입니다.
 
@@ -13,7 +14,7 @@ public class EntityHealth : MonoBehaviour
 	{
 		if(owner != null)
 		{
-			UpdateHealthText(owner.curHealth);
+			UpdateHealthBar();
 		}
 	}
 
@@ -22,8 +23,22 @@ public class EntityHealth : MonoBehaviour
 		owner = target;
 	}
 
-	public void UpdateHealthText(float amount)
+	private void UpdateHealthBar()
 	{
-		text_Health.text = amount.ToString();
+		float whiteAmount = healthBar_white.fillAmount;
+		float barAmount = healthBar.fillAmount;
+
+		healthBar.fillAmount = owner.curHealth / owner.health;
+
+		// 체력바 애니메이션 (흰색 부분)
+		if (whiteAmount == barAmount) return;
+
+		float gap = whiteAmount - barAmount;
+		if (gap <= 0.05f)
+		{
+			healthBar_white.fillAmount = barAmount;
+			return;
+		}
+		healthBar_white.fillAmount = Mathf.Lerp(healthBar_white.fillAmount, barAmount, 0.05f);
 	}
 }

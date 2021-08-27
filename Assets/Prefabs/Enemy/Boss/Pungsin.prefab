@@ -113,6 +113,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e5878c9c91dc90f4797201c804d1ceed, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  entityName: "\uD48D\uC2E0"
   strength: 1
   health: 100
   satiety: 100

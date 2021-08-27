@@ -5,6 +5,7 @@ using UnityEngine;
 public class Entity : MonoBehaviour
 {
 	[Header("엔티티 스탯")]
+	public string entityName = "Entity";
 	public float strength = 1;		// 힘(공격력) - 데미지와 관련됨
 	public float health = 1;		// 체력 - 몬스터와 전투시 사용
 	public float satiety = 100;		// 포만감 - 일정량 이상일시 체력 감소 등..

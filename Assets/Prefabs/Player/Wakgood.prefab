@@ -199,6 +199,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dc0195a182baeca40add77b435cb2014, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  entityName: "\uC6B0\uC641\uAD73"
   strength: 1
   health: 10
   satiety: 100
@@ -211,6 +212,9 @@ MonoBehaviour:
   isDead: 0
   hitMat: {fileID: 2100000, guid: 37ae30d928fb06646b4555b6a7b35780, type: 2}
   previewTile: {fileID: 9214397699822577256}
+  color_OK: {r: 1, g: 1, b: 1, a: 1}
+  color_NO: {r: 0.6698113, g: 0.05495132, b: 0, a: 1}
+  currentTurnDelay: 0
 --- !u!114 &9214397700510168285
 MonoBehaviour:
   m_ObjectHideFlags: 0
