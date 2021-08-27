@@ -5,10 +5,7 @@ using UnityEngine.UI;
 
 public class Hud : MonoBehaviour
 {
-	[SerializeField] private Text text_Health;  // 체력 텍스트
-	[SerializeField] private Text text_Satiety; // 포만감 텍스트
-
-	[SerializeField] private Image healthBar;	// 체력바
+	[SerializeField] private Image healthBar;   // 체력바
 
 	Entity owner; // UI를 갱신할 대상입니다.
 
@@ -22,9 +19,9 @@ public class Hud : MonoBehaviour
 		owner = target;
 	}
 
-	public void SetHealthBar(float value)
+	public void SetHealthBar()
 	{
-		float healthPercent = value / owner.health;
+		float healthPercent = owner.curHealth / owner.health;
 		float gap = Mathf.Abs(healthBar.fillAmount - healthPercent);
 
 		healthBar.fillAmount = Mathf.Lerp(healthBar.fillAmount, healthPercent, 0.15f);
@@ -39,7 +36,7 @@ public class Hud : MonoBehaviour
 	{
 		if(owner)
 		{
-			SetHealthBar(owner.curHealth);
+			SetHealthBar();
 		}
 	}
 }

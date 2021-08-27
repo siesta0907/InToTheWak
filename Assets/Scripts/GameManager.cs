@@ -4,15 +4,15 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+	GameUIManager um;
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+	void Awake()
+	{
+		um = FindObjectOfType<GameUIManager>();
+	}
+
+	void Start()
+	{
+		um.FadeIn();
+	}
 }

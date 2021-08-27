@@ -4,6 +4,15 @@ using UnityEngine;
 
 public class Pungsin : Enemy
 {
+	protected override void Start()
+	{
+		base.Start();
+
+		player.SetPlayerTurn(false);
+		player.currentTurnDelay += 3.0f;
+		anim.SetTrigger("StageStart");
+	}
+
 	protected override void EnemyTurnStart()
 	{
 		base.EnemyTurnStart();

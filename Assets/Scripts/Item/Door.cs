@@ -6,11 +6,14 @@ using UnityEngine.SceneManagement;
 public class Door : MonoBehaviour
 {
 	[SerializeField] private string stageName;	// 로드될 스테이지(Scene)의 이름
+
 	Player player;
+	GameUIManager um;
 
 	void Awake()
 	{
 		player = FindObjectOfType<Player>();
+		um = FindObjectOfType<GameUIManager>();
 	}
 
 	void Start()
@@ -33,6 +36,8 @@ public class Door : MonoBehaviour
 		{
 			// 다음씬 로드
 			player.ResetDelegate();
+			um.FadeOut();
+			yield return new WaitForSeconds(0.5f);
 			SceneManager.LoadScene(stageName);
 		}
 	}

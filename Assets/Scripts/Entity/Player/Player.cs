@@ -52,9 +52,6 @@ public class Player : Entity
 
     void Update()
     {
-		if (Input.GetKeyDown(KeyCode.E))
-			Push(new Vector2(-1, 0), 2);
-
 		if(!isDead)
 		{
 			TurnCheck();    // 일정시간 뒤 돌아오는 턴을 체크
@@ -188,6 +185,13 @@ public class Player : Entity
 		{
 			GetComponent<SpriteRenderer>().flipX = (nav.velocity.x < 0) ? true : false;
 		}
+	}
+
+	// 강제로 턴 설정 (자원, 턴 횟수는 영향받지 않음)
+	public void SetPlayerTurn(bool turn)
+	{
+		playerTurn = turn;
+		currentTurnDelay = GameData.instance.turnDelay;
 	}
 
 	// 플레이어 밀기
