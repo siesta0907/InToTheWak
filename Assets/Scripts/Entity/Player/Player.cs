@@ -296,7 +296,9 @@ public class Player : Entity
 	public override void TakeDamage(float damage, Entity attacker)
 	{
 		base.TakeDamage(damage, attacker);
+
 		// 애니메이션 재생 - 피격
-		anim.SetTrigger("HitReact");
+		if(!isDead)
+			anim.SetTrigger("HitReact");
 	}
 }

@@ -68,6 +68,8 @@
     <Compile Include="Assets\Scripts\AI\NavMesh2DVolume.cs" />
     <Compile Include="Assets\Scripts\AI\Tile.cs" />
     <Compile Include="Assets\Scripts\AI\TilemapSetup.cs" />
+    <Compile Include="Assets\Scripts\Effect\HitBox.cs" />
+    <Compile Include="Assets\Scripts\Effect\Projectile.cs" />
     <Compile Include="Assets\Scripts\Entity\Enemy\Enemy.cs" />
     <Compile Include="Assets\Scripts\Entity\Enemy\Panch.cs" />
     <Compile Include="Assets\Scripts\Entity\Enemy\Pungsin.cs" />

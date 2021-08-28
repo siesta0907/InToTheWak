@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 9214397699822577254}
   - component: {fileID: 9214397699822577257}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: PreviewTile
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -98,7 +98,7 @@ GameObject:
   - component: {fileID: 114067543480541164}
   - component: {fileID: 61981463640580758}
   - component: {fileID: 9214397699566612528}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Wakgood
   m_TagString: Untagged
   m_Icon: {fileID: 0}

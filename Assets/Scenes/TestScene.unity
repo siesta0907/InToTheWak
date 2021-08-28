@@ -3591,6 +3591,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4983821719204551385, guid: b5a237a4155b706408ae9ea21d349c38,
+        type: 3}
+      propertyPath: m_SortingOrder
+      value: 9
+      objectReference: {fileID: 0}
     - target: {fileID: 4983821719204551386, guid: b5a237a4155b706408ae9ea21d349c38,
         type: 3}
       propertyPath: m_Name
@@ -3733,6 +3738,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Wakgood
+      objectReference: {fileID: 0}
+    - target: {fileID: 9214397700510168287, guid: 39ac27380761f7347977bf6b4ee06c47,
+        type: 3}
+      propertyPath: m_SortingOrder
+      value: 10
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 39ac27380761f7347977bf6b4ee06c47, type: 3}
