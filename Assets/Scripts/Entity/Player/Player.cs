@@ -148,6 +148,9 @@ public class Player : Entity
 			// TODO: 이후에 지울 Debug.Log
 			Debug.Log(targetChecker.selectedEntity.transform.name + "을 공격함!");
 
+			// 애니메이션 재생 - 공격
+			anim.SetTrigger("AttackDefault");
+
 			// 피해를 입히고 플레이어 턴을 끝냅니다.
 			targetChecker.selectedEntity.TakeDamage(strength, this);
 			PlayerTurnEnd();

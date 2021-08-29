@@ -29,8 +29,10 @@ public class Entity : MonoBehaviour
 
 	protected virtual void Awake()
 	{
-		originMat = GetComponent<SpriteRenderer>().material;
-		anim = GetComponent<Animator>();
+		originMat = GetComponentInChildren<SpriteRenderer>().material;
+		//originMat = GetComponent<SpriteRenderer>().material;
+		//anim = GetComponent<Animator>();
+		anim = GetComponentInChildren<Animator>();
 	}
 
 	protected virtual void Start()
@@ -79,7 +81,8 @@ public class Entity : MonoBehaviour
 
 	IEnumerator HitEffectCoroutine()
 	{
-		SpriteRenderer renderer = GetComponent<SpriteRenderer>();
+		//SpriteRenderer renderer = GetComponent<SpriteRenderer>();
+		SpriteRenderer renderer = GetComponentInChildren<SpriteRenderer>();
 		renderer.material = hitMat;
 
 		yield return new WaitForSeconds(0.1f);

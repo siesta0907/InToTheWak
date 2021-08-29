@@ -134,4 +134,20 @@ AnimationClip:
   m_EulerEditorCurves: []
   m_HasGenericRootTransform: 0
   m_HasMotionFloatCurves: 0
-  m_Events: []
+  m_Events:
+  - time: 0.75
+    functionName: LightActive
+    data: 
+    objectReferenceParameter: {fileID: 11500000, guid: 689d7159e7481fe458bd5584ce5f37b9,
+      type: 3}
+    floatParameter: 0
+    intParameter: 1
+    messageOptions: 0
+  - time: 1.9166666
+    functionName: LightDeActive
+    data: 
+    objectReferenceParameter: {fileID: 11500000, guid: 689d7159e7481fe458bd5584ce5f37b9,
+      type: 3}
+    floatParameter: 0
+    intParameter: 1
+    messageOptions: 0
