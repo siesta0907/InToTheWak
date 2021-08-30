@@ -24,14 +24,12 @@ public class Entity : MonoBehaviour
 	[SerializeField] private Material hitMat;
 
 	// < 필요한 컴포넌트 >
-	protected Animator anim;						// Entity의 애니메이터
+	protected Animator anim;                        // Entity의 애니메이터
 
 
 	protected virtual void Awake()
 	{
 		originMat = GetComponentInChildren<SpriteRenderer>().material;
-		//originMat = GetComponent<SpriteRenderer>().material;
-		//anim = GetComponent<Animator>();
 		anim = GetComponentInChildren<Animator>();
 	}
 

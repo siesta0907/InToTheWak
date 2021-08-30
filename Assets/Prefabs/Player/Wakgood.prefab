@@ -205,7 +205,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   entityName: "\uC6B0\uC641\uAD73"
   strength: 1
-  health: 10
+  health: 30
   satiety: 100
   mana: 0
   moveCount: 3

@@ -8,7 +8,8 @@ using System;
 public class Player : Entity
 {
 	// < 이벤트 >
-	public event Action OnTurnEnd;	// 플레이어의 턴이 종료되면 호출됨
+	public event Action OnTurnEnd;		// 플레이어의 턴이 종료되면 호출됨
+	public event Action OnPlayerDead;	// 플레이어가 죽은경우 호출됨
 
 	// < 설정 >
 	[Header("타일 표식")]
@@ -87,6 +88,7 @@ public class Player : Entity
 	public void ResetDelegate()
 	{
 		OnTurnEnd = null;
+		OnPlayerDead = null;
 	}
 
 
@@ -286,6 +288,10 @@ public class Player : Entity
 		Debug.Log("플레이어가 죽었습니다!");
 		// 애니메이션 재생 - 사망
 		anim.SetTrigger("Dead");
+		timer.ClearTimer();
+
+		if(OnPlayerDead != null)
+			OnPlayerDead();
 	}
 
 

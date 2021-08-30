@@ -8,6 +8,8 @@ public class Enemy : Entity
 	protected Player player;
 	protected EntityHealth healthBar;	// 남은체력을 표시하기 위해 사용
 	protected NavMesh2D nav;
+	protected GameManager gm;
+	protected BoxCollider2D col;
 
 	protected override void Awake()
 	{
@@ -16,6 +18,8 @@ public class Enemy : Entity
 		player = FindObjectOfType<Player>();
 		healthBar = GetComponent<EntityHealth>();
 		nav = GetComponent<NavMesh2D>();
+		gm = FindObjectOfType<GameManager>();
+		col = GetComponent<BoxCollider2D>();
 	}
 
     protected override void Start()
@@ -25,6 +29,9 @@ public class Enemy : Entity
 
 		// healthBar를 사용중인 경우에만 체력표시
 		if(healthBar) healthBar.InitOwner(this);
+
+		// 적 개체수 증가
+		gm.AddEnemyCount(1);
 	}
 
 	// 적의 턴이 시작되었을 때
@@ -39,9 +46,11 @@ public class Enemy : Entity
 		// 애니메이션 재생 - 죽음
 		anim.SetTrigger("Dead");
 
-		if(nav != null) nav.navVolume.SetWallAtPosition(transform.position, false);
+		// 죽었을 때 설정 (충돌 해제, 개체수 감소...)
+		gm.AddEnemyCount(-1);
+		col.enabled = false;
+		if (nav != null) nav.navVolume.SetWallAtPosition(transform.position, false);
 
-		// 일정시간이 지나면 삭제
 		Destroy(this.gameObject, 3.0f);
 	}
 }
