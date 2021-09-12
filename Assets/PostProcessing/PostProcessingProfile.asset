@@ -79,7 +79,7 @@ MonoBehaviour:
   m_AdvancedMode: 0
   postExposure:
     m_OverrideState: 1
-    m_Value: 0.61
+    m_Value: 0.76
   contrast:
     m_OverrideState: 1
     m_Value: 0
@@ -117,10 +117,10 @@ MonoBehaviour:
   m_AdvancedMode: 0
   lift:
     m_OverrideState: 1
-    m_Value: {x: 1, y: 1, z: 1, w: -0.04634994}
+    m_Value: {x: 1, y: 1, z: 1, w: -0.06928572}
   gamma:
     m_OverrideState: 1
-    m_Value: {x: 1, y: 1, z: 1, w: -0.12746236}
+    m_Value: {x: 1, y: 1, z: 1, w: -0.21920547}
   gain:
     m_OverrideState: 1
-    m_Value: {x: 1, y: 1, z: 1, w: 0.15063733}
+    m_Value: {x: 1, y: 1, z: 1, w: 0.035958447}

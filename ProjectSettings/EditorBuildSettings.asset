@@ -11,4 +11,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/TestScene2.unity
     guid: 089e6314b04fa8a43b8d286d3f6abbbb
+  - enabled: 1
+    path: Assets/Scenes/Scene_Pungsin.unity
+    guid: 962b3ed227cc29a4c88399392043c21a
   m_configObjects: {}

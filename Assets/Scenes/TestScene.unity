@@ -98,7 +98,7 @@ LightmapSettings:
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
   m_LightingDataAsset: {fileID: 0}
-  m_UseShadowmask: 1
+  m_UseShadowmask: 0
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -3947,6 +3947,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Door
+      objectReference: {fileID: 0}
+    - target: {fileID: 4281791668964906404, guid: 404e672925a9f044786029d30c519139,
+        type: 3}
+      propertyPath: stageName
+      value: Scene_Pungsin
       objectReference: {fileID: 0}
     - target: {fileID: 5073050052835761984, guid: 404e672925a9f044786029d30c519139,
         type: 3}
