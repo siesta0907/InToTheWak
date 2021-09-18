@@ -113,4 +113,16 @@ public class Entity : MonoBehaviour
 	{
 		isDead = true;
 	}
+
+	// * 대상을 바라보게 만드는 함수 (reverse는 각 스프라이트마다 바라보는 방향이 달라 넣었습니다.)
+	protected virtual void LookEntity(Entity enemy, bool reverse)
+	{
+		int x1 = (int)transform.position.x;
+		int x2 = (int)enemy.gameObject.transform.position.x;
+
+		if (x1 - x2 > 0)
+			GetComponent<SpriteRenderer>().flipX = !reverse;
+		else if (x1 - x2 < 0)
+			GetComponent<SpriteRenderer>().flipX = reverse;
+	}
 }

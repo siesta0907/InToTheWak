@@ -144,19 +144,30 @@ public class Player : Entity
 	// 대상을 공격함 (턴 소비)
 	private void TryAttack()
 	{
-		if(playerInput.LButtonClick && playerTurn && targetChecker.selectedEntity
+		if (playerInput.LButtonClick && playerTurn && targetChecker.selectedEntity
 			&& targetChecker.GetDistance() <= attackRange)
 		{
+			// 공격이 여러번할 수 있도록 임시로 입력을 막습니다.
+			SetPlayerTurn(false);
+
 			// TODO: 이후에 지울 Debug.Log
 			Debug.Log(targetChecker.selectedEntity.transform.name + "을 공격함!");
 
 			// 애니메이션 재생 - 공격
 			anim.SetTrigger("AttackDefault");
+			LookEntity(targetChecker.selectedEntity, false);
 
-			// 피해를 입히고 플레이어 턴을 끝냅니다.
-			targetChecker.selectedEntity.TakeDamage(strength, this);
-			PlayerTurnEnd();
+			StartCoroutine(AttackCoroutine(0.25f, targetChecker.selectedEntity));
 		}
+	}
+
+	IEnumerator AttackCoroutine(float time, Entity target)
+	{
+		yield return new WaitForSeconds(time);
+
+		// 피해를 입히고 플레이어 턴을 끝냅니다.
+		target.TakeDamage(strength, this);
+		PlayerTurnEnd();
 	}
 
 
@@ -227,6 +238,7 @@ public class Player : Entity
 		// 방향 처리
 		if(nav.velocity.x != 0)
 			GetComponent<SpriteRenderer>().flipX = (nav.velocity.x < 0) ? true : false;
+
 	}
 
 

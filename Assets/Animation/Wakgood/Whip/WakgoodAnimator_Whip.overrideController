@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!221 &22100000
+AnimatorOverrideController:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: WakgoodAnimator_Whip
+  m_Controller: {fileID: 9100000, guid: 1c7ab570df1ec444c9ff479d21cdc369, type: 2}
+  m_Clips:
+  - m_OriginalClip: {fileID: 7400000, guid: d0a7d515e40dcd84e9331a0070437a4e, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: 72178f3d519019a4bac34c8d6a4dbdfa, type: 2}
+  - m_OriginalClip: {fileID: 7400000, guid: ca838653780f7c6428a59dfd9a97498d, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: ca838653780f7c6428a59dfd9a97498d, type: 2}
+  - m_OriginalClip: {fileID: 7400000, guid: b08c629e7b686c343bceb0fed1031f03, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: 58b86487c99012e4a8c91921b63bbc3b, type: 2}
+  - m_OriginalClip: {fileID: 7400000, guid: 1ff8db4059b99ad4cb13b93aa763cabf, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: 76836d721d5d4644c90c1a3e73cd1811, type: 2}
+  - m_OriginalClip: {fileID: 7400000, guid: 73ccb2230e6b04f47ae4123c5fcb4106, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: 0c8a2f3a1dbef5b40a356e41fa7f4ed4, type: 2}

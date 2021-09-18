@@ -31,6 +31,7 @@ public class Panch : Enemy
 
 			// 애니메이션 재생 - 공격
 			anim.SetTrigger("Attack");
+			LookEntity(player, true);
 		}
 
 		// Chase - 차이가 난다면 플레이어를 추격합니다.
