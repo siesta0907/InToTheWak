@@ -29,8 +29,8 @@ public class Pungsin : Enemy
 	{
 		base.Start();
 
-		player.SetPlayerTurn(false);
-		player.currentTurnDelay += 3.0f;
+		player.SetPlayerTurn(false, 3.5f);
+		//player.currentTurnDelay += 3.0f;
 		anim.SetTrigger("StageStart");
 	}
 
