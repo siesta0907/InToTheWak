@@ -60,6 +60,7 @@
     <Compile Include="Assets\Scripts\AI\NavMesh2DVolume.cs" />
     <Compile Include="Assets\Scripts\AI\Tile.cs" />
     <Compile Include="Assets\Scripts\AI\TilemapSetup.cs" />
+    <Compile Include="Assets\Scripts\Board\BoardManager.cs" />
     <Compile Include="Assets\Scripts\Effect\HitBox.cs" />
     <Compile Include="Assets\Scripts\Effect\LightAnimEvent.cs" />
     <Compile Include="Assets\Scripts\Effect\Projectile.cs" />
@@ -75,7 +76,10 @@
     <Compile Include="Assets\Scripts\GameData.cs" />
     <Compile Include="Assets\Scripts\GameManager.cs" />
     <Compile Include="Assets\Scripts\Item\Door.cs" />
+    <Compile Include="Assets\Scripts\Item\Inventory.cs" />
+    <Compile Include="Assets\Scripts\Item\Item.cs" />
     <Compile Include="Assets\Scripts\Item\PickupItem.cs" />
+    <Compile Include="Assets\Scripts\Item\itemDatabase.cs" />
     <Compile Include="Assets\Scripts\PlayerStart.cs" />
     <Compile Include="Assets\Scripts\UI\EntityInfo.cs" />
     <Compile Include="Assets\Scripts\UI\GameUIManager.cs" />

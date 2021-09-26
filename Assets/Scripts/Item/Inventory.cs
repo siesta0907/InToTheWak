@@ -39,7 +39,7 @@ public class Inventory : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetButtonDown("Inventory"))
+        if (Input.GetKeyDown(KeyCode.E))
 
         {
             showInventory = !showInventory;
