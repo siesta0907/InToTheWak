@@ -148,7 +148,7 @@ public class Player : Entity
 			&& targetChecker.GetDistance() <= attackRange)
 		{
 			// 공격이 여러번할 수 있도록 임시로 입력을 막습니다.
-			SetPlayerTurn(false);
+			SetPlayerTurn(false, 1.0f);
 
 			// TODO: 이후에 지울 Debug.Log
 			Debug.Log(targetChecker.selectedEntity.transform.name + "을 공격함!");
@@ -243,10 +243,10 @@ public class Player : Entity
 
 
 	// 강제로 턴 설정 (자원, 턴 횟수는 영향받지 않음)
-	public void SetPlayerTurn(bool turn)
+	public void SetPlayerTurn(bool turn, float delay)
 	{
 		playerTurn = turn;
-		currentTurnDelay = GameData.instance.turnDelay;
+		currentTurnDelay = GameData.instance.turnDelay + delay;
 	}
 
 
