@@ -392,7 +392,11 @@ public class BoardManager : MonoBehaviour
 
         DrawCorridors(rootSubDungeon);
         DrawRooms(rootSubDungeon);
-    }
+
+		// Nav에 등록
+		GroundTilemap.gameObject.gameObject.GetComponent<TilemapSetup>().RegisterTiles();
+
+	}
 }
 
 

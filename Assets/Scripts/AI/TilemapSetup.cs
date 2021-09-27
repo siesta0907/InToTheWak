@@ -21,7 +21,7 @@ public class TilemapSetup : MonoBehaviour
 		RegisterTiles();
 	}
 
-	void RegisterTiles()
+	public void RegisterTiles()
 	{
 		for (int x = tilemap.origin.x; x < (tilemap.origin.x + tilemap.size.x); x++)
 		{
