@@ -237,7 +237,7 @@ public class Player : Entity
 
 		// 방향 처리
 		if(nav.velocity.x != 0)
-			GetComponent<SpriteRenderer>().flipX = (nav.velocity.x < 0) ? true : false;
+			sr.flipX = (nav.velocity.x < 0) ? true : false;
 
 	}
 

@@ -215,6 +215,7 @@ MonoBehaviour:
   curMana: 0
   isDead: 0
   hitMat: {fileID: 2100000, guid: 37ae30d928fb06646b4555b6a7b35780, type: 2}
+  sr: {fileID: 9214397700510168287}
   previewTile: {fileID: 9214397699822577256}
   color_OK: {r: 1, g: 1, b: 1, a: 1}
   color_NO: {r: 0.6698113, g: 0.05495132, b: 0, a: 1}

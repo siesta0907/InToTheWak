@@ -30,7 +30,6 @@ public class Pungsin : Enemy
 		base.Start();
 
 		player.SetPlayerTurn(false, 3.5f);
-		//player.currentTurnDelay += 3.0f;
 		anim.SetTrigger("StageStart");
 	}
 
@@ -91,7 +90,7 @@ public class Pungsin : Enemy
 
 	IEnumerator AttackCorotuine()
 	{
-		// 플레이어의 이동을 기다리고 공격
+		// 플레이어의 이동을 기다리고 공격 ( SetPlayerTurn(false, 1.0f)와 같습니다 )
 		player.currentTurnDelay += 1.0f;
 		yield return new WaitForSeconds(GameData.instance.turnDelay + 1.0f);
 

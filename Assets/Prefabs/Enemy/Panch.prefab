@@ -130,6 +130,7 @@ MonoBehaviour:
   curMana: 0
   isDead: 0
   hitMat: {fileID: 2100000, guid: 37ae30d928fb06646b4555b6a7b35780, type: 2}
+  sr: {fileID: 4983821719204551385}
 --- !u!114 &124649263257912071
 MonoBehaviour:
   m_ObjectHideFlags: 0

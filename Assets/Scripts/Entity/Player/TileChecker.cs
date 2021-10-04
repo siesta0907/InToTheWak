@@ -60,7 +60,6 @@ public class TileChecker : MonoBehaviour
 		if(tile != null)
 		{
 			selectedTile = tile;
-			Debug.Log("선택 완료");
 		}
 	}
 }

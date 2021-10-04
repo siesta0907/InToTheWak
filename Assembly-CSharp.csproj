@@ -65,8 +65,9 @@
     <Compile Include="Assets\Scripts\Effect\LightAnimEvent.cs" />
     <Compile Include="Assets\Scripts\Effect\Projectile.cs" />
     <Compile Include="Assets\Scripts\Entity\Enemy\Boss\Pungsin.cs" />
+    <Compile Include="Assets\Scripts\Entity\Enemy\DefaultEnemy.cs" />
     <Compile Include="Assets\Scripts\Entity\Enemy\Enemy.cs" />
-    <Compile Include="Assets\Scripts\Entity\Enemy\Panch.cs" />
+    <Compile Include="Assets\Scripts\Entity\Enemy\Negeza.cs" />
     <Compile Include="Assets\Scripts\Entity\Entity.cs" />
     <Compile Include="Assets\Scripts\Entity\EntityHealth.cs" />
     <Compile Include="Assets\Scripts\Entity\Player\Player.cs" />

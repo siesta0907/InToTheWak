@@ -24,6 +24,7 @@ public class Entity : MonoBehaviour
 	[SerializeField] private Material hitMat;
 
 	// < 필요한 컴포넌트 >
+	[SerializeField] protected SpriteRenderer sr;   // Sprite Renderer
 	protected Animator anim;                        // Entity의 애니메이터
 
 
@@ -79,14 +80,11 @@ public class Entity : MonoBehaviour
 
 	IEnumerator HitEffectCoroutine()
 	{
-		//SpriteRenderer renderer = GetComponent<SpriteRenderer>();
-		SpriteRenderer renderer = GetComponentInChildren<SpriteRenderer>();
-		renderer.material = hitMat;
-
+		sr.material = hitMat;
 		yield return new WaitForSeconds(0.1f);
 
 		// 원래 색으로 되돌림
-		renderer.material = originMat;
+		sr.material = originMat;
 	}
 
 	// * 공격을 받으면 호출되는 함수 (데미지, 공격을 가한 객체)
@@ -121,8 +119,8 @@ public class Entity : MonoBehaviour
 		int x2 = (int)enemy.gameObject.transform.position.x;
 
 		if (x1 - x2 > 0)
-			GetComponent<SpriteRenderer>().flipX = !reverse;
+			sr.flipX = !reverse;
 		else if (x1 - x2 < 0)
-			GetComponent<SpriteRenderer>().flipX = reverse;
+			sr.flipX = reverse;
 	}
 }

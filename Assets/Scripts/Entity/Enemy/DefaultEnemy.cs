@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Panch : Enemy
+public class DefaultEnemy : Enemy
 {
 	Coroutine attackCoroutine;
 
@@ -22,7 +22,7 @@ public class Panch : Enemy
 	{
 		float distance = Vector3.Distance(player.targetPos, transform.position);
 
-		// Attack - 플레이어의 도착위치가 팬치의 위치 차이가 공격범위 이내일때, 이동하지 않고 공격합니다.
+		// Attack - 플레이어의 도착위치가 적의 위치 차이가 공격범위 이내일때, 이동하지 않고 공격합니다.
 		if(distance <= attackRange)
 		{
 			if(attackCoroutine != null)
@@ -47,6 +47,7 @@ public class Panch : Enemy
 		// 플레이어의 이동을 기다리고 공격
 		yield return new WaitForSeconds(GameData.instance.turnDelay);
 
+		// TODO: 이후에 지울 Debug.Log
 		Debug.Log(transform.name + "에게 공격당함!");
 		player.TakeDamage(strength, this);
 	}
@@ -56,7 +57,7 @@ public class Panch : Enemy
 		// 방향 처리
 		if (nav.velocity.x != 0)
 		{
-			GetComponent<SpriteRenderer>().flipX = (nav.velocity.x < 0) ? false : true;
+			sr.flipX = (nav.velocity.x < 0) ? false : true;
 		}
 	}
 }
