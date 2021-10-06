@@ -4,8 +4,10 @@ using UnityEngine;
 
 public class DefaultEnemy : Enemy
 {
+	float attackDelay = 0.35f;
 	Coroutine attackCoroutine;
 
+	// 턴이 시작될때
 	protected override void EnemyTurnStart()
 	{
 		base.EnemyTurnStart();
@@ -14,7 +16,14 @@ public class DefaultEnemy : Enemy
 		if(!isDead)
 		{
 			MoveAndAttack();    // 이동과 공격패턴
-			MoveAnimation();	// 이동 애니메이션
+		}
+	}
+
+	void Update()
+	{
+		if (!isDead)
+		{
+			MoveAnimation();    // 이동 애니메이션
 		}
 	}
 
@@ -45,7 +54,7 @@ public class DefaultEnemy : Enemy
 	IEnumerator AttackCorotuine()
 	{
 		// 플레이어의 이동을 기다리고 공격
-		yield return new WaitForSeconds(GameData.instance.turnDelay);
+		yield return new WaitForSeconds(attackDelay);
 
 		// TODO: 이후에 지울 Debug.Log
 		Debug.Log(transform.name + "에게 공격당함!");
@@ -54,10 +63,14 @@ public class DefaultEnemy : Enemy
 
 	private void MoveAnimation()
 	{
+		// 애니메이션 처리
+		if (nav.velocity.magnitude > 0)
+			anim.SetBool("IsMove", true);
+		else
+			anim.SetBool("IsMove", false);
+
 		// 방향 처리
 		if (nav.velocity.x != 0)
-		{
 			sr.flipX = (nav.velocity.x < 0) ? false : true;
-		}
 	}
 }

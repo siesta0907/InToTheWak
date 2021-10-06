@@ -152,7 +152,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   entityName: "\uB290\uADF8\uC790"
   strength: 1
-  health: 1
+  health: 10
   satiety: 100
   mana: 0
   moveCount: 1
@@ -189,7 +189,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b065cd7a6f1b8d74ca1a92eb7c49b583, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 10
+  moveSpeed: 5
   navVolume: {fileID: 0}
 --- !u!61 &1763847792593509911
 BoxCollider2D:
@@ -425,7 +425,7 @@ Canvas:
   m_SortingBucketNormalizedSize: 0
   m_AdditionalShaderChannelsFlag: 0
   m_SortingLayerID: 0
-  m_SortingOrder: 10
+  m_SortingOrder: 100
   m_TargetDisplay: 0
 --- !u!114 &8986774990264180309
 MonoBehaviour:

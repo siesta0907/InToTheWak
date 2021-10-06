@@ -3566,7 +3566,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b9a94c52fcfdb9c4fa8957faf2fbab38, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  turnDelay: 0.35
+  turnDelay: 0.6
   decreaseSatiety: 1
   turn: 0
 --- !u!4 &1737268906
@@ -3904,11 +3904,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 4983821719204551385, guid: b5a237a4155b706408ae9ea21d349c38,
-        type: 3}
-      propertyPath: m_SortingOrder
-      value: 9
-      objectReference: {fileID: 0}
     - target: {fileID: 4983821719204551386, guid: b5a237a4155b706408ae9ea21d349c38,
         type: 3}
       propertyPath: m_Name
@@ -3977,11 +3972,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8986774989343925562, guid: b162e94f6e15266459d583f17092a102,
-        type: 3}
-      propertyPath: health
-      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 8986774989343925565, guid: b162e94f6e15266459d583f17092a102,
         type: 3}
@@ -4125,6 +4115,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9214397700510168285, guid: 39ac27380761f7347977bf6b4ee06c47,
+        type: 3}
+      propertyPath: moveSpeed
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 9214397700510168286, guid: 39ac27380761f7347977bf6b4ee06c47,
         type: 3}

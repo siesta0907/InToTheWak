@@ -226,7 +226,6 @@ public class Player : Entity
 			OnTurnEnd();
 	}
 
-
 	private void MoveAnimation()
 	{
 		// 애니메이션 처리
