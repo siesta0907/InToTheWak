@@ -232,7 +232,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b065cd7a6f1b8d74ca1a92eb7c49b583, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 12
+  moveSpeed: 8
   navVolume: {fileID: 0}
 --- !u!114 &9214397700510168283
 MonoBehaviour:
