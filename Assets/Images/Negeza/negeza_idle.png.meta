@@ -1,25 +1,25 @@
 fileFormatVersion: 2
-guid: 6cbba96729c410f478498d7589661ffc
+guid: fcac5e683efd35b43b7e5aca56af55a2
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -3272313611990008012
-    second: negeza_default_0
+      213: -6094566000352314394
+    second: Negeza_Idle_0
   - first:
-      213: -1600947037397204020
-    second: negeza_default_1
+      213: 5951679449474908048
+    second: Negeza_Idle_1
   - first:
-      213: -1322822720265078970
-    second: negeza_default_2
+      213: -7631647162715860536
+    second: Negeza_Idle_2
   - first:
-      213: -3856540722763574213
-    second: negeza_default_3
+      213: 4282609947380346362
+    second: Negeza_Idle_3
   - first:
-      213: -2861082473872631734
-    second: negeza_default_4
+      213: -8359262834490005126
+    second: Negeza_Idle_4
   - first:
-      213: 894182484147037691
-    second: negeza_default_5
+      213: 3641826144736333245
+    second: Negeza_Idle_5
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -63,7 +63,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 26
+  spritePixelsToUnits: 32
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -153,13 +153,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: negeza_default_0
+      name: Negeza_Idle_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 29
-        height: 26
+        width: 32
+        height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -167,20 +167,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 43ff8ab7b186692d0800000000000000
-      internalID: -3272313611990008012
+      spriteID: 6ebb3d85380cb6ba0800000000000000
+      internalID: -6094566000352314394
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: negeza_default_1
+      name: Negeza_Idle_1
       rect:
         serializedVersion: 2
-        x: 29
+        x: 32
         y: 0
-        width: 29
-        height: 26
+        width: 32
+        height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -188,20 +188,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: cc3c9b3d62b48c9e0800000000000000
-      internalID: -1600947037397204020
+      spriteID: 09fb1fa0dec989250800000000000000
+      internalID: 5951679449474908048
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: negeza_default_2
+      name: Negeza_Idle_2
       rect:
         serializedVersion: 2
-        x: 58
+        x: 64
         y: 0
-        width: 29
-        height: 26
+        width: 32
+        height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -209,20 +209,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 647b8c99eb364ade0800000000000000
-      internalID: -1322822720265078970
+      spriteID: 8c11437f651f61690800000000000000
+      internalID: -7631647162715860536
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: negeza_default_3
+      name: Negeza_Idle_3
       rect:
         serializedVersion: 2
-        x: 87
+        x: 96
         y: 0
-        width: 29
-        height: 26
+        width: 32
+        height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -230,20 +230,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b3459dd35a0da7ac0800000000000000
-      internalID: -3856540722763574213
+      spriteID: afde8219e03ee6b30800000000000000
+      internalID: 4282609947380346362
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: negeza_default_4
+      name: Negeza_Idle_4
       rect:
         serializedVersion: 2
-        x: 116
+        x: 128
         y: 0
-        width: 29
-        height: 26
+        width: 32
+        height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -251,20 +251,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a48d9bf06a46b48d0800000000000000
-      internalID: -2861082473872631734
+      spriteID: a792916cdbeedfb80800000000000000
+      internalID: -8359262834490005126
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: negeza_default_5
+      name: Negeza_Idle_5
       rect:
         serializedVersion: 2
-        x: 145
+        x: 160
         y: 0
-        width: 29
-        height: 26
+        width: 32
+        height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -272,8 +272,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: bf5e5f35b36c86c00800000000000000
-      internalID: 894182484147037691
+      spriteID: dbd4dba559d5a8230800000000000000
+      internalID: 3641826144736333245
       vertices: []
       indices: 
       edges: []

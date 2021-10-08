@@ -1,25 +1,25 @@
 fileFormatVersion: 2
-guid: 81a20c646f163554398928a6f27bec0b
+guid: b89969083c853aa4cbca28c5d86209fa
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 7364360555687173805
-    second: negeza_die_0
+      213: 3311700993688673814
+    second: Negeza_Death_0
   - first:
-      213: 7345556062063238976
-    second: negeza_die_1
+      213: 4645839729335609609
+    second: Negeza_Death_1
   - first:
-      213: 5235358223833134535
-    second: negeza_die_2
+      213: 3569590467384128172
+    second: Negeza_Death_2
   - first:
-      213: -4642719647531506233
-    second: negeza_die_3
+      213: 3294483617582280651
+    second: Negeza_Death_3
   - first:
-      213: 4613739410936084170
-    second: negeza_die_4
+      213: -8437462543405689881
+    second: Negeza_Death_4
   - first:
-      213: -1928910252141727537
-    second: negeza_die_5
+      213: -1368756703575666720
+    second: Negeza_Death_5
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -63,7 +63,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 26
+  spritePixelsToUnits: 32
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -153,13 +153,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: negeza_die_0
+      name: Negeza_Death_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 31
-        height: 25
+        width: 32
+        height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -167,20 +167,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: daed1a748e6733660800000000000000
-      internalID: 7364360555687173805
+      spriteID: 61e1f13f18685fd20800000000000000
+      internalID: 3311700993688673814
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: negeza_die_1
+      name: Negeza_Death_1
       rect:
         serializedVersion: 2
-        x: 31
+        x: 32
         y: 0
-        width: 31
-        height: 25
+        width: 32
+        height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -188,20 +188,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 04f1ffce158a0f560800000000000000
-      internalID: 7345556062063238976
+      spriteID: 909227e7e96597040800000000000000
+      internalID: 4645839729335609609
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: negeza_die_2
+      name: Negeza_Death_2
       rect:
         serializedVersion: 2
-        x: 62
+        x: 64
         y: 0
-        width: 31
-        height: 25
+        width: 32
+        height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -209,20 +209,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 7c57e73019ab7a840800000000000000
-      internalID: 5235358223833134535
+      spriteID: ca23d0a1e9bb98130800000000000000
+      internalID: 3569590467384128172
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: negeza_die_3
+      name: Negeza_Death_3
       rect:
         serializedVersion: 2
-        x: 93
+        x: 96
         y: 0
-        width: 31
-        height: 25
+        width: 32
+        height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -230,20 +230,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 7c56829241fb19fb0800000000000000
-      internalID: -4642719647531506233
+      spriteID: bcfe550356b58bd20800000000000000
+      internalID: 3294483617582280651
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: negeza_die_4
+      name: Negeza_Death_4
       rect:
         serializedVersion: 2
-        x: 124
+        x: 128
         y: 0
-        width: 31
-        height: 25
+        width: 32
+        height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -251,20 +251,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ac6b013bc8b470040800000000000000
-      internalID: 4613739410936084170
+      spriteID: 7e3d3a6358c18ea80800000000000000
+      internalID: -8437462543405689881
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: negeza_die_5
+      name: Negeza_Death_5
       rect:
         serializedVersion: 2
-        x: 155
+        x: 160
         y: 0
-        width: 31
-        height: 25
+        width: 32
+        height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -272,8 +272,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: fc0bb7178522b35e0800000000000000
-      internalID: -1928910252141727537
+      spriteID: 0ef0073b703310de0800000000000000
+      internalID: -1368756703575666720
       vertices: []
       indices: 
       edges: []

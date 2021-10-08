@@ -1,31 +1,31 @@
 fileFormatVersion: 2
-guid: 6af6fff3411329846abf4cd182e5b013
+guid: 6357b463e58dbb842a80da6954521c34
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -5065636621851420243
-    second: negeza_move_0
+      213: -720501258356103135
+    second: Negeza_Move_0
   - first:
-      213: 3143201814184367153
-    second: negeza_move_1
+      213: -7646526046954979104
+    second: Negeza_Move_1
   - first:
-      213: 6141575828806895399
-    second: negeza_move_2
+      213: 2068922939549330584
+    second: Negeza_Move_2
   - first:
-      213: -6329335076105768903
-    second: negeza_move_3
+      213: -7484707885299373596
+    second: Negeza_Move_3
   - first:
-      213: 9150755984276525777
-    second: negeza_move_4
+      213: 1766808194865573283
+    second: Negeza_Move_4
   - first:
-      213: -3177563844838571676
-    second: negeza_move_5
+      213: -6344922680288974621
+    second: Negeza_Move_5
   - first:
-      213: 7963503259382135615
-    second: negeza_move_6
+      213: -6607313575283660003
+    second: Negeza_Move_6
   - first:
-      213: -6762130830573412065
-    second: negeza_move_7
+      213: 3182943341297552395
+    second: Negeza_Move_7
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -69,7 +69,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 26
+  spritePixelsToUnits: 32
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -159,7 +159,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: negeza_move_0
+      name: Negeza_Move_0
       rect:
         serializedVersion: 2
         x: 0
@@ -173,14 +173,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: da91651d45e33b9b0800000000000000
-      internalID: -5065636621851420243
+      spriteID: 12866734ce34006f0800000000000000
+      internalID: -720501258356103135
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: negeza_move_1
+      name: Negeza_Move_1
       rect:
         serializedVersion: 2
         x: 32
@@ -194,14 +194,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 13492d78565ee9b20800000000000000
-      internalID: 3143201814184367153
+      spriteID: 0e00a75c21512e590800000000000000
+      internalID: -7646526046954979104
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: negeza_move_2
+      name: Negeza_Move_2
       rect:
         serializedVersion: 2
         x: 64
@@ -215,14 +215,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 72709254da24b3550800000000000000
-      internalID: 6141575828806895399
+      spriteID: 89cae7fa37a46bc10800000000000000
+      internalID: 2068922939549330584
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: negeza_move_3
+      name: Negeza_Move_3
       rect:
         serializedVersion: 2
         x: 96
@@ -236,14 +236,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 930bb44584fa928a0800000000000000
-      internalID: -6329335076105768903
+      spriteID: 4e96a2185d9f02890800000000000000
+      internalID: -7484707885299373596
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: negeza_move_4
+      name: Negeza_Move_4
       rect:
         serializedVersion: 2
         x: 128
@@ -257,14 +257,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 1d2151db5140efe70800000000000000
-      internalID: 9150755984276525777
+      spriteID: 3ad263931b6f48810800000000000000
+      internalID: 1766808194865573283
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: negeza_move_5
+      name: Negeza_Move_5
       rect:
         serializedVersion: 2
         x: 160
@@ -278,14 +278,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 461c541c48607e3d0800000000000000
-      internalID: -3177563844838571676
+      spriteID: 3e86e0a607e42f7a0800000000000000
+      internalID: -6344922680288974621
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: negeza_move_6
+      name: Negeza_Move_6
       rect:
         serializedVersion: 2
         x: 192
@@ -299,14 +299,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f3b332f950c048e60800000000000000
-      internalID: 7963503259382135615
+      spriteID: d1be9917f4b1e44a0800000000000000
+      internalID: -6607313575283660003
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: negeza_move_7
+      name: Negeza_Move_7
       rect:
         serializedVersion: 2
         x: 224
@@ -320,8 +320,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f1164fe36d51822a0800000000000000
-      internalID: -6762130830573412065
+      spriteID: b0c4c3eda161c2c20800000000000000
+      internalID: 3182943341297552395
       vertices: []
       indices: 
       edges: []
