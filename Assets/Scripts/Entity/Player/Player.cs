@@ -15,7 +15,7 @@ public class Player : Entity
 	[Header("타일 표식")]
 	public GameObject previewTile;  // 마우스를 가져다 댔을 때 보여주는 오브젝트
 	public Color color_OK;			// 이동 가능한 색깔
-	public Color color_NO;			// 이동 불가능한 색깔
+	public Color color_NO;          // 이동 불가능한 색깔
 
 	// < 필요한 컴포넌트 >
 	PlayerInput playerInput;		// 플레이어가 입력한 키값을 받아오기 위해 사용
@@ -36,6 +36,8 @@ public class Player : Entity
 	[HideInInspector] public float currentTurnDelay = 0.0f;	// 턴 딜레이 변수입니다. (이 시간이 모두 소모되면 턴이 돌아옵니다.)
 	bool playerTurn = true;									// 플레이어 턴 체크 변수입니다.
 	bool canPush = true;									// 플레이어를 밀 수 있는지 체크하는 변수입니다.
+
+
 
 
 	protected override void Awake()
@@ -145,9 +147,9 @@ public class Player : Entity
 	private void TryAttack()
 	{
 		if (playerInput.LButtonClick && playerTurn && targetChecker.selectedEntity
-			&& targetChecker.GetDistance() <= attackRange)
+			&& !targetChecker.selectedEntity.invincible && targetChecker.GetDistance() <= attackRange)
 		{
-			// 공격이 여러번할 수 있도록 임시로 입력을 막습니다.
+			// 공격이 여러번할 수 없도록 임시로 입력을 막습니다.
 			SetPlayerTurn(false, 1.0f);
 
 			// TODO: 이후에 지울 Debug.Log
@@ -157,7 +159,7 @@ public class Player : Entity
 			anim.SetTrigger("AttackDefault");
 			LookEntity(targetChecker.selectedEntity, false);
 
-			StartCoroutine(AttackCoroutine(0.25f, targetChecker.selectedEntity));
+			StartCoroutine(AttackCoroutine(attackDelay, targetChecker.selectedEntity));
 		}
 	}
 

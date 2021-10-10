@@ -6,18 +6,20 @@ public class Entity : MonoBehaviour
 {
 	[Header("엔티티 스탯")]
 	public string entityName = "Entity";
-	public float strength = 1;		// 힘(공격력) - 데미지와 관련됨
-	public float health = 1;		// 체력 - 몬스터와 전투시 사용
-	public float satiety = 100;		// 포만감 - 일정량 이상일시 체력 감소 등..
-	public float mana = 0;			// 마나
-	public int moveCount = 1;		// 이동 가능한 거리(칸수)
-	public int attackRange = 1;     // 공격가능 거리(칸수)
+	public float strength = 1;			// 힘(공격력) - 데미지와 관련됨
+	public float health = 1;			// 체력 - 몬스터와 전투시 사용
+	public float satiety = 100;			// 포만감 - 일정량 이상일시 체력 감소 등..
+	public float mana = 0;				// 마나
+	public int moveCount = 1;			// 이동 가능한 거리(칸수)
+	public int attackRange = 1;			// 공격가능 거리(칸수)
+	public float attackDelay = 0.25f;	// 공격 딜레이(공격을 맞기까지의 시간)
+	public bool invincible = false;
 
 	[HideInInspector] public float curHealth = 0;	// 현재 체력입니다.
 	[HideInInspector] public float curSatiety = 0;	// 현재 포만감입니다.
 	[HideInInspector] public float curMana = 0;		// 현재 마나입니다.
 
-	[HideInInspector] public bool isDead = false;					// 죽었는지 체크하는 상태변수
+	[HideInInspector] public bool isDead = false;	// 죽었는지 체크하는 상태변수
 
 	[Header("피격 효과")]
 	private Material originMat;

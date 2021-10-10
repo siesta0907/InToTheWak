@@ -4,7 +4,9 @@ using UnityEngine;
 
 public class DefaultEnemy : Enemy
 {
-	float attackDelay = 0.35f;
+	[Header("Enemy Setting")]
+	[SerializeField] private int detectRange = 8;       // 탐지 거리 (탐지거리 내에 들어와야 행동)
+	[SerializeField] private float attackChance = 100f;  // 공격확률 (공격범위 내에 있을경우)
 	Coroutine attackCoroutine;
 
 	// 턴이 시작될때
@@ -31,16 +33,23 @@ public class DefaultEnemy : Enemy
 	{
 		float distance = Vector3.Distance(player.targetPos, transform.position);
 
+		// 탐지거리 범위내에 있지 않으면 행동하지 않습니다.
+		if (distance > detectRange) return;
+
 		// Attack - 플레이어의 도착위치가 적의 위치 차이가 공격범위 이내일때, 이동하지 않고 공격합니다.
 		if(distance <= attackRange)
 		{
-			if(attackCoroutine != null)
-				StopCoroutine(attackCoroutine);
-			attackCoroutine = StartCoroutine(AttackCorotuine());
+			// 정해진 확률에 따라 공격함
+			if(Random.Range(0f, 100f) < attackChance)
+			{
+				if (attackCoroutine != null)
+					StopCoroutine(attackCoroutine);
+				attackCoroutine = StartCoroutine(AttackCorotuine());
 
-			// 애니메이션 재생 - 공격
-			anim.SetTrigger("Attack");
-			LookEntity(player, true);
+				// 애니메이션 재생 - 공격
+				anim.SetTrigger("Attack");
+				LookEntity(player, true);
+			}
 		}
 
 		// Chase - 차이가 난다면 플레이어를 추격합니다.

@@ -7,6 +7,8 @@ public class Projectile : MonoBehaviour
 	Entity owner;
 	float damage;
 	float speed;
+	Vector3 dir;
+	[SerializeField] private bool lockRotation = false;
 
 	void Start()
 	{
@@ -16,7 +18,10 @@ public class Projectile : MonoBehaviour
 
 	void Update()
 	{
-		transform.position += transform.right * speed * Time.deltaTime;
+		if (!lockRotation)
+			transform.position += transform.right * speed * Time.deltaTime;
+		else
+			transform.position += dir * speed * Time.deltaTime;
 	}
 
 
@@ -36,5 +41,13 @@ public class Projectile : MonoBehaviour
 		this.owner = owner;
 		this.damage = damage;
 		this.speed = speed;
+	}
+
+	public void SetData(Entity owner, float damage, float speed, Vector3 dir)
+	{
+		this.owner = owner;
+		this.damage = damage;
+		this.speed = speed;
+		this.dir = dir.normalized;
 	}
 }

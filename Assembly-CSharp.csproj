@@ -67,6 +67,8 @@
     <Compile Include="Assets\Scripts\Entity\Enemy\Boss\Pungsin.cs" />
     <Compile Include="Assets\Scripts\Entity\Enemy\DefaultEnemy.cs" />
     <Compile Include="Assets\Scripts\Entity\Enemy\Enemy.cs" />
+    <Compile Include="Assets\Scripts\Entity\Enemy\RangedEnemy.cs" />
+    <Compile Include="Assets\Scripts\Entity\Enemy\TrapEnemy.cs" />
     <Compile Include="Assets\Scripts\Entity\Entity.cs" />
     <Compile Include="Assets\Scripts\Entity\EntityHealth.cs" />
     <Compile Include="Assets\Scripts\Entity\Player\Player.cs" />

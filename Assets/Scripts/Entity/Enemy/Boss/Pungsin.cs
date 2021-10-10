@@ -92,7 +92,7 @@ public class Pungsin : Enemy
 	{
 		// 플레이어의 이동을 기다리고 공격 ( SetPlayerTurn(false, 1.0f)와 같습니다 )
 		player.currentTurnDelay += 1.0f;
-		yield return new WaitForSeconds(GameData.instance.turnDelay + 1.0f);
+		yield return new WaitForSeconds(GameData.instance.turnDelay + attackDelay);
 
 		Debug.Log(transform.name + "에게 공격당함!");
 		player.TakeDamage(strength, this);
