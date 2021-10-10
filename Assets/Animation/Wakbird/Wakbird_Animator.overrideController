@@ -1,0 +1,19 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!221 &22100000
+AnimatorOverrideController:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Wakbird_Animator
+  m_Controller: {fileID: 9100000, guid: f25254877324c5040bdeaa3855a34ff3, type: 2}
+  m_Clips:
+  - m_OriginalClip: {fileID: 7400000, guid: 0cf26cdc911ccb440bd4fec3034fee5b, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: 1116dc95b42bb664283b5d8452e0f1ee, type: 2}
+  - m_OriginalClip: {fileID: 7400000, guid: 80346f4d08ed0204b8bbe2599bcf9ea3, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: 602a6752252a66e4aa287eb90a3c3a9f, type: 2}
+  - m_OriginalClip: {fileID: 7400000, guid: 631f806520f06124faffd17ef3446eca, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: 53ad3906dd8fbe544a164c12a6949db3, type: 2}
+  - m_OriginalClip: {fileID: 7400000, guid: 008769615b8912743aceedffb49b018c, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: 53ad3906dd8fbe544a164c12a6949db3, type: 2}
