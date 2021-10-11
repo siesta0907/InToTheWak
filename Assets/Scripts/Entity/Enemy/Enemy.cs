@@ -51,6 +51,6 @@ public class Enemy : Entity
 		col.enabled = false;
 		if (nav != null) nav.navVolume.SetWallAtPosition(transform.position, false);
 
-		Destroy(this.gameObject, 3.0f);
+		Destroy(this.gameObject, 6.0f);
 	}
 }

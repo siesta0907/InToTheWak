@@ -60,17 +60,17 @@ public class Pungsin : Enemy
 			}
 			else
 			{
-				Move();
+				MoveAndAttack();
 			}
 		}
 	}
 
 
-	void Move()
+	void MoveAndAttack()
 	{
 		float distance = Vector3.Distance(player.targetPos, transform.position);
 
-		// Attack - 플레이어의 도착위치가 팬치의 위치 차이가 공격범위 이내일때, 이동하지 않고 공격합니다.
+		// Attack - 플레이어의 도착위치가 보스의 위치 차이가 공격범위 이내일때, 이동하지 않고 공격합니다.
 		if (distance <= attackRange && Random.Range(0, 100) <= 25)
 		{
 			if (attackCoroutine != null)
@@ -82,7 +82,8 @@ public class Pungsin : Enemy
 		}
 		else
 		{
-			Vector2Int playerPos = new Vector2Int((int)player.transform.position.x, (int)player.transform.position.y);
+			Vector2Int tmp = new Vector2Int(Random.Range(-1, 1), Random.Range(-1, 1));
+			Vector2Int playerPos = new Vector2Int((int)player.transform.position.x, (int)player.transform.position.y) + tmp;
 			nav.MoveTo(playerPos, moveCount);
 		}
 	}
@@ -90,11 +91,10 @@ public class Pungsin : Enemy
 
 	IEnumerator AttackCorotuine()
 	{
-		// 플레이어의 이동을 기다리고 공격 ( SetPlayerTurn(false, 1.0f)와 같습니다 )
-		player.currentTurnDelay += 1.0f;
+		// 플레이어의 이동을 기다리고 공격
+		player.currentTurnDelay += attackDelay;
 		yield return new WaitForSeconds(GameData.instance.turnDelay + attackDelay);
 
-		Debug.Log(transform.name + "에게 공격당함!");
 		player.TakeDamage(strength, this);
 	}
 

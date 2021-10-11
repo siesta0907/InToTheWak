@@ -29,15 +29,13 @@ public class Player : Entity
 	Timer timer;                    // 보스전 등에서 사용될 Timer
 	EntityInfo entityInfo;			// 선택한 대상의 정보를 표시하기 위한 Entity Info
 
-	SpriteRenderer tileRenderer;	// 이동 가능한 프리뷰 타일의 색을 변경하기 위해 사용됨
+	SpriteRenderer tileRenderer;    // 이동 가능한 프리뷰 타일의 색을 변경하기 위해 사용됨
 
 	// < 그 외 >
 	public Vector3 targetPos { get; private set; }			// 이동할 위치를 미리 저장해주는 변수입니다. (Enemy 스크립트에서 사용됨)
 	[HideInInspector] public float currentTurnDelay = 0.0f;	// 턴 딜레이 변수입니다. (이 시간이 모두 소모되면 턴이 돌아옵니다.)
 	bool playerTurn = true;									// 플레이어 턴 체크 변수입니다.
 	bool canPush = true;									// 플레이어를 밀 수 있는지 체크하는 변수입니다.
-
-
 
 
 	protected override void Awake()
@@ -91,6 +89,13 @@ public class Player : Entity
 	{
 		OnTurnEnd = null;
 		OnPlayerDead = null;
+	}
+
+	
+	// targetPos를 현재위치로 업데이트합니다.
+	public void UpdateTargetPos()
+	{
+		targetPos = transform.position;
 	}
 
 
@@ -322,5 +327,7 @@ public class Player : Entity
 		// 애니메이션 재생 - 피격
 		if(!isDead)
 			anim.SetTrigger("HitReact");
+
+		Debug.Log(attacker.transform.name + "에게 공격당함!");
 	}
 }

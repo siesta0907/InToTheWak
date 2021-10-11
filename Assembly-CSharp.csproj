@@ -64,6 +64,7 @@
     <Compile Include="Assets\Scripts\Effect\HitBox.cs" />
     <Compile Include="Assets\Scripts\Effect\LightAnimEvent.cs" />
     <Compile Include="Assets\Scripts\Effect\Projectile.cs" />
+    <Compile Include="Assets\Scripts\Entity\Enemy\Boss\Herusuck.cs" />
     <Compile Include="Assets\Scripts\Entity\Enemy\Boss\Pungsin.cs" />
     <Compile Include="Assets\Scripts\Entity\Enemy\DefaultEnemy.cs" />
     <Compile Include="Assets\Scripts\Entity\Enemy\Enemy.cs" />
@@ -86,6 +87,7 @@
     <Compile Include="Assets\Scripts\UI\EntityInfo.cs" />
     <Compile Include="Assets\Scripts\UI\GameUIManager.cs" />
     <Compile Include="Assets\Scripts\UI\Hud.cs" />
+    <Compile Include="Assets\Scripts\UI\SkillCheck.cs" />
     <Compile Include="Assets\Scripts\UI\Timer.cs" />
     <Compile Include="Assets\Scripts\Util\CameraShake.cs" />
   </ItemGroup>

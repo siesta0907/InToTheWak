@@ -22,8 +22,8 @@ public class Entity : MonoBehaviour
 	[HideInInspector] public bool isDead = false;	// 죽었는지 체크하는 상태변수
 
 	[Header("피격 효과")]
-	private Material originMat;
-	[SerializeField] private Material hitMat;
+	protected Material originMat;
+	[SerializeField] protected Material hitMat;
 
 	// < 필요한 컴포넌트 >
 	[SerializeField] protected SpriteRenderer sr;   // Sprite Renderer

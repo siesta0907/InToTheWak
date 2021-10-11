@@ -9,9 +9,9 @@ EditorBuildSettings:
     path: Assets/Scenes/TestScene.unity
     guid: f79f55a718b0e524fbb76cc2a0f45294
   - enabled: 1
-    path: Assets/Scenes/TestScene2.unity
-    guid: 089e6314b04fa8a43b8d286d3f6abbbb
-  - enabled: 1
     path: Assets/Scenes/Scene_Pungsin.unity
     guid: 962b3ed227cc29a4c88399392043c21a
+  - enabled: 1
+    path: Assets/Scenes/Scene_Herusuck.unity
+    guid: b88d8c78d66b6d44497f16e1638c7eb1
   m_configObjects: {}

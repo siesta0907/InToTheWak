@@ -17,6 +17,7 @@ public class PlayerStart : MonoBehaviour
 		if(player)
 		{
 			player.transform.position = transform.position;
+			player.UpdateTargetPos();
 		}
 	}
 }
