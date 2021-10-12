@@ -54,8 +54,6 @@ public class TrapEnemy : Enemy
 		// 애니메이션 재생 - 공격
 		anim.SetTrigger("Attack");
 
-		// TODO: 이후에 지울 Debug.Log
-		Debug.Log(transform.name + "에게 공격당함!");
 		player.TakeDamage(strength, this);
 
 		OnDeath(null);
