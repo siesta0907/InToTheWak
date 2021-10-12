@@ -2,6 +2,13 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+
+/* 
+ * 모든 적의 기반이되는 스크립트입니다.
+ * 기본적인 네비게이션, 체력바, 스테이지와 플레이어 정보들을 담고있습니다
+ * Enemy 스크립트를 상속받아 원하시는 객체를 만드시면 됩니다.
+ * EX) 보스, 근거리를 공격하는 적, 투사체를 발사하는 적, 자폭하는 적...
+ */
 public class Enemy : Entity
 {
 	// < 필요한 컴포넌트 >

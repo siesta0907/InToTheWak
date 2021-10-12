@@ -3,6 +3,13 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
+
+/*
+ * 적의 체력바를 보여주는 스크립트입니다.
+ * InitOwner함수에 Entity 타입의 객체를 넣으면 활성화됩니다. (없으면 사용되지 않음)
+ * Enemy를 상속받은 객체들은 InitOwner가 불려지기 때문에,
+ * 체력바 사용을 위해서 EntityHealth 컴포넌트만 추가하면 됩니다.
+ */
 public class EntityHealth : MonoBehaviour
 {
 	[SerializeField] private Image healthBar;

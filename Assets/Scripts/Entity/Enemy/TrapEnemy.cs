@@ -2,6 +2,12 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+
+/*
+ * 자폭 타입의 적 객체입니다.
+ * 탐지거리 내에 있는 플레이어를 쫓아가 자폭합니다.
+ */
+
 public class TrapEnemy : Enemy
 {
 	Coroutine attackCoroutine;

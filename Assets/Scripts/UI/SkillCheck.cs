@@ -4,6 +4,16 @@ using UnityEngine;
 using UnityEngine.UI;
 using System;
 
+
+/*
+ * 데바데의 스킬체크 시스템입니다.
+ * 원하는 객체에 부착해 SetSkillCheck(성공범위(0~1), 대성공범위(0~1))
+ * ClearSkillCheck()로 사용할수 있습니다.
+ * 
+ * 성공시 OnSuccess가 호출
+ * 대성공시 OnPerfect가 호출
+ * 실패시 OnFailed가 호출됩니다.
+ */
 public class SkillCheck : MonoBehaviour
 {
 	[SerializeField] private GameObject checkCircle;

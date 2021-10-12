@@ -3,6 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
+/*
+ * 객체의 정보를 왼쪽상단으로 보여줍니다.
+ */
 public class EntityInfo : MonoBehaviour
 {
 	[SerializeField] private GameObject background;

@@ -2,6 +2,11 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+
+/*
+ * 마우스를 가져다 댄 객체의 정보를 얻는 스크립트입니다.
+ * selectedEntity가 선택된 객체를 의미하며, Player 스크립트와 함께 쓰입니다.
+ */
 public class TargetChecker : MonoBehaviour
 {
 	[SerializeField] LayerMask targetLayer;  // 선택할 수 있는 레이어입니다. (이 레이어에 포함된 객체들만 선택됨)

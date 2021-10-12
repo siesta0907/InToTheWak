@@ -2,13 +2,18 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+
+/*
+ * 투사체 타입의 적 객체입니다.
+ * 탐지거리 내에고 공격범위 내에 있고, 공격범위 밖에있는 플레이어에게 투사체를 발사합니다.
+ */
 public class RangedEnemy : Enemy
 {
 	[Header("Enemy Setting")]
 	[SerializeField] private int detectRange = 8;			// 탐지 거리 (탐지거리 내에 들어와야 행동)
 	[SerializeField] private float attackChance = 70f;		// 공격확률 (공격범위 내에 있을경우)
 	[SerializeField] private float projectileChance = 40f;  // 투사체 소환확률 (공격범위 밖 투사체)
-	[SerializeField] private float projectileSpd = 5f;  // 투사체 속도
+	[SerializeField] private float projectileSpd = 5f;		// 투사체 속도
 	[SerializeField] private GameObject projectile;			// 소환할 투사체
 	Coroutine attackCoroutine;
 

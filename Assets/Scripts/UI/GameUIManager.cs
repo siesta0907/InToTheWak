@@ -2,6 +2,10 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+/*
+ * 화면에 바로 보이는 UI들을 관리합니다.
+ * 항상 보이는 HUD같은 것들이나, 스테이지 넘어갈때 연출인 Fade등이 예시입니다.
+ */
 public class GameUIManager : MonoBehaviour
 {
 	[Header("하위 UI")]

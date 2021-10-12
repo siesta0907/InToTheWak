@@ -4,6 +4,15 @@ using UnityEngine;
 using UnityEngine.UI;
 using System;
 
+
+/*
+ * 타이머를 사용할수 있는 스크립트입니다.
+ * GameManager에서 타이머를 사용할 수 있는 상태여야 하며 => 설정 가능
+ * SetTimer, ClearTimer로 사용합니다.
+ * 플레이어에 부착되어 사용됩니다.
+ * 
+ * 타이머 종료시 OnTimerEnd가 호출됩니다.
+ */
 public class Timer : MonoBehaviour
 {
 	[SerializeField] private GameObject timerBar;

@@ -3,11 +3,18 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
+
+/*
+ * 플레이어의 정보를 시각적으로 보여줍니다.
+ * InitOwner만 설정해주면 자동으로 갱신됩니다.
+ * 
+ * 현재는 체력바 설정밖에 없지만 이후에 포만감 등을 추가할 예정입니다.
+ */
 public class Hud : MonoBehaviour
 {
 	[SerializeField] private Image healthBar;   // 체력바
 
-	Entity owner; // UI를 갱신할 대상입니다.
+	Entity owner;								// UI를 갱신할 대상입니다.
 
 	void Update()
 	{

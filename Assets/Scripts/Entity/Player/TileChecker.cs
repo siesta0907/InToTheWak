@@ -2,6 +2,11 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+
+/*
+ * 스테이지의 타일을 체크하는 스크립트입니다.
+ * 플레이어와 함께 사용되며 마우스를 타일 위에 가져다 댄 경우 등에서 타일 정보를 얻기위해 쓰입니다.
+ */
 public class TileChecker : MonoBehaviour
 {
 	NavMesh2DVolume navVolume; // 저장된 타일의 정보를 가져오기 위해 사용
@@ -10,13 +15,13 @@ public class TileChecker : MonoBehaviour
 
 	void Update()
 	{
-		// 만약 Scene 이동 등으로 navVolume이 없을경우, 다시 찾아줌
+		// 만약 Scene 이동 등으로 navVolume을 잃은경우, 다시 찾아줌
 		if(navVolume == null) navVolume = FindObjectOfType<NavMesh2DVolume>();
 		SetMousePos();
 		SelectTileAtPosition(mousePos);
 	}
 
-	// 현재 선택된 타일이 벽인지 반환하는 함수
+	// 현재 선택된 타일이 벽인지 반환하는 함수 (벽타일은 이동할 수 없는 공간을 말합니다)
 	public bool TileIsWall()
 	{
 		if (selectedTile == null) return true;

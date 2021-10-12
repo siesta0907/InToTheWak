@@ -2,6 +2,11 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+
+/*
+ * 기본 타입의 적 객체입니다.
+ * 탐지거리 내에 있는 플레이어를 추격하고, 공격범위 내의 플레이어를 공격합니다
+ */
 public class DefaultEnemy : Enemy
 {
 	[Header("Enemy Setting")]

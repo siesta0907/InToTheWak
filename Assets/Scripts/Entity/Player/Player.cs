@@ -5,6 +5,18 @@ using UnityEngine.Events;
 using UnityEngine.SceneManagement;
 using System;
 
+
+/*
+ * 플레이어 스크립트입니다.
+ * 다음과 같은 내용들이 포함되어있습니다.
+ * 
+ * 1) 마우스로 가져다 댄 타일정보 및 이동가능 타일인지
+ * 2) 마우스로 가져다 댄 객체의 정보를 시각적으로 보여줌
+ * 3) 플레이어와 관련된 정보들
+ * 4) 플레이에 필요한 행동들 (공격, 이동, 보스전 Timer...)
+ * 5) 그 외 연출 (Camera Shake...)
+ * 
+ */
 public class Player : Entity
 {
 	// < 이벤트 >
@@ -82,21 +94,6 @@ public class Player : Entity
 			MoveAnimation();
 		}
     }
-
-
-	// 스테이지 이동시 기존 Delegate를 기본값으로 되돌립니다.
-	public void ResetDelegate()
-	{
-		OnTurnEnd = null;
-		OnPlayerDead = null;
-	}
-
-	
-	// targetPos를 현재위치로 업데이트합니다.
-	public void UpdateTargetPos()
-	{
-		targetPos = transform.position;
-	}
 
 
 	// 설정된 딜레이에 따른 턴 체크
@@ -248,7 +245,23 @@ public class Player : Entity
 	}
 
 
+	// Delegate를 초기화합니다. (스테이지 이동시 사용됩니다)
+	public void ResetDelegate()
+	{
+		OnTurnEnd = null;
+		OnPlayerDead = null;
+	}
+
+
+	// targetPos를 현재위치로 업데이트합니다. (적들은 targetPos 기준으로 행동하기 때문에 필요합니다.)
+	public void UpdateTargetPos()
+	{
+		targetPos = transform.position;
+	}
+
+
 	// 강제로 턴 설정 (자원, 턴 횟수는 영향받지 않음)
+	/* PlayerTurnEnd가 호출되지 않습니다. */
 	public void SetPlayerTurn(bool turn, float delay)
 	{
 		playerTurn = turn;
