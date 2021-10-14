@@ -5035,7 +5035,7 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Controller
       value: 
-      objectReference: {fileID: 22100000, guid: b86a6b84942f4c14e87838cd3465223b,
+      objectReference: {fileID: 22100000, guid: 3c149aae4ab9ac34584e2fd6e1f23c8c,
         type: 2}
     - target: {fileID: 9214397700510168280, guid: 39ac27380761f7347977bf6b4ee06c47,
         type: 3}
@@ -5045,7 +5045,7 @@ PrefabInstance:
     - target: {fileID: 9214397700510168280, guid: 39ac27380761f7347977bf6b4ee06c47,
         type: 3}
       propertyPath: strength
-      value: 20
+      value: 50
       objectReference: {fileID: 0}
     - target: {fileID: 9214397700510168284, guid: 39ac27380761f7347977bf6b4ee06c47,
         type: 3}
@@ -5107,5 +5107,21 @@ PrefabInstance:
       propertyPath: m_Name
       value: Wakgood
       objectReference: {fileID: 0}
+    - target: {fileID: 9214397700510168287, guid: 39ac27380761f7347977bf6b4ee06c47,
+        type: 3}
+      propertyPath: m_Size.x
+      value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 9214397700510168287, guid: 39ac27380761f7347977bf6b4ee06c47,
+        type: 3}
+      propertyPath: m_Size.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9214397700510168287, guid: 39ac27380761f7347977bf6b4ee06c47,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 1058078634751521716, guid: e38113a18b02b65458d35498d74b12b0,
+        type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 39ac27380761f7347977bf6b4ee06c47, type: 3}

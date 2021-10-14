@@ -60,7 +60,7 @@ public class SkillCheck : MonoBehaviour
 		perfectCircle.fillAmount = perfectSize;
 
 		// 성공, 대성공 범위 설정
-		int newAngleZ = UnityEngine.Random.Range(-270, -60);
+		int newAngleZ = UnityEngine.Random.Range(-270, -90);
 		successCircle.transform.localEulerAngles = new Vector3(0, 0, newAngleZ);
 		successAngle.y = newAngleZ;
 		successAngle.x = newAngleZ - (360.0f * successCircle.fillAmount);

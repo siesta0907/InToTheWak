@@ -5,22 +5,23 @@ using UnityEngine.Experimental.Rendering.Universal;
 
 public class Herusuck : Enemy
 {
-
-	[SerializeField] private float[] comboDamage;	// 해루석 보스는 데미지가 Strength로 관리되지 않습니다.
-	[SerializeField] private float[] comboDamage_Plus;
-
 	[Header("Pattern - Skill1")]
-	[SerializeField] private int upgradeCnt = 4;    // 공격강화 횟수	(5 = 기본공격 5번이 강화상태로 발동)
+	[SerializeField] private int upgradeCnt = 3;	// 공격강화 횟수	(5 = 기본공격 5번이 강화상태로 발동)
+	[SerializeField] private float power = 0f;		// 데미지 증가량 (0 = 0% , 10 = 10%)
 
 	[Header("Pattern - Event")]
-	[SerializeField] private Material unlitMat;     // 연출을 위한 메테리얼, 라이트
+	[SerializeField] private Material unlitMat;		// 연출을 위한 메테리얼, 라이트
 	[SerializeField] private Light2D gl;
+
+	[Header("Pattern - QTE")]
+	[SerializeField] private float[] damage_QTE;		// QTE 실패시 데미지
+	[SerializeField] private float[] attackDelay_QTE;	// 공격을 맞을때의 딜레이
 
 
 	bool skillMode = false;							// 공격 강화상태인지			(true = 기본공격이 강화된 공격으로)
 	bool eventPattern = false;						// 이벤트 패턴을 사용했는지	(50% 이하일시 스킬강화 + QTE)
-	int comboCnt = 1;								// 콤보카운트				(1 ~ 4)
-	int remainCnt = 0;								// 남은 공격강화 횟수
+	int remainCnt = 0;                                 // 남은 공격강화 횟수
+	int qteIndex = 1;								// QTE 콤보 인덱스 (1 ~ 3)
 	Coroutine attackCoroutine;
 	SkillCheck skillCheck;
 
@@ -84,13 +85,9 @@ public class Herusuck : Enemy
 			if (attackCoroutine != null)
 				StopCoroutine(attackCoroutine);
 
-			// 콤보 데미지 계산
-			float damage = (skillMode) ? comboDamage_Plus[comboCnt - 1] : comboDamage[comboCnt - 1];
-
-
 			// 애니메이션 재생 - 공격
-			anim.SetTrigger("Attack_" + comboCnt);
-			attackCoroutine = StartCoroutine(AttackCorotuine(damage));
+			anim.SetTrigger("Attack_" + Random.Range(1, 5));
+			attackCoroutine = StartCoroutine(AttackCorotuine());
 		}
 		else
 		{
@@ -101,20 +98,21 @@ public class Herusuck : Enemy
 	}
 
 
-	IEnumerator AttackCorotuine(float damage)
+	IEnumerator AttackCorotuine()
 	{
 		// 플레이어의 이동을 기다리고 공격
 		player.SetPlayerTurn(false, attackDelay + 0.3f);
 		yield return new WaitForSeconds(GameData.instance.turnDelay + attackDelay);
 
-		comboCnt = comboCnt % 4 + 1;
 		// 강화공격 상태에서 공격시 카운트 차감, 모두 소진시 기본공격으로 전환
 		if (!eventPattern && remainCnt > 0)
 		{
 			remainCnt--;
-			if (remainCnt == 0) SkillMode(false);
+			if (remainCnt == 0)
+				SkillMode(false);
 		}
 
+		float damage = (skillMode) ? strength * (1 + power / 100) : strength;
 		player.TakeDamage(damage, this);
 	}
 
@@ -182,41 +180,58 @@ public class Herusuck : Enemy
 	// 패턴2 - QTE
 	void Pattern_QTE()
 	{
-		Debug.Log("QTE 재생");
+		Debug.Log("QTE 실행");
+		qteIndex = 1;
 		player.SetPlayerTurn(false, 9999999.0f);
-		skillCheck.SetSkillCheck(0.1f, 0.03f);
+		StartCoroutine(Pattern_QTECoroutine());
 	}
 
 
-	// QTE 실패
+	// QTE 실패 - 스킬피해를 입음
 	void QTE_Fail()
 	{
-		StartCoroutine(QTE_Combo());
+		StartCoroutine(QTE_Combo(qteIndex));
 	}
 
-	// QTE 성공
+
+	// QTE 성공 - 방어
 	void QTE_Success()
 	{
-		player.SetPlayerTurn(false, GameData.instance.turnDelay);
+		// 성공 이펙트.. 사운드...
 	}
 
-	// QTE 대성공
+
+	// QTE 대성공 - 카운터
 	void QTE_Perfect()
 	{
+		TakeDamage(player.strength, player);
+	}
+
+
+	// 3번의 QTE를 시간을 두고 재생
+	IEnumerator Pattern_QTECoroutine()
+	{
+		for (int i = 1; i <= 3; i++)
+		{
+			skillCheck.SetSkillCheck(Random.Range(0.06f, 0.15f), Random.Range(0.02f, 0.03f));
+			yield return new WaitForSeconds(2.5f);
+
+			if (isDead)
+				break;
+		}
+
+		yield return new WaitForSeconds(0.75f);
+		anim.SetTrigger("QTE_End");
 		player.SetPlayerTurn(false, GameData.instance.turnDelay);
 	}
 
-	IEnumerator QTE_Combo()
-	{
-		for (int i = 1; i <= 4; i++)
-		{
-			yield return new WaitForSeconds(0.35f);
-			anim.SetTrigger("Attack_" + i);
-			yield return new WaitForSeconds(GameData.instance.turnDelay + attackDelay);
-			player.TakeDamage(comboDamage_Plus[i-1], this);
-		}
 
-		yield return new WaitForSeconds(1.0f);
-		player.SetPlayerTurn(false, GameData.instance.turnDelay);
+	IEnumerator QTE_Combo(int comboIndex)
+	{
+		anim.SetTrigger("QTE_" + comboIndex);
+		yield return new WaitForSeconds(GameData.instance.turnDelay + attackDelay_QTE[comboIndex-1]);
+
+		player.TakeDamage(damage_QTE[comboIndex-1], this);
+		qteIndex++;
 	}
 }
