@@ -9,9 +9,6 @@ using UnityEngine;
  */
 public class DefaultEnemy : Enemy
 {
-	[Header("Enemy Setting")]
-	[SerializeField] private int detectRange = 8;       // 탐지 거리 (탐지거리 내에 들어와야 행동)
-	[SerializeField] private float attackChance = 100f;  // 공격확률 (공격범위 내에 있을경우)
 	Coroutine attackCoroutine;
 
 	// 턴이 시작될때
@@ -45,7 +42,7 @@ public class DefaultEnemy : Enemy
 		if(distance <= attackRange)
 		{
 			// 정해진 확률에 따라 공격함
-			if(Random.Range(0f, 100f) < attackChance)
+			if(Random.Range(0, 100) < attackChance)
 			{
 				if (attackCoroutine != null)
 					StopCoroutine(attackCoroutine);

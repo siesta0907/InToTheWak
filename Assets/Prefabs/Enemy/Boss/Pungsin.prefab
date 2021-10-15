@@ -754,6 +754,8 @@ MonoBehaviour:
   isDead: 0
   hitMat: {fileID: 2100000, guid: 37ae30d928fb06646b4555b6a7b35780, type: 2}
   sr: {fileID: 183785278}
+  detectRange: 8
+  attackChance: 25
   go_Wind: {fileID: 3729729778909510123, guid: a43af05164e500648b6f858bfe001271, type: 3}
   windCnt: 3
   windAngle: 45

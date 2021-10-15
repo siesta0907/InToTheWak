@@ -30,7 +30,7 @@ public class TrapEnemy : Enemy
 		float distance = Vector3.Distance(player.targetPos, transform.position);
 
 		// Attack - 플레이어의 도착위치가 적의 위치 차이가 공격범위 이내일때, 공격합니다.
-		if (distance <= attackRange && !invincible)
+		if (distance <= attackRange && !invincible && Random.Range(0, 100) < attackChance)
 		{
 			// 애니메이션 재생 - 이동
 			anim.SetBool("IsMove", true);

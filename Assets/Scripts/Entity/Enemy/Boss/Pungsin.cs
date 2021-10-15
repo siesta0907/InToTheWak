@@ -8,7 +8,7 @@ public class Pungsin : Enemy
 
 	[Header("Pattern - Wind")]
 	[SerializeField] private GameObject go_Wind;
-	[SerializeField] private float windCnt = 3;
+	[SerializeField] private int windCnt = 3;
 	[SerializeField] private float windAngle;
 	[SerializeField] private float windDamage;
 	[SerializeField] private float windSpeed;
@@ -71,7 +71,7 @@ public class Pungsin : Enemy
 		float distance = Vector3.Distance(player.targetPos, transform.position);
 
 		// Attack - 플레이어의 도착위치가 보스의 위치 차이가 공격범위 이내일때, 이동하지 않고 공격합니다.
-		if (distance <= attackRange && Random.Range(0, 100) <= 25)
+		if (distance <= attackRange && Random.Range(0, 100) <= attackChance)
 		{
 			if (attackCoroutine != null)
 				StopCoroutine(attackCoroutine);

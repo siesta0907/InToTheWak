@@ -11,6 +11,10 @@ using UnityEngine;
  */
 public class Enemy : Entity
 {
+	[Header("Enemy Setting")]
+	[SerializeField] protected int detectRange = 8;           // 탐지 거리 (탐지거리 내에 들어와야 행동)
+	[SerializeField] protected float attackChance = 70f;      // 공격확률 (공격범위 내에 있을경우)
+
 	// < 필요한 컴포넌트 >
 	protected Player player;
 	protected EntityHealth healthBar;	// 남은체력을 표시하기 위해 사용

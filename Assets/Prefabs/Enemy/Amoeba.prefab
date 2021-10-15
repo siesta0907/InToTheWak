@@ -163,6 +163,8 @@ MonoBehaviour:
   isDead: 0
   hitMat: {fileID: 2100000, guid: 37ae30d928fb06646b4555b6a7b35780, type: 2}
   sr: {fileID: 2708314748510392594}
+  detectRange: 8
+  attackChance: 100
 --- !u!114 &6095825906314057951
 MonoBehaviour:
   m_ObjectHideFlags: 0
