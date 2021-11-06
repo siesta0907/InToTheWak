@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-
 /* 
  * 모든 적의 기반이되는 스크립트입니다.
  * 기본적인 네비게이션, 체력바, 스테이지와 플레이어 정보들을 담고있습니다

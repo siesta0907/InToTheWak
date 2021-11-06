@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System.IO;
 
 public class Pungsin : Enemy
 {
@@ -28,6 +29,33 @@ public class Pungsin : Enemy
 	protected override void Start()
 	{
 		base.Start();
+
+		// TODO: 밸런스를 파일로 수정할 수 있게 해두었으므로 밸런스 조절후 스킬체크 콜백함수 전까지 삭제됩니다.
+		// Load JSON
+		string PATH = Application.dataPath + "/Data/Entity/Pungsin.json";
+		if (File.Exists(PATH))
+		{
+			string loadjson = File.ReadAllText(PATH);
+			PungsinData data = JsonUtility.FromJson<PungsinData>(loadjson);
+			strength = data.strength;
+			health = data.health;
+			moveCount = data.moveCount;
+			attackRange = data.attackRange;
+			detectRange = data.detectRange;
+			attackChance = data.attackChance;
+
+			windCnt = data.windCnt;
+			windAngle = data.windAngle;
+			windDamage = data.windDamage;
+			windSpeed = data.windSpeed;
+
+			lightningCnt = data.lightningCnt;
+			lightningDamage = data.lightningDamage;
+			lightningRange = data.lightningRange;
+
+			pushAmount = data.pushAmount;
+		}
+
 
 		player.SetPlayerTurn(false, 3.5f);
 		anim.SetTrigger("StageStart");

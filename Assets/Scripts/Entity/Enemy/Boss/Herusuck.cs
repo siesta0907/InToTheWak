@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Experimental.Rendering.Universal;
+using System.IO;
 
 public class Herusuck : Enemy
 {
@@ -29,6 +30,29 @@ public class Herusuck : Enemy
 	protected override void Start()
 	{
 		base.Start();
+
+		// TODO: 밸런스를 파일로 수정할 수 있게 해두었으므로 밸런스 조절후 스킬체크 콜백함수 전까지 삭제됩니다.
+		// Load JSON
+		string PATH = Application.dataPath + "/Data/Entity/Herusuck.json";
+		if (File.Exists(PATH))
+		{
+			string loadjson = File.ReadAllText(PATH);
+			HerusuckData data = JsonUtility.FromJson<HerusuckData>(loadjson);
+			strength = data.strength;
+			health = data.health;
+			moveCount = data.moveCount;
+			attackRange = data.attackRange;
+			detectRange = data.detectRange;
+			attackChance = data.attackChance;
+
+			upgradeCnt = data.upgradeCnt;
+			power = data.power;
+			damage_QTE[0] = data.damage_QTE[0];
+			damage_QTE[1] = data.damage_QTE[1];
+			damage_QTE[2] = data.damage_QTE[2];
+		}
+
+
 
 		// 스킬체크 콜백함수 등록
 		skillCheck = FindObjectOfType<SkillCheck>();

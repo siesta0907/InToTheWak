@@ -32,7 +32,7 @@ public class GameManager : MonoBehaviour
 	public void AddEnemyCount(int cnt)
 	{
 		enemyCnt += cnt;
-		if(cnt <= 0)
+		if(enemyCnt <= 0)
 		{
 			GameClear();
 		}
@@ -43,6 +43,7 @@ public class GameManager : MonoBehaviour
 	{
 		Debug.Log("Game Clear!");
 		activeTimer = false;
+		gameEnd = true;
 	}
 
 
@@ -50,5 +51,6 @@ public class GameManager : MonoBehaviour
 	{
 		Debug.Log("Game Over!");
 		activeTimer = false;
+		gameEnd = true;
 	}
 }

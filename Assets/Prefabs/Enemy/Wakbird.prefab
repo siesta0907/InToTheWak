@@ -51,8 +51,8 @@ MonoBehaviour:
   entityName: "\uC641\uBB34\uC0C8"
   strength: 5
   health: 4
-  satiety: 100
-  mana: 0
+  satiety: -1
+  mana: -1
   moveCount: 1
   attackRange: 1
   attackDelay: 0.35

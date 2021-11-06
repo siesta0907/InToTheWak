@@ -153,17 +153,18 @@ MonoBehaviour:
   entityName: "\uB290\uADF8\uC790"
   strength: 1
   health: 10
-  satiety: 100
-  mana: 0
+  satiety: -1
+  mana: -1
   moveCount: 1
   attackRange: 1
+  attackDelay: 0.35
+  invincible: 0
   curHealth: 0
   curSatiety: 0
   curMana: 0
   isDead: 0
   hitMat: {fileID: 2100000, guid: 37ae30d928fb06646b4555b6a7b35780, type: 2}
   sr: {fileID: 5023159880848250683}
-  attackDelay: 0.35
   detectRange: 8
   attackChance: 70
 --- !u!114 &4046396955673591008

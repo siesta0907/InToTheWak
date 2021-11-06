@@ -121,16 +121,20 @@ MonoBehaviour:
   entityName: "\uD32C\uCE58"
   strength: 1
   health: 5
-  satiety: 100
-  mana: 0
+  satiety: -1
+  mana: -1
   moveCount: 1
   attackRange: 1
+  attackDelay: 0.25
+  invincible: 0
   curHealth: 0
   curSatiety: 0
   curMana: 0
   isDead: 0
   hitMat: {fileID: 2100000, guid: 37ae30d928fb06646b4555b6a7b35780, type: 2}
   sr: {fileID: 4983821719204551385}
+  detectRange: 8
+  attackChance: 70
 --- !u!114 &124649263257912071
 MonoBehaviour:
   m_ObjectHideFlags: 0

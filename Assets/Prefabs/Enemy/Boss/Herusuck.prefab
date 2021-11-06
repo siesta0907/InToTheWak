@@ -671,8 +671,8 @@ MonoBehaviour:
   entityName: "\uD574\uB8E8\uC11D"
   strength: 10
   health: 100
-  satiety: 100
-  mana: 0
+  satiety: -1
+  mana: -1
   moveCount: 1
   attackRange: 1
   attackDelay: 0.15
@@ -683,7 +683,7 @@ MonoBehaviour:
   isDead: 0
   hitMat: {fileID: 2100000, guid: 37ae30d928fb06646b4555b6a7b35780, type: 2}
   sr: {fileID: 5632472274421558517}
-  detectRange: 8
+  detectRange: -1
   attackChance: 100
   upgradeCnt: 3
   power: 100

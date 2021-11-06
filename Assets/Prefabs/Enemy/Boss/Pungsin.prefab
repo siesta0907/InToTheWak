@@ -742,8 +742,8 @@ MonoBehaviour:
   entityName: "\uD48D\uC2E0"
   strength: 1
   health: 50
-  satiety: 100
-  mana: 0
+  satiety: -1
+  mana: -1
   moveCount: 1
   attackRange: 1
   attackDelay: 1
@@ -754,7 +754,7 @@ MonoBehaviour:
   isDead: 0
   hitMat: {fileID: 2100000, guid: 37ae30d928fb06646b4555b6a7b35780, type: 2}
   sr: {fileID: 183785278}
-  detectRange: 8
+  detectRange: -1
   attackChance: 25
   go_Wind: {fileID: 3729729778909510123, guid: a43af05164e500648b6f858bfe001271, type: 3}
   windCnt: 3

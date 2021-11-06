@@ -151,9 +151,9 @@ MonoBehaviour:
   entityName: "\uC544\uBA54\uBC14"
   strength: 8
   health: 1
-  satiety: 100
-  mana: 0
-  moveCount: 1
+  satiety: -1
+  mana: -1
+  moveCount: -1
   attackRange: 6
   attackDelay: 0.1
   invincible: 0

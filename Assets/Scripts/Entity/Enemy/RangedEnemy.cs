@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using System.IO;
 
 /*
  * 투사체 타입의 적 객체입니다.
@@ -13,6 +13,30 @@ public class RangedEnemy : Enemy
 	[SerializeField] private float projectileSpd = 5f;		// 투사체 속도
 	[SerializeField] private GameObject projectile;			// 소환할 투사체
 	Coroutine attackCoroutine;
+
+
+	// TODO: 밸런스를 파일로 수정할 수 있게 해두었으므로 밸런스 조절후 Start 메소드는 삭제됩니다.
+	protected override void Start()
+	{
+		base.Start();
+
+		// Load JSON
+		string PATH = Application.dataPath + "/Data/Entity/" + gameObject.name + ".json";
+		if (File.Exists(PATH))
+		{
+			string loadjson = File.ReadAllText(PATH);
+			RangedEnemyData data = JsonUtility.FromJson<RangedEnemyData>(loadjson);
+			strength = data.strength;
+			health = data.health;
+			moveCount = data.moveCount;
+			attackRange = data.attackRange;
+			detectRange = data.detectRange;
+			attackChance = data.attackChance;
+			projectileChance = data.projectileChance;
+			projectileSpd = data.projectileSpd;
+		}
+	}
+
 
 	// 턴이 시작될때
 	protected override void EnemyTurnStart()
