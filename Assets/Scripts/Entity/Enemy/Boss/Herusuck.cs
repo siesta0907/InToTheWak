@@ -26,10 +26,9 @@ public class Herusuck : Enemy
 	Coroutine attackCoroutine;
 	SkillCheck skillCheck;
 
-
-	protected override void Start()
+	protected override void Awake()
 	{
-		base.Start();
+		base.Awake();
 
 		// TODO: 밸런스를 파일로 수정할 수 있게 해두었으므로 밸런스 조절후 스킬체크 콜백함수 전까지 삭제됩니다.
 		// Load JSON
@@ -51,8 +50,11 @@ public class Herusuck : Enemy
 			damage_QTE[1] = data.damage_QTE[1];
 			damage_QTE[2] = data.damage_QTE[2];
 		}
+	}
 
-
+	protected override void Start()
+	{
+		base.Start();
 
 		// 스킬체크 콜백함수 등록
 		skillCheck = FindObjectOfType<SkillCheck>();

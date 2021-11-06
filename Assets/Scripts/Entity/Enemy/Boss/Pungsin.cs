@@ -26,9 +26,9 @@ public class Pungsin : Enemy
 
 	List<Vector3> lightningPos = new List<Vector3>();
 
-	protected override void Start()
+	protected override void Awake()
 	{
-		base.Start();
+		base.Awake();
 
 		// TODO: 밸런스를 파일로 수정할 수 있게 해두었으므로 밸런스 조절후 스킬체크 콜백함수 전까지 삭제됩니다.
 		// Load JSON
@@ -55,7 +55,11 @@ public class Pungsin : Enemy
 
 			pushAmount = data.pushAmount;
 		}
+	}
 
+	protected override void Start()
+	{
+		base.Start();
 
 		player.SetPlayerTurn(false, 3.5f);
 		anim.SetTrigger("StageStart");

@@ -11,10 +11,10 @@ public class DefaultEnemy : Enemy
 {
 	Coroutine attackCoroutine;
 
-	// TODO: 밸런스를 파일로 수정할 수 있게 해두었으므로 밸런스 조절후 Start 메소드는 삭제됩니다.
-	protected override void Start()
+	// TODO: 밸런스를 파일로 수정할 수 있게 해두었으므로 밸런스 조절후 Awake 메소드는 삭제됩니다.
+	protected override void Awake()
 	{
-		base.Start();
+		base.Awake();
 
 		// Load JSON
 		string PATH = Application.dataPath + "/Data/Entity/" + gameObject.name + ".json";

@@ -73,7 +73,7 @@ public class EntityJson : MonoBehaviour
 		data_panch.attackRange = 1;
 		data_panch.detectRange = 8;
 		data_panch.attackChance = 70;
-		json = JsonUtility.ToJson(data_panch);
+		json = JsonUtility.ToJson(data_panch, true);
 		File.WriteAllText(SAVE_DIRECTORY + "Panch.json", json);
 
 		// JSON - 느그자
@@ -84,7 +84,7 @@ public class EntityJson : MonoBehaviour
 		data_negeza.attackRange = 1;
 		data_negeza.detectRange = 8;
 		data_negeza.attackChance = 70;
-		json = JsonUtility.ToJson(data_negeza);
+		json = JsonUtility.ToJson(data_negeza, true);
 		File.WriteAllText(SAVE_DIRECTORY + "Negeza.json", json);
 
 		// JSON - 왁무새
@@ -97,7 +97,7 @@ public class EntityJson : MonoBehaviour
 		data_wakbird.attackChance = 70;
 		data_wakbird.projectileChance = 30;
 		data_wakbird.projectileSpd = 5;
-		json = JsonUtility.ToJson(data_wakbird);
+		json = JsonUtility.ToJson(data_wakbird, true);
 		File.WriteAllText(SAVE_DIRECTORY + "Wakbird.json", json);
 
 		// JSON - 아메바
@@ -108,7 +108,7 @@ public class EntityJson : MonoBehaviour
 		data_amoeba.attackRange = 6;
 		data_amoeba.detectRange = -1;
 		data_amoeba.attackChance = 100;
-		json = JsonUtility.ToJson(data_amoeba);
+		json = JsonUtility.ToJson(data_amoeba, true);
 		File.WriteAllText(SAVE_DIRECTORY + "Amoeba.json", json);
 
 		// JSON - 풍신
@@ -127,7 +127,7 @@ public class EntityJson : MonoBehaviour
 		data_pungsin.lightningRange = 3;
 		data_pungsin.lightningDamage = 5;
 		data_pungsin.pushAmount = 2;
-		json = JsonUtility.ToJson(data_pungsin);
+		json = JsonUtility.ToJson(data_pungsin, true);
 		File.WriteAllText(SAVE_DIRECTORY + "Pungsin.json", json);
 
 
@@ -144,7 +144,7 @@ public class EntityJson : MonoBehaviour
 		data_herusuck.damage_QTE[0] = 20.0f;
 		data_herusuck.damage_QTE[1] = 100.0f;
 		data_herusuck.damage_QTE[2] = 250.0f;
-		json = JsonUtility.ToJson(data_herusuck);
+		json = JsonUtility.ToJson(data_herusuck, true);
 		File.WriteAllText(SAVE_DIRECTORY + "Herusuck.json", json);
 	}
 }
