@@ -1,1 +1,10 @@
-{"strength":5.0,"health":4.0,"moveCount":1,"attackRange":1,"detectRange":8,"attackChance":70.0,"projectileChance":30.0,"projectileSpd":5.0}
+{
+    "strength": 5.0,
+    "health": 4.0,
+    "moveCount": 1,
+    "attackRange": 1,
+    "detectRange": 8,
+    "attackChance": 70.0,
+    "projectileChance": 30.0,
+    "projectileSpd": 5.0
+}

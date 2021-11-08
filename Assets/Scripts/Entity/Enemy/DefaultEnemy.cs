@@ -77,7 +77,12 @@ public class DefaultEnemy : Enemy
 		// Chase - 차이가 난다면 플레이어를 추격합니다.
 		else
 		{
+			/*
 			Vector2Int playerPos = new Vector2Int((int)player.transform.position.x, (int)player.transform.position.y);
+			nav.MoveTo(playerPos, moveCount);
+			*/
+			Vector2Int tmp = new Vector2Int(Random.Range(-1, 1), Random.Range(-1, 1));
+			Vector2Int playerPos = new Vector2Int((int)player.transform.position.x, (int)player.transform.position.y) + tmp;
 			nav.MoveTo(playerPos, moveCount);
 		}
 	}

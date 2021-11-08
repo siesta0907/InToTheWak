@@ -752,7 +752,7 @@ MonoBehaviour:
   curSatiety: 0
   curMana: 0
   isDead: 0
-  hitMat: {fileID: 2100000, guid: 37ae30d928fb06646b4555b6a7b35780, type: 2}
+  hitMat: {fileID: 2100000, guid: 25d42b59497d1204a9a81cbebdc92496, type: 2}
   sr: {fileID: 183785278}
   detectRange: -1
   attackChance: 25

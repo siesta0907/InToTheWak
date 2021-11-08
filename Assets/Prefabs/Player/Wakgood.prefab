@@ -182,7 +182,7 @@ Animator:
   m_GameObject: {fileID: 9214397700510168286}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 22100000, guid: ee421f3c4a2d1a7428669751de6d115d, type: 2}
+  m_Controller: {fileID: 22100000, guid: da5ca0943716c4f48a41aab3fd6d6160, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -204,17 +204,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   entityName: "\uC6B0\uC641\uAD73"
-  strength: 1
-  health: 30
+  strength: 5
+  health: 250
   satiety: 100
   mana: 0
   moveCount: 3
-  attackRange: 1
+  attackRange: 4
+  attackDelay: 0.25
+  invincible: 0
   curHealth: 0
   curSatiety: 0
   curMana: 0
   isDead: 0
-  hitMat: {fileID: 2100000, guid: 37ae30d928fb06646b4555b6a7b35780, type: 2}
+  hitMat: {fileID: 2100000, guid: b5e4c29f050451548bc1dee507b0d9e7, type: 2}
   sr: {fileID: 9214397700510168287}
   previewTile: {fileID: 9214397699822577256}
   color_OK: {r: 1, g: 1, b: 1, a: 1}

@@ -1,1 +1,15 @@
-{"strength":10.0,"health":100.0,"moveCount":1,"attackRange":1,"detectRange":-1,"attackChance":100.0,"upgradeCnt":3,"power":100.0,"damage_QTE":[20.0,100.0,250.0]}
+{
+    "strength": 10.0,
+    "health": 100.0,
+    "moveCount": 1,
+    "attackRange": 1,
+    "detectRange": -1,
+    "attackChance": 100.0,
+    "upgradeCnt": 3,
+    "power": 100.0,
+    "damage_QTE": [
+        20.0,
+        100.0,
+        250.0
+    ]
+}

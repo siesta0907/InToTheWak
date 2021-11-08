@@ -75,6 +75,8 @@ public class Player : Entity
 		base.Start();
 		hud.InitOwner(this);
 		timer.OnTimerEnd += PlayerTurnEnd;
+
+		UpdateTargetPos();
 	}
 
 
@@ -256,7 +258,7 @@ public class Player : Entity
 	// targetPos를 현재위치로 업데이트합니다. (적들은 targetPos 기준으로 행동하기 때문에 필요합니다.)
 	public void UpdateTargetPos()
 	{
-		targetPos = transform.position;
+		targetPos = new Vector3(Mathf.RoundToInt(transform.position.x), Mathf.RoundToInt(transform.position.y), Mathf.RoundToInt(transform.position.z));
 	}
 
 

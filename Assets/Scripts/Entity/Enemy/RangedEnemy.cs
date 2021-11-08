@@ -5,7 +5,8 @@ using System.IO;
 
 /*
  * 투사체 타입의 적 객체입니다.
- * 탐지거리 내에고 공격범위 내에 있고, 공격범위 밖에있는 플레이어에게 투사체를 발사합니다.
+ * 탐지거리 범위안에 있고 공격범위 밖에있으면 있으면 투사체를 발사합니다.
+ * 반대로 공격범위안에 있으면 일반공격을 합니다.
  */
 public class RangedEnemy : Enemy
 {
@@ -97,7 +98,12 @@ public class RangedEnemy : Enemy
 		// Chase - 차이가 난다면 플레이어를 추격합니다.
 		else if(distance <= detectRange)
 		{
+			/*
 			Vector2Int playerPos = new Vector2Int((int)player.transform.position.x, (int)player.transform.position.y);
+			nav.MoveTo(playerPos, moveCount);
+			*/
+			Vector2Int tmp = new Vector2Int(Random.Range(-1, 1), Random.Range(-1, 1));
+			Vector2Int playerPos = new Vector2Int((int)player.transform.position.x, (int)player.transform.position.y) + tmp;
 			nav.MoveTo(playerPos, moveCount);
 		}
 	}

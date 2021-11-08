@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!221 &22100000
+AnimatorOverrideController:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: WakgoodAnimator_Gun
+  m_Controller: {fileID: 9100000, guid: 1c7ab570df1ec444c9ff479d21cdc369, type: 2}
+  m_Clips:
+  - m_OriginalClip: {fileID: 7400000, guid: 73ccb2230e6b04f47ae4123c5fcb4106, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: 5381d9999a6ee3e48a73a6e260a25b24, type: 2}
+  - m_OriginalClip: {fileID: 7400000, guid: 1ff8db4059b99ad4cb13b93aa763cabf, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: db265f1d249fd814485dd4267427347f, type: 2}
+  - m_OriginalClip: {fileID: 7400000, guid: b08c629e7b686c343bceb0fed1031f03, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: b046b3dab93f36f4f9d44fb97c007bf7, type: 2}
+  - m_OriginalClip: {fileID: 7400000, guid: ca838653780f7c6428a59dfd9a97498d, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: ca838653780f7c6428a59dfd9a97498d, type: 2}
+  - m_OriginalClip: {fileID: 7400000, guid: d0a7d515e40dcd84e9331a0070437a4e, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: d304d8b6fcdfda3458f3accdd8fd6774, type: 2}
