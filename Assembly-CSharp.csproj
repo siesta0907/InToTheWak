@@ -53,7 +53,7 @@
     <UnityVersion>2019.4.29f1</UnityVersion>
   </PropertyGroup>
   <ItemGroup>
-    <Analyzer Include="C:\Program Files (x86)\Microsoft Visual Studio Tools for Unity\16.0\Analyzers\Microsoft.Unity.Analyzers.dll" />
+    <Analyzer Include="C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\Common7\IDE\Extensions\Microsoft\Visual Studio Tools for Unity\Analyzers\Microsoft.Unity.Analyzers.dll" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\Scripts\AI\NavMesh2D.cs" />
@@ -79,15 +79,19 @@
     <Compile Include="Assets\Scripts\EntityJson.cs" />
     <Compile Include="Assets\Scripts\GameData.cs" />
     <Compile Include="Assets\Scripts\GameManager.cs" />
+    <Compile Include="Assets\Scripts\Item\Backup\Inventory.cs" />
+    <Compile Include="Assets\Scripts\Item\Backup\Item.cs" />
+    <Compile Include="Assets\Scripts\Item\Backup\itemDatabase.cs" />
     <Compile Include="Assets\Scripts\Item\Door.cs" />
-    <Compile Include="Assets\Scripts\Item\Inventory.cs" />
-    <Compile Include="Assets\Scripts\Item\Item.cs" />
     <Compile Include="Assets\Scripts\Item\PickupItem.cs" />
-    <Compile Include="Assets\Scripts\Item\itemDatabase.cs" />
     <Compile Include="Assets\Scripts\PlayerStart.cs" />
     <Compile Include="Assets\Scripts\UI\EntityInfo.cs" />
     <Compile Include="Assets\Scripts\UI\GameUIManager.cs" />
     <Compile Include="Assets\Scripts\UI\Hud.cs" />
+    <Compile Include="Assets\Scripts\UI\Inventory\EquipmentItem.cs" />
+    <Compile Include="Assets\Scripts\UI\Inventory\FoodItem.cs" />
+    <Compile Include="Assets\Scripts\UI\Inventory\Item.cs" />
+    <Compile Include="Assets\Scripts\UI\Inventory\Slot.cs" />
     <Compile Include="Assets\Scripts\UI\SkillCheck.cs" />
     <Compile Include="Assets\Scripts\UI\Timer.cs" />
     <Compile Include="Assets\Scripts\Util\CameraShake.cs" />
