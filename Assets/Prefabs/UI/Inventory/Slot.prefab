@@ -244,5 +244,7 @@ MonoBehaviour:
   slotType: 0
   item: {fileID: 0}
   itemCount: 0
+  highlightColor: {r: 0.6415094, g: 0.6415094, b: 0.6415094, a: 1}
   img_Item: {fileID: 8871298129939630534}
   txt_Count: {fileID: 1567092631}
+  slotParts: 0

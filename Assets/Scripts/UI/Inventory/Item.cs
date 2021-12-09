@@ -28,21 +28,18 @@ public class Item : ScriptableObject
 	public Sprite itemImage;    // 아이템 이미지
 	public int maxCount = 10;   // 최대 보유개수
 
-
 	// Equipment 타입 세팅
-	[Space(20)]
-	[Header("Setting - Equipment")]
+	[Header("[ Setting - Equipment ]")]
 	public EquipmentPart itemPart;  // 아이템 부위
 	public float def;               // 추가 방어력
 	public float atk;               // 추가 공격력
 
-	[Header("* if parts is Weapon")]
+	[Header("* if ItemPart is Weapon")]
 	public Animator weaponAnim;     // 무기 장착시 변경되는 애니메이터
 
 
 	// Food 타입 세팅
-	[Space(20)]
-	[Header("Setting - Food")]
+	[Header("[ Setting - Food ]")]
 	public float hp;        // 증가 체력
 	public float mp;
 

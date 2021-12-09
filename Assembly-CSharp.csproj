@@ -94,6 +94,7 @@
     <Compile Include="Assets\Scripts\UI\Inventory\Slot.cs" />
     <Compile Include="Assets\Scripts\UI\SkillCheck.cs" />
     <Compile Include="Assets\Scripts\UI\Timer.cs" />
+    <Compile Include="Assets\Scripts\UI\Tooltip.cs" />
     <Compile Include="Assets\Scripts\Util\CameraShake.cs" />
   </ItemGroup>
   <ItemGroup>

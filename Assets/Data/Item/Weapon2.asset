@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: Weapon2
   m_EditorClassIdentifier: 
   itemType: 0
-  itemName: 
-  itemDesc: 
+  itemName: "\uB300\uAC80"
+  itemDesc: "\uBB35\uC9C1\uD55C \uB300\uAC80\uC785\uB2C8\uB2E4."
   itemImage: {fileID: 21300000, guid: 08d35e42106584e438bc2da16a4a8b26, type: 3}
   maxCount: 10
   itemPart: 0

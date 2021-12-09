@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: Chestplate
   m_EditorClassIdentifier: 
   itemType: 0
-  itemName: 
-  itemDesc: 
+  itemName: "\uAC11\uC637"
+  itemDesc: "\uD14C\uC2A4\uD2B8\uC6A9 \uAC11\uC637\uC785\uB2C8\uB2E4."
   itemImage: {fileID: -2079662534189063485, guid: 2548abbcf9aede0478f6f071c5ca7a95,
     type: 3}
   maxCount: 10

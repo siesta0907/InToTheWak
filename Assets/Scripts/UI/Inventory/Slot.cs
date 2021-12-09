@@ -13,18 +13,32 @@ public enum SlotType
 }
 
 
-public class Slot : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHandler, IDropHandler
+public class Slot : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHandler, IDropHandler, IPointerEnterHandler, IPointerExitHandler
 {
 	public SlotType slotType;   // 슬롯 타입
 	[HideInInspector] public Item item;			// Slot이 담고있는 아이템
-	[HideInInspector] public int itemCount;		// Slot이 가지고 있는 아이템 개수
+	[HideInInspector] public int itemCount;     // Slot이 가지고 있는 아이템 개수
 
-	[SerializeField] Image img_Item;		// 아이템 아이콘을 담을 Image 컴포넌트
-	[SerializeField] Text txt_Count;        // 아이템 카운트를 담을 Text 컴포넌트
+	[SerializeField] private Color highlightColor;  // 마우스를 올렸을때 색깔
+	private Color originColor;
+	private Image slotImage;
 
-	[Space(10)]
-	[Header("Equipment Slot Setting")]
+	[SerializeField] private Image img_Item;		// 아이템 아이콘을 담을 Image 컴포넌트
+	[SerializeField] private Text txt_Count;        // 아이템 카운트를 담을 Text 컴포넌트
+
+	[Header("[ Equipment Slot Setting ]")]
 	public EquipmentPart slotParts;			// 해당 슬롯에 착용 가능한 파츠
+
+	void Awake()
+	{
+		slotImage = GetComponent<Image>();
+		originColor = slotImage.color;
+	}
+
+	void OnEnable()
+	{
+		slotImage.color = originColor;	// 슬롯 색상을 기존으로 되돌림
+	}
 
 	public void SetItem(Item item, int itemCount)
 	{
@@ -110,6 +124,7 @@ public class Slot : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHand
 	{
 		if (item != null && DragOperation.instance.dragSlot == null)
 		{
+			Tooltip.instance.HideTooltip();
 			DragOperation.instance.SetDragSlot(this);
 		}
 	}
@@ -223,4 +238,18 @@ public class Slot : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHand
 		}
 	}
 	#endregion
+
+	public void OnPointerEnter(PointerEventData eventData)
+	{
+		slotImage.color = highlightColor;
+		if (item != null && DragOperation.instance.dragSlot == null)
+			Tooltip.instance.ShowTooltip(item, eventData);
+	}
+
+	public void OnPointerExit(PointerEventData eventData)
+	{
+		slotImage.color = originColor;
+		if (item != null)
+			Tooltip.instance.HideTooltip();
+	}
 }

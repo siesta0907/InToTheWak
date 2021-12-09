@@ -7,7 +7,7 @@ public class DragOperation : MonoBehaviour
 {
 	public static DragOperation instance;
 	[HideInInspector] public Slot dragSlot;
-	[SerializeField] Image itemImg;
+	[SerializeField] private Image itemImg;
 
 	void Awake()
 	{
