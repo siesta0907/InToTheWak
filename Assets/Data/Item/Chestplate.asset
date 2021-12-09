@@ -1,0 +1,26 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: feb4a9f04f0681343b2526f2fc709565, type: 3}
+  m_Name: Chestplate
+  m_EditorClassIdentifier: 
+  itemType: 0
+  itemName: 
+  itemDesc: 
+  itemImage: {fileID: -2079662534189063485, guid: 2548abbcf9aede0478f6f071c5ca7a95,
+    type: 3}
+  maxCount: 10
+  itemPart: 2
+  def: 0
+  atk: 0
+  weaponAnim: {fileID: 0}
+  hp: 0
+  mp: 0

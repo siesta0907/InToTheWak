@@ -13,6 +13,7 @@ public class GameData : MonoBehaviour
 
 	public int turn;    // 현재까지 흐른 턴
 
+
 	void Awake()
 	{
 		#region Singleton

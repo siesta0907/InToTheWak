@@ -88,8 +88,8 @@
     <Compile Include="Assets\Scripts\UI\EntityInfo.cs" />
     <Compile Include="Assets\Scripts\UI\GameUIManager.cs" />
     <Compile Include="Assets\Scripts\UI\Hud.cs" />
-    <Compile Include="Assets\Scripts\UI\Inventory\EquipmentItem.cs" />
-    <Compile Include="Assets\Scripts\UI\Inventory\FoodItem.cs" />
+    <Compile Include="Assets\Scripts\UI\Inventory\DragOperation.cs" />
+    <Compile Include="Assets\Scripts\UI\Inventory\Inventory.cs" />
     <Compile Include="Assets\Scripts\UI\Inventory\Item.cs" />
     <Compile Include="Assets\Scripts\UI\Inventory\Slot.cs" />
     <Compile Include="Assets\Scripts\UI\SkillCheck.cs" />
