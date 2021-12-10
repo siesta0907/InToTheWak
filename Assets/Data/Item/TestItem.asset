@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: TestItem
   m_EditorClassIdentifier: 
   itemType: 2
-  itemName: TestItem
-  itemDesc: .
+  itemName: Test Item
+  itemDesc: No Desc
   itemImage: {fileID: 2120983622056397397, guid: 941f987a0eceda146ba2699495848ea0,
     type: 3}
   maxCount: 10

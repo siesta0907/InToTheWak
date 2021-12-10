@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: TestFood
   m_EditorClassIdentifier: 
   itemType: 1
-  itemName: "\uC544\uBA54\uBC14"
-  itemDesc: "\uBA39\uC744\uC218 \uC788\uC744 \uAC83 \uAC19\uC740\uB370\uC694?"
+  itemName: Test Potion
+  itemDesc: No Desc
   itemImage: {fileID: -4124770334217946213, guid: c59d1984545a17941afe09adb90311e7,
     type: 3}
   maxCount: 10
