@@ -19,12 +19,18 @@ public class Slot : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHand
 	[HideInInspector] public Item item;				// Slot이 담고있는 아이템
 	[HideInInspector] public int itemCount;			// Slot이 가지고 있는 아이템 개수
 
+	// Slot Image
 	[SerializeField] private Color highlightColor;  // 마우스를 올렸을때 색깔
 	private Color originColor;
 	private Image slotImage;
 
+	// ItemCount Text Setting
+	[SerializeField] private Color fullCntColor;    // 개수가 가득찼을때 색깔
+	private Color originCntColor;
+
 	[SerializeField] private Image img_Item;		// 아이템 아이콘을 담을 Image 컴포넌트
 	[SerializeField] private Text txt_Count;        // 아이템 카운트를 담을 Text 컴포넌트
+
 
 	[Header("[ Equipment Slot Setting ]")]
 	public EquipmentPart slotParts;					// 해당 슬롯에 착용 가능한 파츠
@@ -33,6 +39,8 @@ public class Slot : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHand
 	{
 		slotImage = GetComponent<Image>();
 		originColor = slotImage.color;
+
+		originCntColor = txt_Count.color;
 	}
 
 	void OnEnable()
@@ -88,7 +96,7 @@ public class Slot : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHand
 		if (slot != null && slot != this)
 		{
 			// 1) 서로 같은 아이템인 경우 - 겹칠수 있는지 체크
-			if (slot.item == item)
+			if (slot.item == item && itemCount < item.maxCount)
 			{
 				// 1-A) 아이템을 겹쳤을 때 최대 개수를 초과하지 않은경우
 				if (slot.itemCount + itemCount <= item.maxCount)
@@ -133,8 +141,17 @@ public class Slot : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHand
 			img_Item.gameObject.SetActive(true);
 
 			// Item Count 텍스트 갱신
-			txt_Count.text = itemCount.ToString();
-			txt_Count.gameObject.SetActive(true);
+			if (item.itemType != ItemType.Equipment)
+			{
+				txt_Count.text = itemCount.ToString();
+				if (itemCount >= item.maxCount)
+					txt_Count.color = fullCntColor;
+				else
+					txt_Count.color = originCntColor;
+				txt_Count.gameObject.SetActive(true);
+			}
+			else
+				txt_Count.gameObject.SetActive(false);
 		}
 		// 2) 아이템이 없는경우
 		else
