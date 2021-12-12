@@ -17,7 +17,7 @@ MonoBehaviour:
   itemDesc: No Desc
   itemImage: {fileID: -4124770334217946213, guid: c59d1984545a17941afe09adb90311e7,
     type: 3}
-  maxCount: 10
+  maxCount: 6
   itemPart: 0
   def: 0
   atk: 0

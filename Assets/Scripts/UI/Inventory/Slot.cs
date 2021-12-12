@@ -15,9 +15,9 @@ public enum SlotType
 
 public class Slot : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHandler, IDropHandler, IPointerEnterHandler, IPointerExitHandler
 {
-	public SlotType slotType;   // 슬롯 타입
-	[HideInInspector] public Item item;			// Slot이 담고있는 아이템
-	[HideInInspector] public int itemCount;     // Slot이 가지고 있는 아이템 개수
+	public SlotType slotType;						// 슬롯 타입
+	[HideInInspector] public Item item;				// Slot이 담고있는 아이템
+	[HideInInspector] public int itemCount;			// Slot이 가지고 있는 아이템 개수
 
 	[SerializeField] private Color highlightColor;  // 마우스를 올렸을때 색깔
 	private Color originColor;
@@ -27,7 +27,7 @@ public class Slot : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHand
 	[SerializeField] private Text txt_Count;        // 아이템 카운트를 담을 Text 컴포넌트
 
 	[Header("[ Equipment Slot Setting ]")]
-	public EquipmentPart slotParts;			// 해당 슬롯에 착용 가능한 파츠
+	public EquipmentPart slotParts;					// 해당 슬롯에 착용 가능한 파츠
 
 	void Awake()
 	{
@@ -46,7 +46,7 @@ public class Slot : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHand
 		if (item != null)
 		{
 			this.item = item;
-			this.itemCount = itemCount;
+			this.itemCount = Mathf.Min(itemCount, item.maxCount);
 			UpdateSlotImage();
 		}
 		// 2) 아이템이 없는경우 슬롯을 비움
@@ -56,33 +56,64 @@ public class Slot : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHand
 		}
 	}
 
-	public void SwapSlot(Slot slot)
+	public void SetItemCount(int amount)
 	{
-		if (slot != null)
+		if (item != null)
 		{
-			Item tmpItem = this.item;
-			int tmpItemCount = this.itemCount;
-
-			SetItem(slot.item, slot.itemCount);
-			slot.SetItem(tmpItem, tmpItemCount);
+			itemCount = Mathf.Min(amount, item.maxCount);
+			if (amount <= 0)
+				ClearSlot();
+			UpdateSlotImage();
 		}
 	}
 
-	public bool AddItemCount(int count)
+	public void AddItemCount(int amount)
 	{
-		// 1) 최대 보유수량이 가득찬 경우 실패 반환
-		if (itemCount + count > item.maxCount)
-			return false;
+		if (item != null)
+		{
+			if (itemCount + amount <= item.maxCount)
+				itemCount += amount;
+			else
+				itemCount = item.maxCount;
 
-		itemCount += count;
-		if (item.maxCount > 1)
-			txt_Count.text = itemCount.ToString();
-		else
-			txt_Count.text = "";
+			if (amount <= 0)
+				ClearSlot();
+			UpdateSlotImage();
 
-		if (itemCount <= 0)
-			ClearSlot();
-		return true;
+		}
+	}
+
+	public void SwapSlot(Slot slot)
+	{
+		if (slot != null && slot != this)
+		{
+			// 1) 서로 같은 아이템인 경우 - 겹칠수 있는지 체크
+			if (slot.item == item)
+			{
+				// 1-A) 아이템을 겹쳤을 때 최대 개수를 초과하지 않은경우
+				if (slot.itemCount + itemCount <= item.maxCount)
+				{
+					// 아이템을 합칩니다.
+					SetItemCount(slot.itemCount + itemCount);
+					slot.ClearSlot();
+				}
+				// 1-B) 아닌경우 - 아이템을 겹치고 최대 개수를 넘고 남는경우
+				else
+				{
+					slot.SetItemCount(slot.itemCount - (item.maxCount - itemCount));	// 다른 슬롯의 카운트를 줘야되는 개수만큼 빼서 넘김
+					SetItemCount(item.maxCount);										// 현재 슬롯의 카운트를 최대로 채움
+				}
+			}
+			// 2) 서로 겹칠 수 없는경우
+			else
+			{
+				Item tmpItem = this.item;
+				int tmpItemCount = this.itemCount;
+
+				SetItem(slot.item, slot.itemCount);
+				slot.SetItem(tmpItem, tmpItemCount);
+			}
+		}
 	}
 
 	public void ClearSlot()
