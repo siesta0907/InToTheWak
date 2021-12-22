@@ -35,7 +35,7 @@ public class Item : ScriptableObject
 	public float atk;               // 추가 공격력
 
 	[Header("* if ItemPart is Weapon")]
-	public Animator weaponAnim;     // 무기 장착시 변경되는 애니메이터
+	public RuntimeAnimatorController weaponAnim;     // 무기 장착시 변경되는 애니메이터
 
 
 	// Food 타입 세팅

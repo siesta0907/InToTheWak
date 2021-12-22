@@ -33,7 +33,9 @@ public class Slot : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHand
 
 
 	[Header("[ Equipment Slot Setting ]")]
-	public EquipmentPart slotParts;					// 해당 슬롯에 착용 가능한 파츠
+	public EquipmentPart slotParts;                 // 해당 슬롯에 착용 가능한 파츠
+
+	public Inventory inventory;
 
 	void Awake()
 	{
@@ -41,6 +43,8 @@ public class Slot : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHand
 		originColor = slotImage.color;
 
 		originCntColor = txt_Count.color;
+
+		inventory = FindObjectOfType<Inventory>();
 	}
 
 	void OnEnable()
@@ -120,6 +124,23 @@ public class Slot : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHand
 
 				SetItem(slot.item, slot.itemCount);
 				slot.SetItem(tmpItem, tmpItemCount);
+			}
+
+			// 이벤트 호출 - 장비슬롯
+			if (slotType == SlotType.Equipment)
+			{
+				inventory.OnEquipmentChange(slotParts, item);
+			}
+			else if (DragOperation.instance.dragSlot.slotType == SlotType.Equipment)
+			{
+				inventory.OnEquipmentChange(DragOperation.instance.dragSlot.slotParts, DragOperation.instance.dragSlot.item);
+			}
+
+
+			// 이벤트 호출 - 음식(소비)슬롯
+			if (slotType == SlotType.Food || DragOperation.instance.dragSlot.slotType == SlotType.Food)
+			{
+				inventory.OnFoodChange();
 			}
 		}
 	}
@@ -265,7 +286,7 @@ public class Slot : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHand
 						SwapSlot(DragOperation.instance.dragSlot);
 					}
 				}
-				// 3-A) 오직 인벤토리와 장비슬롯만 스왑이 가능함, 타입과 파츠가 일치한 경우에만
+				// 2-C) 오직 인벤토리와 장비슬롯만 스왑이 가능함, 타입과 파츠가 일치한 경우에만
 				else if (dragSlot.slotType == SlotType.Equipment)
 				{
 					if (slotType == SlotType.Equipment && dragSlot.item.itemType == item.itemType

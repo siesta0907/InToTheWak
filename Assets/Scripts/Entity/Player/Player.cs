@@ -47,8 +47,9 @@ public class Player : Entity
 	public Vector3 targetPos { get; private set; }			// 이동할 위치를 미리 저장해주는 변수입니다. (Enemy 스크립트에서 사용됨)
 	[HideInInspector] public float currentTurnDelay = 0.0f;	// 턴 딜레이 변수입니다. (이 시간이 모두 소모되면 턴이 돌아옵니다.)
 	bool playerTurn = true;									// 플레이어 턴 체크 변수입니다.
-	bool canPush = true;									// 플레이어를 밀 수 있는지 체크하는 변수입니다.
+	bool canPush = true;                                    // 플레이어를 밀 수 있는지 체크하는 변수입니다.
 
+	RuntimeAnimatorController defaultAnimController;		// 아무런 무기도 장착하지 않았을때 애니메이터
 
 	protected override void Awake()
     {
@@ -65,6 +66,8 @@ public class Player : Entity
 		entityInfo = FindObjectOfType<EntityInfo>();
 
 		tileRenderer = previewTile.GetComponent<SpriteRenderer>();
+
+		defaultAnimController = anim.runtimeAnimatorController;
 
 		DontDestroyOnLoad(this);
     }
@@ -310,6 +313,16 @@ public class Player : Entity
 		}
 		nav.navVolume.SetWallAtPosition(transform.position, true);
 		canPush = true;
+	}
+
+	public void SetWeaponAnimation(RuntimeAnimatorController animator)
+	{
+		if (animator)
+			anim.runtimeAnimatorController = animator;
+		else
+		{
+			anim.runtimeAnimatorController = defaultAnimController;
+		}
 	}
 
 

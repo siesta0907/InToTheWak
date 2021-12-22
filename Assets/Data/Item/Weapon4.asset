@@ -20,6 +20,6 @@ MonoBehaviour:
   itemPart: 0
   def: 0
   atk: 0
-  weaponAnim: {fileID: 0}
+  weaponAnim: {fileID: 22100000, guid: da5ca0943716c4f48a41aab3fd6d6160, type: 2}
   hp: 0
   mp: 0

@@ -8,7 +8,24 @@ public class Inventory : MonoBehaviour
 	[SerializeField] private Slot[] slots;
 	[SerializeField] private GameObject body;
 
+	[Header("Equipment Slots")]
+	[SerializeField] private Slot weaponSlot;
+	[SerializeField] private Slot helmetSlot;
+	[SerializeField] private Slot chestplateSlot;
+	[SerializeField] private Slot bootsSlot;
+	[SerializeField] private Slot jewelySlot;
+
+	[Header("Food Slots")]
+	[SerializeField] private Slot[] foodSlots;
+
 	public Item[] testItems;
+
+	Player player;
+
+	void Awake()
+	{
+		player = FindObjectOfType<Player>();
+	}
 
 	void Update()
 	{
@@ -56,11 +73,38 @@ public class Inventory : MonoBehaviour
 		DragOperation.instance.SetDragSlot(null);
 	}
 
-	private bool IsFull()
+	public bool IsFull()
 	{
 		for (int i = 0; i < slots.Length; i++)
 			if (slots[i].item == null)
 				return false;
 		return true;
+	}
+
+	// 장비 아이템 착용시
+	public void OnEquipmentChange(EquipmentPart part, Item item)
+	{
+		// 스텟을 조정함
+
+
+		// 무기 아이템의 경우 애니메이션을 추가로 변경
+		if (part == EquipmentPart.Weapon)
+		{
+			// 장착한 아이템이 있다면 해당 아이템으로 애니메이션 변경
+			if (item != null)
+				player.SetWeaponAnimation(item.weaponAnim);
+			// 없다면 기본 애니메이션(주먹)으로 변경
+			else
+			{
+				player.SetWeaponAnimation(null);
+			}
+		}
+
+	}
+
+	// 음식(소비) 아이템 착용시
+	public void OnFoodChange()
+	{
+
 	}
 }

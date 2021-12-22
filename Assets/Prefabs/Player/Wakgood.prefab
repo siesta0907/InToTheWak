@@ -166,7 +166,7 @@ SpriteRenderer:
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 1.6, y: 1.6}
+  m_Size: {x: 1.5, y: 1}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -182,7 +182,7 @@ Animator:
   m_GameObject: {fileID: 9214397700510168286}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 22100000, guid: da5ca0943716c4f48a41aab3fd6d6160, type: 2}
+  m_Controller: {fileID: 9100000, guid: 1c7ab570df1ec444c9ff479d21cdc369, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -204,12 +204,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   entityName: "\uC6B0\uC641\uAD73"
-  strength: 5
-  health: 250
+  strength: 1
+  health: 500
   satiety: 100
   mana: 0
   moveCount: 3
-  attackRange: 4
+  attackRange: 10
   attackDelay: 0.25
   invincible: 0
   curHealth: 0
@@ -305,7 +305,7 @@ BoxCollider2D:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
     oldSize: {x: 1, y: 1}
-    newSize: {x: 1.6, y: 1.6}
+    newSize: {x: 1.5, y: 1}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
