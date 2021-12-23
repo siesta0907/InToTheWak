@@ -21,6 +21,7 @@ public class Inventory : MonoBehaviour
 	public Item[] testItems;
 
 	Player player;
+	bool isOpen;
 
 	void Awake()
 	{
@@ -33,10 +34,12 @@ public class Inventory : MonoBehaviour
 			AddInventory(testItems[Random.Range(0, testItems.Length)], 1);
 
 		if (Input.GetKeyDown(KeyCode.E))
-			OpenInventory();
-
-		if (Input.GetKeyDown(KeyCode.R))
-			CloseInventory();
+		{
+			if (isOpen)
+				CloseInventory();
+			else
+				OpenInventory();
+		}
 	}
 
 	public void AddInventory(Item item, int count)
@@ -66,6 +69,7 @@ public class Inventory : MonoBehaviour
 	{
 		GameData.instance.uiMode = true;
 		body.SetActive(true);
+		isOpen = true;
 	}
 
 	public void CloseInventory()
@@ -73,6 +77,7 @@ public class Inventory : MonoBehaviour
 		GameData.instance.uiMode = false;
 		body.SetActive(false);
 		DragOperation.instance.SetDragSlot(null);
+		isOpen = false;
 	}
 
 	public bool IsFull()

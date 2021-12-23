@@ -1,0 +1,11 @@
+{
+    "resolution": {
+        "x": 1920,
+        "y": 1080
+    },
+    "refreshRate": 144,
+    "fullScreen": false,
+    "framerate": -1,
+    "bgmVolume": 100,
+    "sfxVolume": 100
+}

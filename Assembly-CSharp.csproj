@@ -79,6 +79,7 @@
     <Compile Include="Assets\Scripts\EntityJson.cs" />
     <Compile Include="Assets\Scripts\GameData.cs" />
     <Compile Include="Assets\Scripts\GameManager.cs" />
+    <Compile Include="Assets\Scripts\GameSetting.cs" />
     <Compile Include="Assets\Scripts\Item\Backup\Inventory.cs" />
     <Compile Include="Assets\Scripts\Item\Backup\Item.cs" />
     <Compile Include="Assets\Scripts\Item\Backup\itemDatabase.cs" />

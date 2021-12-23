@@ -107,7 +107,7 @@ public class NavMesh2D : MonoBehaviour
 			{
 				// 거리 차이가 0.05 이하면 while문을 빠져나감
 				float distance = Vector2.Distance(transform.position, tilePosition);
-				if (distance <= 0.05f) break;
+				if (distance <= 0.1f) break;
 
 				// 이동해야 할 방향 계산, 이동
 				velocity = tilePosition - transform.position;

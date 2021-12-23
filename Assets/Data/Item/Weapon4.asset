@@ -21,9 +21,9 @@ MonoBehaviour:
   itemPart: 0
   def: 0
   weaponAnim: {fileID: 22100000, guid: da5ca0943716c4f48a41aab3fd6d6160, type: 2}
-  minDamage: 0
-  maxDamage: 0
-  attackRange: 1
+  minDamage: 1
+  maxDamage: 2
+  attackRange: 100
   health: 0
   satiety: 0
   mana: 0
