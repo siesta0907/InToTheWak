@@ -1,5 +1,6 @@
 {
-    "strength": 1.0,
+    "minDamage": 10,
+    "maxDamage": 10,
     "health": 50.0,
     "moveCount": 1,
     "attackRange": 1,
@@ -7,10 +8,10 @@
     "attackChance": 25.0,
     "windCnt": 3,
     "windAngle": 45.0,
-    "windDamage": 3.0,
+    "windDamage": 3,
     "windSpeed": 5.0,
     "lightningCnt": 8,
     "lightningRange": 3,
-    "lightningDamage": 5.0,
+    "lightningDamage": 5,
     "pushAmount": 2
 }

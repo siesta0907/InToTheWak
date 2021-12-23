@@ -23,7 +23,8 @@ public class TrapEnemy : Enemy
 		{
 			string loadjson = File.ReadAllText(PATH);
 			EnemyData data = JsonUtility.FromJson<EnemyData>(loadjson);
-			strength = data.strength;
+			minDamage = data.minDamage;
+			maxDamage = data.maxDamage;
 			health = data.health;
 			moveCount = data.moveCount;
 			attackRange = data.attackRange;
@@ -80,7 +81,7 @@ public class TrapEnemy : Enemy
 		// 애니메이션 재생 - 공격
 		anim.SetTrigger("Attack");
 
-		player.TakeDamage(strength, this);
+		player.TakeDamage(GetRandomDamage(), this);
 
 		OnDeath(null);
 	}

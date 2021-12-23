@@ -1,5 +1,6 @@
 {
-    "strength": 10.0,
+    "minDamage": 10,
+    "maxDamage": 10,
     "health": 100.0,
     "moveCount": 1,
     "attackRange": 1,
@@ -8,8 +9,8 @@
     "upgradeCnt": 3,
     "power": 100.0,
     "damage_QTE": [
-        20.0,
-        100.0,
-        250.0
+        20,
+        100,
+        250
     ]
 }

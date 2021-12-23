@@ -6,7 +6,8 @@ using System.IO;
 [System.Serializable]
 public class EnemyData
 {
-	public float strength;
+	public int minDamage;
+	public int maxDamage;
 	public float health;
 	public int moveCount;
 	public int attackRange;
@@ -26,12 +27,12 @@ public class PungsinData : EnemyData
 {
 	public int windCnt = 3;
 	public float windAngle = 45.0f;
-	public float windDamage = 3.0f;
+	public int windDamage = 3;
 	public float windSpeed = 5.0f;
 
 	public int lightningCnt = 8;
 	public int lightningRange = 3;
-	public float lightningDamage = 5.0f;
+	public int lightningDamage = 5;
 
 	public int pushAmount = 2;
 }
@@ -41,7 +42,7 @@ public class HerusuckData : EnemyData
 {
 	public int upgradeCnt = 3;
 	public float power = 0f;
-	public float[] damage_QTE = new float[3];
+	public int[] damage_QTE = new int[3];
 }
 
 
@@ -67,7 +68,8 @@ public class EntityJson : MonoBehaviour
 
 		// JSON - 팬치
 		EnemyData data_panch = new EnemyData();
-		data_panch.strength = 1.0f;
+		data_panch.minDamage = 1;
+		data_panch.maxDamage = 1;
 		data_panch.health = 5.0f;
 		data_panch.moveCount = 1;
 		data_panch.attackRange = 1;
@@ -78,7 +80,8 @@ public class EntityJson : MonoBehaviour
 
 		// JSON - 느그자
 		EnemyData data_negeza = new EnemyData();
-		data_negeza.strength = 1.0f;
+		data_negeza.minDamage = 1;
+		data_negeza.maxDamage = 1;
 		data_negeza.health = 10.0f;
 		data_negeza.moveCount = 1;
 		data_negeza.attackRange = 1;
@@ -89,7 +92,8 @@ public class EntityJson : MonoBehaviour
 
 		// JSON - 왁무새
 		RangedEnemyData data_wakbird = new RangedEnemyData();
-		data_wakbird.strength = 5.0f;
+		data_wakbird.minDamage = 5;
+		data_wakbird.maxDamage = 5;
 		data_wakbird.health = 4.0f;
 		data_wakbird.moveCount = 1;
 		data_wakbird.attackRange = 1;
@@ -102,7 +106,8 @@ public class EntityJson : MonoBehaviour
 
 		// JSON - 아메바
 		EnemyData data_amoeba = new EnemyData();
-		data_amoeba.strength = 8.0f;
+		data_amoeba.minDamage = 8;
+		data_amoeba.maxDamage = 8;
 		data_amoeba.health = 1.0f;
 		data_amoeba.moveCount = -1;
 		data_amoeba.attackRange = 6;
@@ -113,7 +118,8 @@ public class EntityJson : MonoBehaviour
 
 		// JSON - 풍신
 		PungsinData data_pungsin = new PungsinData();
-		data_pungsin.strength = 1.0f;
+		data_pungsin.minDamage = 10;
+		data_pungsin.maxDamage = 10;
 		data_pungsin.health = 50.0f;
 		data_pungsin.moveCount = 1;
 		data_pungsin.attackRange = 1;
@@ -121,7 +127,7 @@ public class EntityJson : MonoBehaviour
 		data_pungsin.attackChance = 25;
 		data_pungsin.windCnt = 3;
 		data_pungsin.windAngle = 45.0f;
-		data_pungsin.windDamage = 3.0f;
+		data_pungsin.windDamage = 3;
 		data_pungsin.windSpeed = 5.0f;
 		data_pungsin.lightningCnt = 8;
 		data_pungsin.lightningRange = 3;
@@ -133,7 +139,8 @@ public class EntityJson : MonoBehaviour
 
 		// JSON - 해루석
 		HerusuckData data_herusuck = new HerusuckData();
-		data_herusuck.strength = 10.0f;
+		data_herusuck.minDamage = 10;
+		data_herusuck.maxDamage = 10;
 		data_herusuck.health = 100.0f;
 		data_herusuck.moveCount = 1;
 		data_herusuck.attackRange = 1;
@@ -141,9 +148,9 @@ public class EntityJson : MonoBehaviour
 		data_herusuck.attackChance = 100;
 		data_herusuck.upgradeCnt = 3;
 		data_herusuck.power = 100.0f;
-		data_herusuck.damage_QTE[0] = 20.0f;
-		data_herusuck.damage_QTE[1] = 100.0f;
-		data_herusuck.damage_QTE[2] = 250.0f;
+		data_herusuck.damage_QTE[0] = 20;
+		data_herusuck.damage_QTE[1] = 100;
+		data_herusuck.damage_QTE[2] = 250;
 		json = JsonUtility.ToJson(data_herusuck, true);
 		File.WriteAllText(SAVE_DIRECTORY + "Herusuck.json", json);
 	}

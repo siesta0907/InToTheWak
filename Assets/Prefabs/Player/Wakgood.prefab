@@ -204,7 +204,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   entityName: "\uC6B0\uC641\uAD73"
-  strength: 1
+  minDamage: 1
+  maxDamage: 1
   health: 500
   satiety: 100
   mana: 0

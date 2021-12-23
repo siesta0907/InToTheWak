@@ -4691,6 +4691,7 @@ GameObject:
   m_Component:
   - component: {fileID: 762400432}
   - component: {fileID: 762400433}
+  - component: {fileID: 762400434}
   m_Layer: 5
   m_Name: QuickSlot_Food
   m_TagString: Untagged
@@ -4747,6 +4748,25 @@ MonoBehaviour:
   m_Spacing: {x: 5, y: 0}
   m_Constraint: 0
   m_ConstraintCount: 2
+--- !u!114 &762400434
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 762400431}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c0b0625b2dceff0468ec0c0a20869db6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  foodSlots:
+  - {fileID: 1913430929}
+  - {fileID: 345076699}
+  - {fileID: 36525425}
+  - {fileID: 1048362117}
+  - {fileID: 245737886}
+  - {fileID: 161341688}
 --- !u!1 &774465456
 GameObject:
   m_ObjectHideFlags: 0
@@ -7347,7 +7367,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.6556604, g: 0.9014012, b: 1, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 0
   m_Maskable: 1
   m_OnCullStateChanged:
@@ -10679,8 +10699,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 138.5, y: -67}
-  m_SizeDelta: {x: 237, y: 22}
+  m_AnchoredPosition: {x: 115, y: -67}
+  m_SizeDelta: {x: 190, y: 22}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1705388052
 MonoBehaviour:
@@ -10708,13 +10728,13 @@ MonoBehaviour:
     m_BestFit: 0
     m_MinSize: 2
     m_MaxSize: 40
-    m_Alignment: 4
+    m_Alignment: 3
     m_AlignByGeometry: 0
     m_RichText: 1
     m_HorizontalOverflow: 1
     m_VerticalOverflow: 1
     m_LineSpacing: 1
-  m_Text: Very Nice Item Description
+  m_Text: Nice Item Description
 --- !u!222 &1705388053
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -10880,6 +10900,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   turnDelay: 0.6
   decreaseSatiety: 1
+  uiMode: 0
   turn: 0
 --- !u!4 &1737268906
 Transform:
@@ -11820,7 +11841,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 15, y: -10}
-  m_SizeDelta: {x: 277, y: 93}
+  m_SizeDelta: {x: 230, y: 93}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1909757542
 MonoBehaviour:
@@ -11849,7 +11870,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.002580996, g: 0.41402048, b: 0.5471698, a: 0.6666667}
+  m_Color: {r: 0.2924528, g: 0.2924528, b: 0.2924528, a: 0.6666667}
   m_RaycastTarget: 0
   m_Maskable: 1
   m_OnCullStateChanged:
@@ -13777,6 +13798,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 9214397700510168280, guid: 39ac27380761f7347977bf6b4ee06c47,
+        type: 3}
+      propertyPath: attackRange
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 9214397700510168284, guid: 39ac27380761f7347977bf6b4ee06c47,
         type: 3}
       propertyPath: m_RootOrder

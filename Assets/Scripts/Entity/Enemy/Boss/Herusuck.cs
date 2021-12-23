@@ -15,7 +15,7 @@ public class Herusuck : Enemy
 	[SerializeField] private Light2D gl;
 
 	[Header("Pattern - QTE")]
-	[SerializeField] private float[] damage_QTE;		// QTE 실패시 데미지
+	[SerializeField] private int[] damage_QTE;		// QTE 실패시 데미지
 	[SerializeField] private float[] attackDelay_QTE;	// 공격을 맞을때의 딜레이
 
 
@@ -37,7 +37,8 @@ public class Herusuck : Enemy
 		{
 			string loadjson = File.ReadAllText(PATH);
 			HerusuckData data = JsonUtility.FromJson<HerusuckData>(loadjson);
-			strength = data.strength;
+			minDamage = data.minDamage;
+			maxDamage = data.maxDamage;
 			health = data.health;
 			moveCount = data.moveCount;
 			attackRange = data.attackRange;
@@ -138,7 +139,7 @@ public class Herusuck : Enemy
 				SkillMode(false);
 		}
 
-		float damage = (skillMode) ? strength * (1 + power / 100) : strength;
+		int damage = (skillMode) ? (int)(GetRandomDamage() * (1 + power / 100)) : GetRandomDamage();
 		player.TakeDamage(damage, this);
 	}
 
@@ -230,7 +231,7 @@ public class Herusuck : Enemy
 	// QTE 대성공 - 카운터
 	void QTE_Perfect()
 	{
-		TakeDamage(player.strength, player);
+		TakeDamage(player.GetRandomDamage(), player);
 	}
 
 

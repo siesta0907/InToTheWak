@@ -11,7 +11,7 @@ public class Pungsin : Enemy
 	[SerializeField] private GameObject go_Wind;
 	[SerializeField] private int windCnt = 3;
 	[SerializeField] private float windAngle;
-	[SerializeField] private float windDamage;
+	[SerializeField] private int windDamage;
 	[SerializeField] private float windSpeed;
 
 	[Header("Pattern - Lighting")]
@@ -19,7 +19,7 @@ public class Pungsin : Enemy
 	[SerializeField] private GameObject go_Lighting;
 	[SerializeField] private int lightningCnt = 5;
 	[SerializeField] private int lightningRange;
-	[SerializeField] private float lightningDamage;
+	[SerializeField] private int lightningDamage;
 
 	[Header("Pattern - Push")]
 	[SerializeField] private int pushAmount = 2;
@@ -37,7 +37,8 @@ public class Pungsin : Enemy
 		{
 			string loadjson = File.ReadAllText(PATH);
 			PungsinData data = JsonUtility.FromJson<PungsinData>(loadjson);
-			strength = data.strength;
+			minDamage = data.minDamage;
+			maxDamage = data.maxDamage;
 			health = data.health;
 			moveCount = data.moveCount;
 			attackRange = data.attackRange;
@@ -127,7 +128,7 @@ public class Pungsin : Enemy
 		player.currentTurnDelay += attackDelay;
 		yield return new WaitForSeconds(GameData.instance.turnDelay + attackDelay);
 
-		player.TakeDamage(strength, this);
+		player.TakeDamage(GetRandomDamage(), this);
 	}
 
 

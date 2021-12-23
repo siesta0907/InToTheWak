@@ -14,12 +14,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemType: 0
   itemName: "\uAD8C\uCD1D"
+  nameColor: {r: 0.6084906, g: 0.9545886, b: 1, a: 1}
   itemDesc: No Desc
   itemImage: {fileID: 21300000, guid: 8f1c81550234fcf41ad18744f7aea462, type: 3}
   maxCount: 1
   itemPart: 0
   def: 0
-  atk: 0
   weaponAnim: {fileID: 22100000, guid: da5ca0943716c4f48a41aab3fd6d6160, type: 2}
-  hp: 0
-  mp: 0
+  minDamage: 0
+  maxDamage: 0
+  attackRange: 1
+  health: 0
+  satiety: 0
+  mana: 0

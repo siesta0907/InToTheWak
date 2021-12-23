@@ -14,13 +14,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemType: 2
   itemName: Test Item
+  nameColor: {r: 1, g: 1, b: 1, a: 1}
   itemDesc: No Desc
   itemImage: {fileID: 2120983622056397397, guid: 941f987a0eceda146ba2699495848ea0,
     type: 3}
   maxCount: 4
   itemPart: 0
   def: 0
-  atk: 0
   weaponAnim: {fileID: 0}
-  hp: 0
-  mp: 0
+  minDamage: 0
+  maxDamage: 0
+  attackRange: 0
+  health: 0
+  satiety: 0
+  mana: 0

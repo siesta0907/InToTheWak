@@ -41,6 +41,7 @@ public class GameManager : MonoBehaviour
 
 	void GameClear()
 	{
+		// TODO: 이후에 지울 메세지
 		Debug.Log("Game Clear!");
 		activeTimer = false;
 		gameEnd = true;
@@ -49,6 +50,7 @@ public class GameManager : MonoBehaviour
 
 	void GameOver()
 	{
+		// TODO: 이후에 지울 메세지
 		Debug.Log("Game Over!");
 		activeTimer = false;
 		gameEnd = true;

@@ -27,7 +27,8 @@ public class RangedEnemy : Enemy
 		{
 			string loadjson = File.ReadAllText(PATH);
 			RangedEnemyData data = JsonUtility.FromJson<RangedEnemyData>(loadjson);
-			strength = data.strength;
+			minDamage = data.minDamage;
+			maxDamage = data.maxDamage;
 			health = data.health;
 			moveCount = data.moveCount;
 			attackRange = data.attackRange;
@@ -115,7 +116,7 @@ public class RangedEnemy : Enemy
 
 		// TODO: 이후에 지울 Debug.Log
 		Debug.Log(transform.name + "에게 공격당함!");
-		player.TakeDamage(strength, this);
+		player.TakeDamage(GetRandomDamage(), this);
 	}
 
 
@@ -126,7 +127,7 @@ public class RangedEnemy : Enemy
 
 		// 투사체 생성
 		GameObject storm = Instantiate(projectile, transform.position, Quaternion.identity);
-		storm.GetComponent<Projectile>().SetData(this, strength, projectileSpd, player.transform.position - transform.position);
+		storm.GetComponent<Projectile>().SetData(this, GetRandomDamage(), projectileSpd, player.transform.position - transform.position);
 	}
 
 

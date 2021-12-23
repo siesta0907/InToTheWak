@@ -22,7 +22,8 @@ public class DefaultEnemy : Enemy
 		{
 			string loadjson = File.ReadAllText(PATH);
 			EnemyData data = JsonUtility.FromJson<EnemyData>(loadjson);
-			strength = data.strength;
+			minDamage = data.minDamage;
+			maxDamage = data.maxDamage;
 			health = data.health;
 			moveCount = data.moveCount;
 			attackRange = data.attackRange;
@@ -92,7 +93,7 @@ public class DefaultEnemy : Enemy
 		// 플레이어의 이동을 기다리고 공격
 		yield return new WaitForSeconds(attackDelay);
 
-		player.TakeDamage(strength, this);
+		player.TakeDamage(GetRandomDamage(), this);
 	}
 
 	private void MoveAnimation()

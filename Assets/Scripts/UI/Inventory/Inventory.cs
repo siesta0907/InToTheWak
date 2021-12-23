@@ -64,11 +64,13 @@ public class Inventory : MonoBehaviour
 
 	public void OpenInventory()
 	{
+		GameData.instance.uiMode = true;
 		body.SetActive(true);
 	}
 
 	public void CloseInventory()
 	{
+		GameData.instance.uiMode = false;
 		body.SetActive(false);
 		DragOperation.instance.SetDragSlot(null);
 	}
@@ -84,19 +86,26 @@ public class Inventory : MonoBehaviour
 	// 장비 아이템 착용시
 	public void OnEquipmentChange(EquipmentPart part, Item item)
 	{
-		// 스텟을 조정함
-
-
 		// 무기 아이템의 경우 애니메이션을 추가로 변경
 		if (part == EquipmentPart.Weapon)
 		{
 			// 장착한 아이템이 있다면 해당 아이템으로 애니메이션 변경
 			if (item != null)
+			{
 				player.SetWeaponAnimation(item.weaponAnim);
+
+				// 스텟 변경
+				player.SetMinMaxDamage(item.minDamage, item.maxDamage);
+				player.attackRange = item.attackRange;
+			}
 			// 없다면 기본 애니메이션(주먹)으로 변경
 			else
 			{
 				player.SetWeaponAnimation(null);
+
+				// 스텟 변경
+				player.SetMinMaxDamage(1, 1);
+				player.attackRange = 1;
 			}
 		}
 

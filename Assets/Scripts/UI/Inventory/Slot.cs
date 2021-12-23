@@ -88,7 +88,7 @@ public class Slot : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHand
 			else
 				itemCount = item.maxCount;
 
-			if (amount <= 0)
+			if (itemCount <= 0)
 				ClearSlot();
 			UpdateSlotImage();
 

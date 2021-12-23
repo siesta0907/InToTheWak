@@ -1,5 +1,6 @@
 {
-    "strength": 8.0,
+    "minDamage": 8,
+    "maxDamage": 8,
     "health": 1.0,
     "moveCount": -1,
     "attackRange": 6,

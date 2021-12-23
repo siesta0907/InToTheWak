@@ -91,6 +91,7 @@
     <Compile Include="Assets\Scripts\UI\Inventory\DragOperation.cs" />
     <Compile Include="Assets\Scripts\UI\Inventory\Inventory.cs" />
     <Compile Include="Assets\Scripts\UI\Inventory\Item.cs" />
+    <Compile Include="Assets\Scripts\UI\Inventory\QuickSlotSystem.cs" />
     <Compile Include="Assets\Scripts\UI\Inventory\Slot.cs" />
     <Compile Include="Assets\Scripts\UI\SkillCheck.cs" />
     <Compile Include="Assets\Scripts\UI\Timer.cs" />

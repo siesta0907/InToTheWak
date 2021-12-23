@@ -12,7 +12,7 @@ using UnityEngine;
 public class HitBox : MonoBehaviour
 {
 	Entity owner;
-	float damage;
+	int damage;
 
 
 	void OnTriggerEnter2D(Collider2D collision)
@@ -26,7 +26,7 @@ public class HitBox : MonoBehaviour
 	}
 
 
-	public void SetData(Entity owner, float damage, float lifeTime)
+	public void SetData(Entity owner, int damage, float lifeTime)
 	{
 		this.owner = owner;
 		this.damage = damage;

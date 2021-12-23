@@ -46,7 +46,7 @@ public class Player : Entity
 	// < 그 외 >
 	public Vector3 targetPos { get; private set; }			// 이동할 위치를 미리 저장해주는 변수입니다. (Enemy 스크립트에서 사용됨)
 	[HideInInspector] public float currentTurnDelay = 0.0f;	// 턴 딜레이 변수입니다. (이 시간이 모두 소모되면 턴이 돌아옵니다.)
-	bool playerTurn = true;									// 플레이어 턴 체크 변수입니다.
+	public bool playerTurn = true;							// 플레이어 턴 체크 변수입니다.
 	bool canPush = true;                                    // 플레이어를 밀 수 있는지 체크하는 변수입니다.
 
 	RuntimeAnimatorController defaultAnimController;		// 아무런 무기도 장착하지 않았을때 애니메이터
@@ -115,7 +115,7 @@ public class Player : Entity
 	// 클릭하려는 타일을 보여줌 (벽이 아니고, 플레이어 턴이며, 이동중이지 않고, 타겟이 없는경우)
 	private void ShowPreviewTile()
 	{
-		if (!tileChecker.TileIsWall() && playerTurn
+		if (!GameData.instance.uiMode && !tileChecker.TileIsWall() && playerTurn
 			&& nav.velocity == Vector3.zero && targetChecker.selectedEntity == null)
 		{
 			previewTile.SetActive(true);
@@ -153,7 +153,7 @@ public class Player : Entity
 	// 대상을 공격함 (턴 소비)
 	private void TryAttack()
 	{
-		if (playerInput.LButtonClick && playerTurn && targetChecker.selectedEntity
+		if (!GameData.instance.uiMode && playerInput.LButtonClick && playerTurn && targetChecker.selectedEntity
 			&& !targetChecker.selectedEntity.invincible && targetChecker.GetDistance() <= attackRange)
 		{
 			// 공격이 여러번할 수 없도록 임시로 입력을 막습니다.
@@ -175,7 +175,7 @@ public class Player : Entity
 		yield return new WaitForSeconds(time);
 
 		// 피해를 입히고 플레이어 턴을 끝냅니다.
-		target.TakeDamage(strength, this);
+		target.TakeDamage(GetRandomDamage(), this);
 		PlayerTurnEnd();
 	}
 
@@ -183,7 +183,7 @@ public class Player : Entity
 	// 클릭시 이동 (턴 소비)
 	private void TryMove()
 	{
-		if (playerInput.LButtonClick && playerTurn && targetChecker.selectedEntity == null) // 왼쪽 버튼을 클릭한 경우
+		if (!GameData.instance.uiMode && playerInput.LButtonClick && playerTurn && targetChecker.selectedEntity == null) // 왼쪽 버튼을 클릭한 경우
 		{
 			// 벽이 아니고, 거리가 움직일수 있는 범위보다 작고, 움직이는 상태가 아니면
 			if (!tileChecker.TileIsWall() && tileChecker.GetDistance() <= moveCount && nav.velocity == Vector3.zero)
@@ -222,7 +222,7 @@ public class Player : Entity
 
 
 	// 턴 종료시 무슨 행동을 할것인지 (배고픔 감소... 등)
-	private void PlayerTurnEnd()
+	public void PlayerTurnEnd()
 	{
 		// 턴 증가, 딜레이 리셋, 포만감 감소
 		GameData.instance.turn += 1;
@@ -348,7 +348,7 @@ public class Player : Entity
 	}
 
 
-	public override void TakeDamage(float damage, Entity attacker)
+	public override void TakeDamage(int damage, Entity attacker)
 	{
 		base.TakeDamage(damage, attacker);
 

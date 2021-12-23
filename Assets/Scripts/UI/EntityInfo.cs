@@ -20,7 +20,12 @@ public class EntityInfo : MonoBehaviour
 		background.SetActive(true);
 		text_Name.text = "<color=#ffce00>" + entity.entityName + "</color>";
 		text_Health.text = "체력:" + entity.curHealth + " / " + entity.health;
-		text_Str.text = "공격력: " + entity.strength;
+
+		if (entity.minDamage == entity.maxDamage)
+			text_Str.text = "공격력: " + entity.minDamage;
+		else
+			text_Str.text = "공격력: " + entity.minDamage + " ~ " + entity.maxDamage;
+
 		text_AttackRange.text = "공격범위: " + entity.attackRange;
 	}
 

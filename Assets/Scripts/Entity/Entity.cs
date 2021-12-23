@@ -6,7 +6,8 @@ public class Entity : MonoBehaviour
 {
 	[Header("엔티티 스탯")]
 	public string entityName = "Entity";
-	public float strength = 1;			// 힘(공격력) - 데미지와 관련됨
+	public int minDamage = 1;         // 최소 데미지
+	public int maxDamage = 1;         // 최대 데미지
 	public float health = 1;			// 체력 - 몬스터와 전투시 사용
 	public float satiety = 100;			// 포만감 - 일정량 이상일시 체력 감소 등..
 	public float mana = 0;				// 마나
@@ -44,10 +45,22 @@ public class Entity : MonoBehaviour
 	}
 
 	// * 스탯 관련 함수
-	public void AddStrength(float value)
+	public void SetMinMaxDamage(int minDmg, int maxDmg)
 	{
-		strength += value;
-		strength = Mathf.Clamp(strength, 0, strength);
+		minDamage = minDmg;
+		maxDamage = maxDmg;
+	}
+
+	public void AddMinDamage(int value)
+	{
+		minDamage += value;
+		minDamage = Mathf.Clamp(minDamage, 0, maxDamage);
+	}
+
+	public void AddMaxDamage(int value)
+	{
+		maxDamage += value;
+		maxDamage = Mathf.Clamp(maxDamage, minDamage, maxDamage);
 	}
 
 	public void AddHealth(float value)
@@ -80,6 +93,12 @@ public class Entity : MonoBehaviour
 		attackRange = Mathf.Clamp(attackRange, 0, attackRange);
 	}
 
+	public int GetRandomDamage()
+	{
+		int rDamage = Random.Range(minDamage, maxDamage + 1);
+		return rDamage;
+	}
+
 	IEnumerator HitEffectCoroutine()
 	{
 		sr.material = hitMat;
@@ -90,7 +109,7 @@ public class Entity : MonoBehaviour
 	}
 
 	// * 공격을 받으면 호출되는 함수 (데미지, 공격을 가한 객체)
-	public virtual void TakeDamage(float damage, Entity attacker)
+	public virtual void TakeDamage(int damage, Entity attacker)
 	{
 		if(!isDead)
 		{

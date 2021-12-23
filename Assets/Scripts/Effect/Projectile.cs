@@ -12,7 +12,7 @@ using UnityEngine;
 public class Projectile : MonoBehaviour
 {
 	Entity owner;
-	float damage;
+	int damage;
 	float speed;
 	Vector3 dir;
 	[SerializeField] private bool lockRotation = false;
@@ -43,14 +43,14 @@ public class Projectile : MonoBehaviour
 	}
 
 
-	public void SetData(Entity owner, float damage, float speed)
+	public void SetData(Entity owner, int damage, float speed)
 	{
 		this.owner = owner;
 		this.damage = damage;
 		this.speed = speed;
 	}
 
-	public void SetData(Entity owner, float damage, float speed, Vector3 dir)
+	public void SetData(Entity owner, int damage, float speed, Vector3 dir)
 	{
 		this.owner = owner;
 		this.damage = damage;
