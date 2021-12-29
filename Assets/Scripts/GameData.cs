@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using System.IO;
+using UnityEngine.SceneManagement;
 
 
 [System.Serializable]
@@ -47,7 +48,11 @@ public class GameData : MonoBehaviour
 		#endregion
 
 		CreateOrLoadGameSetting();
-		ApplySettingData(curSettingData);
+	}
+
+	void Start()
+	{
+		SceneManager.sceneLoaded += OnSceneLoaded;
 	}
 
 
@@ -64,7 +69,8 @@ public class GameData : MonoBehaviour
 		else
 			Application.targetFrameRate = data.framerate;
 
-		// TODO: 사운드 조절부분
+		// 사운드 조절부분
+		UpdateAudioSource();
 	}
 
 	// 게임이 실행되었을때 파일이 존재하지 않으면 설정파일을 만듬
@@ -83,6 +89,7 @@ public class GameData : MonoBehaviour
 
 			SettingData settingData = new SettingData();
 			settingData.resolution = new Vector2Int(Screen.currentResolution.width, Screen.currentResolution.height);
+			settingData.fullScreen = true;
 			settingData.refreshRate = Screen.currentResolution.refreshRate;
 			settingData.framerate = Application.targetFrameRate;
 			settingData.bgmVolume = 100;
@@ -92,6 +99,7 @@ public class GameData : MonoBehaviour
 			File.WriteAllText(SAVE_DIRECTORY + "GameSetting.json", json);
 
 			curSettingData = settingData;
+			ApplySettingData(curSettingData);
 		}
 		else
 		{
@@ -110,13 +118,27 @@ public class GameData : MonoBehaviour
 		string json;
 
 		SettingData settingData = new SettingData();
-		settingData.resolution = new Vector2Int(Screen.currentResolution.width, Screen.currentResolution.height);
-		settingData.refreshRate = Screen.currentResolution.refreshRate;
-		settingData.framerate = Application.targetFrameRate;
+		settingData.resolution = new Vector2Int(data.resolution.x, data.resolution.y);
+		settingData.refreshRate = data.refreshRate;
+		settingData.framerate = data.framerate;
 		settingData.bgmVolume = data.bgmVolume;
 		settingData.sfxVolume = data.sfxVolume;
 
 		json = JsonUtility.ToJson(settingData, true);
 		File.WriteAllText(SAVE_DIRECTORY + "GameSetting.json", json);
+	}
+
+	public void UpdateAudioSource()
+	{
+		AudioSource[] audioSources = FindObjectsOfType<AudioSource>();
+		foreach (AudioSource a in audioSources)
+		{
+			a.volume = (float)GameData.instance.curSettingData.bgmVolume / 100.0f;
+		}
+	}
+
+	private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
+	{
+		UpdateAudioSource();
 	}
 }

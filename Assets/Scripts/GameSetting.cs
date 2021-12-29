@@ -53,8 +53,15 @@ public class GameSetting : MonoBehaviour
 			int refreshRate = res.refreshRate;
 			options.Add(resolution.x + " × " + resolution.y + " (" + refreshRate + "hz)");
 
+			/*
 			if (Screen.currentResolution.width == resolution.x &&
-				Screen.currentResolution.height == resolution.y)
+				Screen.currentResolution.height == resolution.y &&
+				Screen.currentResolution.refreshRate == refreshRate)
+				curResIdx = i;
+			*/
+			if (GameData.instance.curSettingData.resolution.x == resolution.x &&
+				GameData.instance.curSettingData.resolution.y == resolution.y &&
+				GameData.instance.curSettingData.refreshRate == refreshRate)
 				curResIdx = i;
 		}
 		dd_resolution.ClearOptions();
@@ -62,7 +69,7 @@ public class GameSetting : MonoBehaviour
 		dd_resolution.value = curResIdx;
 
 		// FullScreen 세팅
-		tg_fullscreen.isOn = Screen.fullScreen;
+		tg_fullscreen.isOn = GameData.instance.curSettingData.fullScreen;
 
 		// Framerate 세팅
 		sl_framerate.value = Application.targetFrameRate;
@@ -109,6 +116,8 @@ public class GameSetting : MonoBehaviour
 		data.fullScreen = tg_fullscreen.isOn;
 
 		GameData.instance.ApplySettingData(data);
+		GameData.instance.SaveSettingData(data);
+
 		CloseSetting();
 	}
 }

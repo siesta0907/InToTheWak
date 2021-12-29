@@ -100,6 +100,7 @@
     <Compile Include="Assets\Scripts\UI\Timer.cs" />
     <Compile Include="Assets\Scripts\UI\Tooltip.cs" />
     <Compile Include="Assets\Scripts\Util\CameraShake.cs" />
+    <Compile Include="Assets\Scripts\Util\FollowCam.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">

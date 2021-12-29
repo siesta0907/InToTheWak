@@ -94,4 +94,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b4a708dc699e62247a543217045a9730, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  stageName: TestScene2
+  stageName: Scene_Pungsin

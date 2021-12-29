@@ -99,7 +99,6 @@ GameObject:
   - component: {fileID: 114377808872503980}
   - component: {fileID: 114067543480541164}
   - component: {fileID: 61981463640580758}
-  - component: {fileID: 9214397699566612528}
   m_Layer: 10
   m_Name: Wakgood
   m_TagString: Untagged
@@ -206,11 +205,11 @@ MonoBehaviour:
   entityName: "\uC6B0\uC641\uAD73"
   minDamage: 1
   maxDamage: 1
-  health: 500
+  health: 30
   satiety: 100
   mana: 0
   moveCount: 3
-  attackRange: 10
+  attackRange: 1
   attackDelay: 0.25
   invincible: 0
   curHealth: 0
@@ -223,6 +222,7 @@ MonoBehaviour:
   color_OK: {r: 1, g: 1, b: 1, a: 1}
   color_NO: {r: 0.6698113, g: 0.05495132, b: 0, a: 1}
   currentTurnDelay: 0
+  playerTurn: 1
 --- !u!114 &9214397700510168285
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -235,7 +235,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b065cd7a6f1b8d74ca1a92eb7c49b583, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 8
+  moveSpeed: 6
   navVolume: {fileID: 0}
 --- !u!114 &9214397700510168283
 MonoBehaviour:
@@ -314,18 +314,3 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.53, y: 1}
   m_EdgeRadius: 0
---- !u!114 &9214397699566612528
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 9214397700510168286}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 050e92017586a2047b99bd7fa6a50729, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  targetLayer:
-    serializedVersion: 2
-    m_Bits: 0
