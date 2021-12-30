@@ -77,6 +77,7 @@ public class Inventory : MonoBehaviour
 		GameData.instance.uiMode = false;
 		body.SetActive(false);
 		DragOperation.instance.SetDragSlot(null);
+		Tooltip.instance.HideTooltip();
 		isOpen = false;
 	}
 
