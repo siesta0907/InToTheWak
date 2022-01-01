@@ -103,6 +103,12 @@
     <Compile Include="Assets\Scripts\Util\FollowCam.cs" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Assets\SimplePixelUI\fonts\Font2\license.txt" />
+    <None Include="Assets\SimplePixelUI\fonts\Font1\license.txt" />
+    <None Include="Assets\SimplePixelUI\fonts\Font1\readme.txt" />
+    <None Include="Assets\SimplePixelUI\fonts\Font2\readme.txt" />
+  </ItemGroup>
+  <ItemGroup>
     <Reference Include="UnityEngine">
       <HintPath>C:\Program Files\Unity\Hub\Editor\2019.4.29f1\Editor\Data\Managed\UnityEngine\UnityEngine.dll</HintPath>
     </Reference>

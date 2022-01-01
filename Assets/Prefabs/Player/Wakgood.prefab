@@ -207,7 +207,7 @@ MonoBehaviour:
   maxDamage: 1
   health: 30
   satiety: 100
-  mana: 0
+  mana: 10
   moveCount: 3
   attackRange: 1
   attackDelay: 0.25
