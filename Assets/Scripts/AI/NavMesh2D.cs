@@ -30,7 +30,8 @@ public class NavMesh2D : MonoBehaviour
 
 	void OnDisable()
 	{
-		navVolume.GetTileAtPosition(transform.position).isWall = false;
+		if (navVolume.GetTileAtPosition(transform.position) != null)
+			navVolume.GetTileAtPosition(transform.position).isWall = false;
 	}
 
 	// * 시작시 값 초기화를 위한 함수

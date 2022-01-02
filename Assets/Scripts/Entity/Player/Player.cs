@@ -49,11 +49,25 @@ public class Player : Entity
 	public bool playerTurn = true;							// 플레이어 턴 체크 변수입니다.
 	bool canPush = true;                                    // 플레이어를 밀 수 있는지 체크하는 변수입니다.
 
-	RuntimeAnimatorController defaultAnimController;		// 아무런 무기도 장착하지 않았을때 애니메이터
+	RuntimeAnimatorController defaultAnimController;        // 아무런 무기도 장착하지 않았을때 애니메이터
+
+	public static Player instance;
 
 	protected override void Awake()
     {
 		base.Awake();
+
+		#region Singleton
+		if (instance == null)
+		{
+			instance = this;
+			DontDestroyOnLoad(this);
+		}
+		else
+		{
+			Destroy(this.gameObject);
+		}
+		#endregion
 
 		playerInput = GetComponent<PlayerInput>();
 		tileChecker = GetComponent<TileChecker>();
@@ -69,7 +83,6 @@ public class Player : Entity
 
 		defaultAnimController = anim.runtimeAnimatorController;
 
-		DontDestroyOnLoad(this);
     }
 
 

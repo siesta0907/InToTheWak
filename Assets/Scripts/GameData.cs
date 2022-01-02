@@ -43,7 +43,7 @@ public class GameData : MonoBehaviour
 		}
 		else
 		{
-			Destroy(this);
+			Destroy(this.gameObject);
 		}
 		#endregion
 

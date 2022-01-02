@@ -213,13 +213,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.46226418, g: 0.46226418, b: 0.46226418, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: cfefaf0e78b1d6140bb8ae6c386645ed, type: 3}
+  m_Sprite: {fileID: 21300000, guid: ab1037114fbed5141883fe36c5c1055d, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -244,8 +244,9 @@ MonoBehaviour:
   slotType: 0
   item: {fileID: 0}
   itemCount: 0
-  highlightColor: {r: 0.6415094, g: 0.6415094, b: 0.6415094, a: 1}
+  highlightColor: {r: 0.8066038, g: 0.97421384, b: 1, a: 1}
   fullCntColor: {r: 0.9716981, g: 0, b: 0, a: 1}
   img_Item: {fileID: 8871298129939630534}
   txt_Count: {fileID: 1567092631}
   slotParts: 0
+  inventory: {fileID: 0}

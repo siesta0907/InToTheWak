@@ -12,9 +12,21 @@ public class GameUIManager : MonoBehaviour
 	[SerializeField] private Hud hud;
 	[SerializeField] private GameObject fade;
 
+	public static GameUIManager instance;
+
 	void Awake()
 	{
-		DontDestroyOnLoad(this.gameObject);
+		#region Singleton
+		if (instance == null)
+		{
+			instance = this;
+			DontDestroyOnLoad(this);
+		}
+		else
+		{
+			Destroy(this.gameObject);
+		}
+		#endregion
 	}
 
 	public void FadeIn()
