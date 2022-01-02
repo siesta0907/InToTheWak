@@ -5,7 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class Door : MonoBehaviour
 {
-	[SerializeField] private string stageName;	// 로드될 스테이지(Scene)의 이름
+	public string stageName;	// 로드될 스테이지(Scene)의 이름
 
 	Player player;
 	GameUIManager um;

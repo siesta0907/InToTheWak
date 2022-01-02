@@ -12,12 +12,21 @@ public class Tooltip : MonoBehaviour
 	[SerializeField] private Text title;
 	[SerializeField] private Text desc;
 
+	RectTransform tf;
+
 	void Awake()
 	{
 		if (instance == null)
 		{
 			instance = this;
 		}
+
+		tf = GetComponent<RectTransform>();
+	}
+
+	void Update()
+	{
+		//tf.position = Input.mousePosition;
 	}
 
 	public void ShowTooltip(Item item, PointerEventData eventData)
@@ -26,7 +35,7 @@ public class Tooltip : MonoBehaviour
 		title.color = item.nameColor;
 		desc.text = item.itemDesc;
 
-		GetComponent<RectTransform>().position = eventData.position;
+		tf.position = eventData.position;
 		body.SetActive(true);
 
 		if (item.itemType == ItemType.Equipment)
