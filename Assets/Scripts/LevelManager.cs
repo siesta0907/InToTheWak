@@ -32,7 +32,8 @@ public class LevelManager : MonoBehaviour
         if (roomType == RoomManager.RoomType.STAIR)
         {
             Vector3 position = new Vector3(Random.Range(x * (RoomManager.roomsize + 1), x * (RoomManager.roomsize + 1) + RoomManager.roomsize), Random.Range(y * (RoomManager.roomsize + 1), y * (RoomManager.roomsize + 1) + RoomManager.roomsize), 0);
-            Instantiate(DoorPrefab, position, Quaternion.identity);
+            GameObject myStair =  Instantiate(DoorPrefab, position, Quaternion.identity);
+            myStair.GetComponent<Door>().whichDoor("Floor_1~4");
         }
 
         else if (roomType == RoomManager.RoomType.NORMAL)

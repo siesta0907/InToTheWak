@@ -21,6 +21,11 @@ public class Door : MonoBehaviour
 		player.OnTurnEnd += LoadNextStage;
 	}
 
+	public void whichDoor(string StageN)
+    {
+		stageName = StageN;
+    }
+
 	void LoadNextStage()
 	{
 		StopAllCoroutines();

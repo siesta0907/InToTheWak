@@ -6,6 +6,6 @@
     "refreshRate": 144,
     "fullScreen": false,
     "framerate": 300,
-    "bgmVolume": 12,
+    "bgmVolume": 6,
     "sfxVolume": 100
 }
