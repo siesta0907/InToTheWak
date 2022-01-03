@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class PickupItem : MonoBehaviour
 {
+	[SerializeField] private Item item;
 	Player player;
 
 	void Awake()
@@ -31,6 +32,11 @@ public class PickupItem : MonoBehaviour
 		{
 			// 아이템을 주움
 			player.OnTurnEnd -= Pickup;
+			Inventory inventory = FindObjectOfType<Inventory>();
+			if (inventory != null)
+			{
+				inventory.AddInventory(item, 1);
+			}
 			Destroy(this.gameObject);
 		}
 	}

@@ -12,6 +12,7 @@ using UnityEngine.UI;
  */
 public class EntityHealth : MonoBehaviour
 {
+	[SerializeField] private GameObject back;
 	[SerializeField] private Image healthBar;
 	[SerializeField] private Image healthBar_white;
 
@@ -23,6 +24,11 @@ public class EntityHealth : MonoBehaviour
 		{
 			UpdateHealthBar();
 		}
+	}
+
+	public void HideBar()
+	{
+		back.SetActive(false);
 	}
 
 	public void InitOwner(Entity target)

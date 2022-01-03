@@ -151,7 +151,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   entityName: "\uB290\uADF8\uC790"
-  strength: 1
+  minDamage: 1
+  maxDamage: 1
   health: 10
   satiety: -1
   mana: -1
@@ -167,6 +168,15 @@ MonoBehaviour:
   sr: {fileID: 5023159880848250683}
   detectRange: 8
   attackChance: 70
+  dropItem:
+  - {fileID: 2847410282552102794, guid: 05073599acdc3774bb67533caeea6278, type: 3}
+  - {fileID: 8838457144334494506, guid: 81a2f01e57460a4448493842469de63c, type: 3}
+  - {fileID: 111433351523190995, guid: e948da35b24a866458c8be780ca6a5de, type: 3}
+  - {fileID: 2824638645154110255, guid: 876a6b4f8832c304a88201eae235d814, type: 3}
+  - {fileID: 3941348890165345950, guid: 8e7fdb92fcd96644b80c7464ea81ce18, type: 3}
+  - {fileID: 5300079600683471040, guid: 668868027e6ab16489385174186fa4a2, type: 3}
+  - {fileID: 2847410282552102794, guid: 5f8fb761a579f434588ae47bd00b4785, type: 3}
+  - {fileID: 2847410282552102794, guid: eb7bf1ebce092114495d24a2d1e26799, type: 3}
 --- !u!114 &4046396955673591008
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -179,6 +189,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 883cfae1c2ce7e8449980bda4b2da424, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  back: {fileID: 8986774990264180304}
   healthBar: {fileID: 8986774989951610649}
   healthBar_white: {fileID: 8986774989874343090}
 --- !u!114 &8986774989343925564

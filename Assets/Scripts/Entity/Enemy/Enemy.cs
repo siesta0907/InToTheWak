@@ -11,8 +11,9 @@ using UnityEngine;
 public class Enemy : Entity
 {
 	[Header("Enemy Setting")]
-	[SerializeField] protected int detectRange = 8;           // 탐지 거리 (탐지거리 내에 들어와야 행동)
-	[SerializeField] protected float attackChance = 70f;      // 공격확률 (공격범위 내에 있을경우)
+	[SerializeField] protected int detectRange = 8;             // 탐지 거리 (탐지거리 내에 들어와야 행동)
+	[SerializeField] protected float attackChance = 70.0f;      // 공격확률 (공격범위 내에 있을경우)
+	[SerializeField] private GameObject[] dropItem;				// 드랍 아이템
 
 	// < 필요한 컴포넌트 >
 	protected Player player;
@@ -50,6 +51,8 @@ public class Enemy : Entity
 	protected override void OnDeath(Entity attacker)
 	{
 		base.OnDeath(attacker);
+		if (healthBar != null)
+			healthBar.HideBar();
 
 		player.OnTurnEnd -= EnemyTurnStart;
 
@@ -61,6 +64,11 @@ public class Enemy : Entity
 		col.enabled = false;
 		if (nav != null) nav.navVolume.SetWallAtPosition(transform.position, false);
 
+		// 아이템 생성
+		if (dropItem.Length > 0)
+		{
+			Instantiate(dropItem[Random.Range(0, dropItem.Length)], transform.position, Quaternion.identity);
+		}
 		Destroy(this.gameObject, 6.0f);
 	}
 }
