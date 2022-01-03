@@ -7,7 +7,10 @@ public class GameManager : MonoBehaviour
 	[Header("Timer Setting")]
 	public bool activeTimer;		// 해당 스테이지에서 타이머를 사용할지 여부입니다.
 									// 활성화시 스테이지에서 타이머가 작동됩니다
-	public float time;				// 타이머에 부여될 시간 (초) 입니다.
+	public float time;              // 타이머에 부여될 시간 (초) 입니다.
+
+	[Header("Rule Setting")]
+	public bool continueMove = false;	// 칸을 넘어서 이동할 수 있는지 (여러 턴을 한번에 넘길 수 있는지를 의미함)
 
 	int enemyCnt = 0;				// 스테이지에 남은 개체수입니다. (Enemy 스크립트를 상속받으면 자동으로 개체수가 증가합니다)
 	bool gameEnd = false;			// 게임이 종료되었는지 여부입니다.

@@ -53,6 +53,8 @@ public class Player : Entity
 
 	public static Player instance;
 
+	int moveLoop = 0;
+
 	protected override void Awake()
     {
 		base.Awake();
@@ -129,7 +131,8 @@ public class Player : Entity
 	private void ShowPreviewTile()
 	{
 		if (!GameData.instance.uiMode && !tileChecker.TileIsWall() && playerTurn
-			&& nav.velocity == Vector3.zero && targetChecker.selectedEntity == null)
+			&& nav.velocity == Vector3.zero && targetChecker.selectedEntity == null
+			&& moveLoop <= 0)
 		{
 			previewTile.SetActive(true);
 			previewTile.transform.position = tileChecker.GetTilePosition();
@@ -199,7 +202,8 @@ public class Player : Entity
 		if (!GameData.instance.uiMode && playerInput.LButtonClick && playerTurn && targetChecker.selectedEntity == null) // 왼쪽 버튼을 클릭한 경우
 		{
 			// 벽이 아니고, 거리가 움직일수 있는 범위보다 작고, 움직이는 상태가 아니면
-			if (!tileChecker.TileIsWall() && tileChecker.GetDistance() <= moveCount && nav.velocity == Vector3.zero)
+			if (!tileChecker.TileIsWall() && /*tileChecker.GetDistance() <= moveCount &&*/ nav.velocity == Vector3.zero
+				&& moveLoop <= 0)
 			{
 				// 마우스 좌표를 불러옴
 				Vector3 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
@@ -208,17 +212,53 @@ public class Player : Entity
 				int x = Mathf.RoundToInt(mousePos.x);
 				int y = Mathf.RoundToInt(mousePos.y);
 
+				int pathCnt = nav.CheckPathCount(new Vector2Int(x, y));
+
+				GameManager gm = FindObjectOfType<GameManager>();
+				if (pathCnt > moveCount && gm.continueMove == false)
+				{
+					Debug.Log(pathCnt + "칸");
+					return;
+				}
+
+				moveLoop = pathCnt / moveCount;
+				if (pathCnt % moveCount != 0)
+					moveLoop++;
+
 				mousePos = new Vector3(x, y, 0);
 
 				// 움직이려는 위치가 현재 위치와 다르다면
 				if(mousePos != transform.position)
 				{
 					// 이동위치 저장, 이동, 턴종료 알림
-					targetPos = new Vector3(x, y, 0);
-					nav.MoveTo(new Vector2Int(x, y), moveCount);
-					PlayerTurnEnd();
+					StartCoroutine(AutoMove(x, y));
 				}
 			}
+		}
+	}
+
+	IEnumerator AutoMove(int x, int y)
+	{
+		while (moveLoop > 0)
+		{
+			if (currentTurnDelay <= 0 && playerTurn)
+			{
+				if (nav.CheckPath(new Vector2Int(x, y)) == false)
+				{
+					moveLoop = 0;
+					break;
+				}
+
+				if (moveLoop == 1)
+					targetPos = new Vector3(x, y, 0);
+				else
+					targetPos = transform.position;
+				nav.MoveTo(new Vector2Int(x, y), moveCount);
+				PlayerTurnEnd();
+
+				moveLoop--;
+			}
+			yield return new WaitForSeconds(0.25f);
 		}
 	}
 

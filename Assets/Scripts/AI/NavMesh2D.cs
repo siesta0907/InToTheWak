@@ -72,6 +72,24 @@ public class NavMesh2D : MonoBehaviour
 		}
 	}
 
+	// * 갈 수 있는지 체크
+	public bool CheckPath(Vector2Int targetPos)
+	{
+		PathFinding(targetPos);
+		if (findTileList.Count <= 0) return false;
+
+		return true;
+	}
+
+	// * 최단거리가 몇칸인지 체크
+	public int CheckPathCount(Vector2Int targetPos)
+	{
+		PathFinding(targetPos);
+		if (findTileList.Count <= 0) return 0;
+
+		return findTileList.Count-1;
+	}
+
 	// * 이동을 위한 함수 (NavMesh3D의 MoveTo)
 	public void MoveTo(Vector2Int targetPos, int moveCount)
 	{

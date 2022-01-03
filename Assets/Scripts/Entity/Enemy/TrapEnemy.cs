@@ -11,6 +11,7 @@ using System.IO;
 public class TrapEnemy : Enemy
 {
 	Coroutine attackCoroutine;
+	Vector3 originPos;
 
 	// TODO: 밸런스를 파일로 수정할 수 있게 해두었으므로 밸런스 조절후 Awake 메소드는 삭제됩니다.
 	protected override void Awake()
@@ -31,6 +32,8 @@ public class TrapEnemy : Enemy
 			detectRange = data.detectRange;
 			attackChance = data.attackChance;
 		}
+
+		originPos = transform.position;
 	}
 
 	// 턴이 시작될때
@@ -84,5 +87,6 @@ public class TrapEnemy : Enemy
 		player.TakeDamage(GetRandomDamage(), this);
 
 		OnDeath(null);
+		if (nav != null) nav.navVolume.SetWallAtPosition(originPos, false);
 	}
 }
