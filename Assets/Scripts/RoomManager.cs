@@ -10,7 +10,7 @@ public class RoomManager : MonoBehaviour
 
     public static int roomN = 8; //방개수
     public int[,] RoomPosition = new int[roomN, roomN];
-    public int level = 1;
+   
     List<string> direction = new List<string>();
     string DIR;
     public Tilemap GroundTilemap;
@@ -41,6 +41,7 @@ public class RoomManager : MonoBehaviour
 
     void Start()
     {
+        
         LevelManager levelManager = GameObject.Find("LevelManager").GetComponent<LevelManager>();
         RandomRooms();
         for (int i =0; i< roomN; i++)
